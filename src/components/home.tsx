@@ -19,6 +19,7 @@ import {
   Carousel,
 } from "@/components/ui/carousel";
 import { Input } from "@/components/ui/input";
+import { NavBar } from "./nav";
 
 export function Home() {
   return (
@@ -29,6 +30,7 @@ export function Home() {
         fontFamily: "Open Sans, Noto sans-serif",
       }}
     >
+      <NavBar />
       <header
         className="bg-[#F3F4F6]"
         style={{
@@ -44,10 +46,10 @@ export function Home() {
           >
             Welcome to RAGnexus
           </h1>
-          <p className="text-xl text-gray-900">
+          <div className="text-xl text-gray-900">
             Empowering your business with cutting-edge AI solutions
-          </p>
-          <Button className="bg-[#05d31f] text-white">Learn More</Button>
+          </div>
+          <Button>Learn More</Button>
         </div>
       </header>
       <section
@@ -166,7 +168,7 @@ export function Home() {
           <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-300 mb-6">
             About RAGnexus
           </h2>
-          <p className="grid grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div>
               RAGnexus is a company specialized in creating personalized
               personal assistants using RAG (Retriever-Augmented Generation)
@@ -211,7 +213,7 @@ export function Home() {
                 <CarouselNext />
               </Carousel>
             </div>
-          </p>
+          </div>
         </div>
       </section>
       <section className="py-8 px-4 bg-gray-100 dark:bg-gray-800">
@@ -232,15 +234,13 @@ export function Home() {
               placeholder="Enter your email"
               type="email"
             />
-            <Button className="bg-[#05d31f] text-white w-full md:w-auto">
-              Keep me updated
-            </Button>
-            <p className="text-gray-700 dark:text-gray-400 text-lg text-center md:text-left">
+            <Button className="w-full md:w-auto">Keep me updated</Button>
+            <div className="text-gray-700 dark:text-gray-400 text-lg text-center md:text-left">
               Reach out to us today to explore how AI can transform your
               business.
-            </p>
+            </div>
             <Link
-              className="text-[#05d31f] font-medium hover:underline dark:text-[#05d31f]"
+              className="text-green-light font-medium hover:underline dark:text-green-light"
               href="#"
             >
               Learn more about our AI solutions

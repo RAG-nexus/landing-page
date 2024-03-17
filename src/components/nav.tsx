@@ -1,12 +1,15 @@
 import React from "react";
-import Link from "next/link";
 import { Button } from "@/components/ui/button";
-interface NavBarProps {
-  links: string[];
-}
+import { NavLink } from "@/components/ui/navLink";
+import {
+  aboutPagePath,
+  contactPagePath,
+  homePagePath,
+  ragNexusSvg,
+  servicesPagePath,
+} from "@/constants";
 
-const linkClasses = "text-base  text-white hover:text-gray-900";
-const NavBar: React.FC<NavBarProps> = ({ links }) => {
+const NavBar: React.FC = () => {
   return (
     <nav
       className="bg-white border-b py-4"
@@ -16,46 +19,28 @@ const NavBar: React.FC<NavBarProps> = ({ links }) => {
       }}
     >
       <div className="max-w-7xl mx-auto px-4 flex justify-between items-center">
-        <a className="flex items-center space-x-2" href="#">
+        <a className="flex items-center space-x-2" href={homePagePath}>
           <img
             alt="RAGnexus logo"
-            className="h-10 w-10"
+            className="h-14 w-28"
             height="40"
-            src="/placeholder.svg"
+            src={ragNexusSvg}
             style={{
-              aspectRatio: "40/40",
+              aspectRatio: "40/80",
               objectFit: "cover",
             }}
             width="40"
           />
-          <span
-            className="text-xl font-semibold"
-            style={{
-              color: "#ffffff",
-            }}
-          >
-            RAGnexus
-          </span>
         </a>
-        <div
-          style={{
-            fontSize: "1.5rem",
-          }}
-        >
-          <Link className={linkClasses} href="#">
-            About
-          </Link>
-          <Link className={linkClasses} href="#">
-            Services
-          </Link>
-          <Link className={linkClasses} href="#">
-            Contact
-          </Link>
+        <div className="text-2xl">
+          <NavLink url={aboutPagePath}>About</NavLink>
+          <NavLink url={servicesPagePath}>Services</NavLink>
+          <NavLink url={contactPagePath}>Contact</NavLink>
         </div>
-        <Button className="bg-[#05d31f] text-white">Get Started</Button>
+        <Button>Get Started</Button>
       </div>
     </nav>
   );
 };
 
-export default NavBar;
+export { NavBar };
