@@ -1,61 +1,51 @@
 import React from "react";
-import Link from "next/link";
 import { Button } from "@/components/ui/button";
-interface NavBarProps {
-  links: string[];
-}
+import { NavLink } from "@/components/ui/navLink";
+import {
+  ABOUT_PAGE_PATH,
+  CONTACT_PAGE_PATH,
+  HOME_PAGE_PATH,
+  RAG_NEXUS_SVG,
+  SERVICES_PAGE_PATH,
+} from "@/constants";
+import { Burger } from "./burger";
+import Link from "next/link";
 
-const linkClasses = "text-base  text-white hover:text-gray-900";
-const NavBar: React.FC<NavBarProps> = ({ links }) => {
+const NavBar: React.FC = () => {
   return (
     <nav
-      className="bg-white border-b py-4"
+      className="bg-white py-4"
       style={{
         backgroundColor: "#04a118",
         borderColor: "#59A52C",
       }}
     >
       <div className="max-w-7xl mx-auto px-4 flex justify-between items-center">
-        <a className="flex items-center space-x-2" href="#">
+        <a className="flex items-center space-x-2" href={HOME_PAGE_PATH}>
           <img
             alt="RAGnexus logo"
-            className="h-10 w-10"
+            className="h-14 w-28"
             height="40"
-            src="/placeholder.svg"
+            src={RAG_NEXUS_SVG}
             style={{
-              aspectRatio: "40/40",
+              aspectRatio: "40/80",
               objectFit: "cover",
             }}
             width="40"
           />
-          <span
-            className="text-xl font-semibold"
-            style={{
-              color: "#ffffff",
-            }}
-          >
-            RAGnexus
-          </span>
         </a>
-        <div
-          style={{
-            fontSize: "1.5rem",
-          }}
-        >
-          <Link className={linkClasses} href="#">
-            About
-          </Link>
-          <Link className={linkClasses} href="#">
-            Services
-          </Link>
-          <Link className={linkClasses} href="#">
-            Contact
-          </Link>
+        <div className="text-2xl hidden sm:block">
+          <NavLink url={ABOUT_PAGE_PATH}>About</NavLink>
+          <NavLink url={SERVICES_PAGE_PATH}>Services</NavLink>
+          <NavLink url={CONTACT_PAGE_PATH}>Contact</NavLink>
         </div>
-        <Button className="bg-[#05d31f] text-white">Get Started</Button>
+        <Link href={CONTACT_PAGE_PATH}>
+          <Button className="hidden sm:block">Get Started</Button>
+        </Link>
+        <Burger />
       </div>
     </nav>
   );
 };
 
-export default NavBar;
+export { NavBar };
