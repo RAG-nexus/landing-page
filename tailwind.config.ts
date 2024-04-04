@@ -12,9 +12,14 @@ const config: Config = {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+        "ai-cubes": "url('/ai-cubes.jpeg')",
       },
       colors: {
         "green-light": "#05d31f",
+        "green-dark": "#04a118",
+      },
+      fontSize: {
+        base: ["1.2rem", { lineHeight: "1.5rem" }],
       },
     },
   },

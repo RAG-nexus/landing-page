@@ -11,53 +11,29 @@ import {
   CardContent,
   Card,
 } from "@/components/ui/card";
-import {
-  CarouselItem,
-  CarouselContent,
-  CarouselPrevious,
-  CarouselNext,
-  Carousel,
-} from "@/components/ui/carousel";
-import { Input } from "@/components/ui/input";
-import { NavBar } from "./nav";
+import { OfferCarousel } from "./offer-carousel";
+import { EmailCta } from "./email-cta";
 
 export function Home() {
   return (
-    <div
-      key="1"
-      className="min-h-screen bg-white text-gray-700 font-sans"
-      style={{
-        fontFamily: "Open Sans, Noto sans-serif",
-      }}
-    >
-      <NavBar />
-      <header
-        className="bg-[#F3F4F6]"
-        style={{
-          backgroundColor: "#036f11",
-        }}
-      >
+    <div key="1">
+      <header className="bg-ai-cubes dark:bg-gray-800 bg-cover bg-center bg-no-repeat relative">
+        <div id="Board"></div>
         <div className="max-w-7xl mx-auto py-24 px-4 text-center">
-          <h1
-            className="text-5xl font-bold text-gray-800 mb-4"
-            style={{
-              color: "#ffffff",
-            }}
-          >
-            Welcome to RAGnexus
-          </h1>
-          <div className="text-xl text-gray-900">
-            Empowering your business with cutting-edge AI solutions
+          <div className="backdrop-blur min-w-fit bg-black bg-opacity-25 box-content rounded-lg">
+            <h1 className="text-5xl font-bold text-emerald-200 mb-4 antialiased">
+              Welcome to RAGnexus
+            </h1>
+            <div className="text-xl text-gray-900">
+              Empowering your business with cutting-edge AI solutions
+            </div>
           </div>
-          <Button>Learn More</Button>
+          <Link href="#offer">
+            <Button className="mt-8">Learn More</Button>
+          </Link>
         </div>
       </header>
-      <section
-        className="py-16"
-        style={{
-          backgroundColor: "#ffffff",
-        }}
-      >
+      <section className="py-16 dark:bg-gray-700" id="offer">
         <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
           <Card className="w-full">
             <CardHeader>
@@ -163,104 +139,34 @@ export function Home() {
           </Card>
         </div>
       </section>
-      <section className="py-8 px-4 bg-gray-100 dark:bg-gray-800">
+      <section className="py-8 px-4 bg-gray-100 dark:bg-gray-800" id="about">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-300 mb-6">
+          <h2 className="text-gray-900 dark:text-gray-300 mb-6">
             About RAGnexus
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div>
-              RAGnexus is a company specialized in creating personalized
-              personal assistants using RAG (Retriever-Augmented Generation)
-              technology. Our assistants are designed to provide highly
-              personalized and contextually relevant responses to our clients'
-              individual needs. We use private information provided by customers
-              to ensure that responses are accurate and tailored to each
-              specific use case.
+            <div className="text-justify text-lg text-gray-500 dark:text-gray-400">
+              <p>
+                RAGnexus is a company specialized in creating personalized
+                personal assistants using RAG (Retriever-Augmented Generation)
+                technology.
+              </p>
+              <br />
+              <p>
+                Our assistants are designed to provide highly personalized and
+                contextually relevant responses to our clients&apos; individual
+                needs. We use private information provided by customers to
+                ensure that responses are accurate and tailored to each specific
+                use case.
+              </p>
             </div>
-            <div>
-              <Carousel className="w-full max-w-xs">
-                <CarouselContent>
-                  <CarouselItem>
-                    <div className="p-1">
-                      <Card>
-                        <CardContent className="flex aspect-square items-center justify-center p-6 ml-auto">
-                          <span className="text-4xl font-semibold">1</span>
-                        </CardContent>
-                      </Card>
-                    </div>
-                  </CarouselItem>
-                  <CarouselItem>
-                    <div className="p-1">
-                      <Card>
-                        <CardContent className="flex aspect-square items-center justify-center p-6">
-                          <span className="text-4xl font-semibold">2</span>
-                        </CardContent>
-                      </Card>
-                    </div>
-                  </CarouselItem>
-                  <CarouselItem>
-                    <div className="p-1">
-                      <Card>
-                        <CardContent className="flex aspect-square items-center justify-center p-6">
-                          <span className="text-4xl font-semibold">3</span>
-                        </CardContent>
-                      </Card>
-                    </div>
-                  </CarouselItem>
-                </CarouselContent>
-                <CarouselPrevious />
-                <CarouselNext />
-              </Carousel>
+            <div className="md:ml-8 justify-center flex">
+              <OfferCarousel />
             </div>
           </div>
         </div>
       </section>
-      <section className="py-8 px-4 bg-gray-100 dark:bg-gray-800">
-        <div
-          className="max-w-7xl mx-auto"
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            gap: "1rem",
-          }}
-        >
-          <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-300 mb-6">
-            Discover the Power of AI
-          </h2>
-          <div className="flex flex-col items-center gap-4 md:flex-row md:items-start md:justify-center">
-            <Input
-              className="w-full md:w-1/2"
-              placeholder="Enter your email"
-              type="email"
-            />
-            <Button className="w-full md:w-auto">Keep me updated</Button>
-            <div className="text-gray-700 dark:text-gray-400 text-lg text-center md:text-left">
-              Reach out to us today to explore how AI can transform your
-              business.
-            </div>
-            <Link
-              className="text-green-light font-medium hover:underline dark:text-green-light"
-              href="#"
-            >
-              Learn more about our AI solutions
-            </Link>
-          </div>
-        </div>
-      </section>
-      <footer
-        className="bg-white border-t py-6"
-        style={{
-          backgroundColor: "#ffffff",
-          borderColor: "#59A52C",
-        }}
-      >
-        <div className="max-w-7xl mx-auto px-4 text-center">
-          <span className="text-sm text-gray-500">
-            © 2024 RAGnexus. All rights reserved.
-          </span>
-        </div>
-      </footer>
+      <EmailCta />
     </div>
   );
 }

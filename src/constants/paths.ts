@@ -1,5 +1,5 @@
-export const ragNexusSvg = "/ragnexus.svg";
-export const aboutPagePath = "/about";
-export const contactPagePath = "/contact";
-export const homePagePath = "/";
-export const servicesPagePath = "/services";
+export const RAG_NEXUS_SVG = "/ragnexus.svg";
+export const ABOUT_PAGE_PATH = "/#about";
+export const CONTACT_PAGE_PATH = "/contact";
+export const HOME_PAGE_PATH = "/";
+export const SERVICES_PAGE_PATH = "/services";

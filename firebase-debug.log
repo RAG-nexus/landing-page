@@ -1,0 +1,80 @@
+[debug] [2024-04-04T15:38:36.911Z] ----------------------------------------------------------------------
+[debug] [2024-04-04T15:38:36.916Z] Command:       /Users/pejavier/.nvm/versions/node/v20.11.1/bin/node /Users/pejavier/.nvm/versions/node/v20.11.1/bin/firebase emulators:start
+[debug] [2024-04-04T15:38:36.916Z] CLI Version:   13.6.0
+[debug] [2024-04-04T15:38:36.916Z] Platform:      darwin
+[debug] [2024-04-04T15:38:36.916Z] Node Version:  v20.11.1
+[debug] [2024-04-04T15:38:36.916Z] Time:          Thu Apr 04 2024 17:38:36 GMT+0200 (Central European Summer Time)
+[debug] [2024-04-04T15:38:36.916Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-04-04T15:38:36.917Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2024-04-04T15:38:36.971Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-04-04T15:38:36.971Z] > authorizing via signed-in user (javiperezfc@gmail.com)
+[debug] [2024-04-04T15:38:37.089Z] java version "20.0.2" 2023-07-18
+Java(TM) SE Runtime Environment (build 20.0.2+9-78)
+Java HotSpot(TM) 64-Bit Server VM (build 20.0.2+9-78, mixed mode, sharing)
+
+[debug] [2024-04-04T15:38:37.096Z] Parsed Java major version: 20
+[info] i  emulators: Starting emulators: database {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: database"}}
+[debug] [2024-04-04T15:38:37.203Z] [logging] Logging Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2024-04-04T15:38:37.203Z] [database] Database Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2024-04-04T15:38:37.204Z] assigned listening specs for emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":9999},{"address":"::1","family":"IPv6","port":9999}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}],"database":[{"address":"127.0.0.1","family":"IPv4","port":9000}]},"metadata":{"message":"assigned listening specs for emulators"}}
+[debug] [2024-04-04T15:38:37.205Z] [hub] writing locator at /var/folders/fm/prnqphbn32d46l9j9781dqdc0000gn/T/hub-ragnexus-corp-page.json
+[debug] [2024-04-04T15:38:37.208Z] > refreshing access token with scopes: []
+[debug] [2024-04-04T15:38:37.208Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2024-04-04T15:38:37.208Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2024-04-04T15:38:37.343Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
+[debug] [2024-04-04T15:38:37.343Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
+[debug] [2024-04-04T15:38:37.371Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2024-04-04T15:38:37.372Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2024-04-04T15:38:37.380Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/ragnexus-corp-page [none]
+[debug] [2024-04-04T15:38:37.696Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/ragnexus-corp-page 200
+[debug] [2024-04-04T15:38:37.696Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/ragnexus-corp-page {"projectId":"ragnexus-corp-page","projectNumber":"678465994712","displayName":"RAGnexus-corp-page","name":"projects/ragnexus-corp-page","resources":{"hostingSite":"ragnexus-corp-page","realtimeDatabaseInstance":"ragnexus-corp-page-default-rtdb"},"state":"ACTIVE","etag":"1_b637f12b-146c-4003-b20b-ddcf6904e275"}
+[debug] [2024-04-04T15:38:37.697Z] database rules config:  [{"instance":"ragnexus-corp-page-default-rtdb","rules":"/Users/pejavier/Projects/landing-page/database.rules.json"}]
+[debug] [2024-04-04T15:38:37.700Z] Ignoring unsupported arg: projectId {"metadata":{"emulator":{"name":"database"},"message":"Ignoring unsupported arg: projectId"}}
+[debug] [2024-04-04T15:38:37.700Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"database"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2024-04-04T15:38:37.700Z] Ignoring unsupported arg: rules {"metadata":{"emulator":{"name":"database"},"message":"Ignoring unsupported arg: rules"}}
+[debug] [2024-04-04T15:38:37.700Z] Starting Database Emulator with command {"binary":"java","args":["-Duser.language=en","-jar","/Users/pejavier/.cache/firebase/emulators/firebase-database-emulator-v4.11.2.jar","--host","127.0.0.1","--port",9000,"--single_project_mode","Warning"],"optionalArgs":["port","host","functions_emulator_port","functions_emulator_host","single_project_mode"],"joinArgs":false} {"metadata":{"emulator":{"name":"database"},"message":"Starting Database Emulator with command {\"binary\":\"java\",\"args\":[\"-Duser.language=en\",\"-jar\",\"/Users/pejavier/.cache/firebase/emulators/firebase-database-emulator-v4.11.2.jar\",\"--host\",\"127.0.0.1\",\"--port\",9000,\"--single_project_mode\",\"Warning\"],\"optionalArgs\":[\"port\",\"host\",\"functions_emulator_port\",\"functions_emulator_host\",\"single_project_mode\"],\"joinArgs\":false}"}}
+[info] i  database: Database Emulator logging to database-debug.log {"metadata":{"emulator":{"name":"database"},"message":"Database Emulator logging to \u001b[1mdatabase-debug.log\u001b[22m"}}
+[debug] [2024-04-04T15:38:38.458Z] 17:38:38.455 [NamespaceSystem-akka.actor.default-dispatcher-5] INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started
+ {"metadata":{"emulator":{"name":"database"},"message":"17:38:38.455 [NamespaceSystem-akka.actor.default-dispatcher-5] INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started\n"}}
+[debug] [2024-04-04T15:38:38.563Z] 17:38:38.563 [main] INFO com.firebase.server.forge.App$ - Listening at 127.0.0.1:9000
+ {"metadata":{"emulator":{"name":"database"},"message":"17:38:38.563 [main] INFO com.firebase.server.forge.App$ - Listening at 127.0.0.1:9000\n"}}
+[debug] [2024-04-04T15:38:38.725Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2024-04-04T15:38:38.725Z] Ignoring unsupported arg: port {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: port"}}
+[debug] [2024-04-04T15:38:38.725Z] Starting Emulator UI with command {"binary":"node","args":["/Users/pejavier/.cache/firebase/emulators/ui-v1.11.8/server/server.mjs"],"optionalArgs":[],"joinArgs":false} {"metadata":{"emulator":{"name":"ui"},"message":"Starting Emulator UI with command {\"binary\":\"node\",\"args\":[\"/Users/pejavier/.cache/firebase/emulators/ui-v1.11.8/server/server.mjs\"],\"optionalArgs\":[],\"joinArgs\":false}"}}
+[info] i  ui: Emulator UI logging to ui-debug.log {"metadata":{"emulator":{"name":"ui"},"message":"Emulator UI logging to \u001b[1mui-debug.log\u001b[22m"}}
+[debug] [2024-04-04T15:38:38.807Z] Web / API server started at 127.0.0.1:9999
+ {"metadata":{"emulator":{"name":"ui"},"message":"Web / API server started at 127.0.0.1:9999\n"}}
+[debug] [2024-04-04T15:38:38.807Z] Web / API server started at ::1:9999
+ {"metadata":{"emulator":{"name":"ui"},"message":"Web / API server started at ::1:9999\n"}}
+[debug] [2024-04-04T15:38:38.985Z] >>> [apiv2][query] PUT http://127.0.0.1:9000/.settings/rules.json ns=ragnexus-corp-page-default-rtdb
+[debug] [2024-04-04T15:38:38.985Z] >>> [apiv2][body] PUT http://127.0.0.1:9000/.settings/rules.json "{\n  /* Visit https://firebase.google.com/docs/database/security to learn more about security rules. */\n  \"rules\": {\n    \".read\": false,\n    \".write\": true\n  }\n}\n"
+[debug] [2024-04-04T15:38:39.139Z] 17:38:39.138 [NamespaceSystem-akka.actor.default-dispatcher-5] INFO com.firebase.core.namespace.NamespaceActor - ragnexus-corp-page-default-rtdb successfully activated FBKV (SurveyIdle(0)) wait: 59ms, init: 0ms
+ {"metadata":{"emulator":{"name":"database"},"message":"17:38:39.138 [NamespaceSystem-akka.actor.default-dispatcher-5] INFO com.firebase.core.namespace.NamespaceActor - ragnexus-corp-page-default-rtdb successfully activated FBKV (SurveyIdle(0)) wait: 59ms, init: 0ms\n"}}
+[debug] [2024-04-04T15:38:39.165Z] 17:38:39.165 [NamespaceSystem-blocking-namespace-operation-dispatcher-7] INFO com.firebase.core.namespace.StateManager - Namespace ragnexus-corp-page-default-rtdb status Active to Active
+ {"metadata":{"emulator":{"name":"database"},"message":"17:38:39.165 [NamespaceSystem-blocking-namespace-operation-dispatcher-7] INFO com.firebase.core.namespace.StateManager - Namespace ragnexus-corp-page-default-rtdb status Active to Active\n"}}
+[debug] [2024-04-04T15:38:39.178Z] <<< [apiv2][status] PUT http://127.0.0.1:9000/.settings/rules.json 200
+[debug] [2024-04-04T15:38:39.178Z] <<< [apiv2][body] PUT http://127.0.0.1:9000/.settings/rules.json {"status":"ok"}
+[info] 
+┌─────────────────────────────────────────────────────────────┐
+│ ✔  All emulators ready! It is now safe to connect your app. │
+│ i  View Emulator UI at http://127.0.0.1:9999/               │
+└─────────────────────────────────────────────────────────────┘
+
+┌──────────┬────────────────┬────────────────────────────────┐
+│ Emulator │ Host:Port      │ View in Emulator UI            │
+├──────────┼────────────────┼────────────────────────────────┤
+│ Database │ 127.0.0.1:9000 │ http://127.0.0.1:9999/database │
+└──────────┴────────────────┴────────────────────────────────┘
+  Emulator Hub running at 127.0.0.1:4400
+  Other reserved ports: 4500
+
+Issues? Report them at https://github.com/firebase/firebase-tools/issues and attach the *-debug.log files.
+ 
+[debug] [2024-04-04T15:38:39.844Z] 17:38:39.843 [FirebaseWorkerPool-1-3] WARN com.firebase.core.persistence.backend.dummy.EmulatorMetadataPersistence - Multiple projectIds are not recommended in single project mode. Requested 
+namespace ragnexus-corp-page, but the emulator is configured for ragnexus-corp-page-default-rtdb. To 
+opt-out of single project mode add/set the singleProjectMode: false property in 
+the firebase.json emulators config. 
+ {"metadata":{"emulator":{"name":"database"},"message":"17:38:39.843 [FirebaseWorkerPool-1-3] WARN com.firebase.core.persistence.backend.dummy.EmulatorMetadataPersistence - Multiple projectIds are not recommended in single project mode. Requested \nnamespace ragnexus-corp-page, but the emulator is configured for ragnexus-corp-page-default-rtdb. To \nopt-out of single project mode add/set the singleProjectMode: false property in \nthe firebase.json emulators config. \n"}}
+[debug] [2024-04-04T15:38:39.852Z] 17:38:39.851 [NamespaceSystem-akka.actor.default-dispatcher-6] INFO com.firebase.core.namespace.NamespaceActor - ragnexus-corp-page successfully activated FBKV (SurveyIdle(0)) wait: 2ms, init: 0ms
+ {"metadata":{"emulator":{"name":"database"},"message":"17:38:39.851 [NamespaceSystem-akka.actor.default-dispatcher-6] INFO com.firebase.core.namespace.NamespaceActor - ragnexus-corp-page successfully activated FBKV (SurveyIdle(0)) wait: 2ms, init: 0ms\n"}}

@@ -1,10 +1,6 @@
 import React from "react";
 import Link from "next/link";
-
-interface NavLinkProps {
-  url: string;
-  children: React.ReactNode;
-}
+import { NavLinkProps } from "@/lib/types";
 
 const NavLink: React.FC<NavLinkProps> = ({ url, children }) => {
   return (
