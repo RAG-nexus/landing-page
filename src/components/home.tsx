@@ -13,6 +13,8 @@ import {
 } from "@/components/ui/card";
 import { OfferCarousel } from "./offer-carousel";
 import { EmailCta } from "./email-cta";
+import ContactWithMe from "./contact-with-me";
+import { CEO_EMAIL, CEO_NAME, CEO_TITLE } from "@/constants";
 
 export function Home() {
   return (
@@ -164,6 +166,11 @@ export function Home() {
               <OfferCarousel />
             </div>
           </div>
+        </div>
+      </section>
+      <section className="py-8 px-4 bg-gray-100 dark:bg-gray-800">
+        <div className="max-w-7xl mx-auto">
+          <ContactWithMe name={CEO_NAME} email={CEO_EMAIL} title={CEO_TITLE} />
         </div>
       </section>
       <EmailCta />
