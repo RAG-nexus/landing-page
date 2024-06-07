@@ -17,6 +17,7 @@ const config: Config = {
       colors: {
         "green-light": "#05d31f",
         "green-dark": "#04a118",
+        "green-darker": "#03660f",
       },
       fontSize: {
         base: ["1.2rem", { lineHeight: "1.5rem" }],
