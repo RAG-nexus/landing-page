@@ -13,11 +13,13 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
+  params: { lang },
 }: Readonly<{
   children: React.ReactNode;
+  params: { lang: string };
 }>) {
   return (
-    <html lang="en">
+    <html lang={lang}>
       <Head title="RAGnexus" description="RAGnexus. Your AI enabler." />
       <body
         className={`${inter.className} flex flex-col h-screen bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-100 font-sans min-h-screen`}
@@ -26,7 +28,7 @@ export default function RootLayout({
         }}
       >
         <NavBar />
-        <div className="flex grow min-w-full">
+        <div>
           <div className="min-w-full">{children}</div>
         </div>
         <Footer />

@@ -1,0 +1,31 @@
+{
+  "welcome-to-ragnexus": "Welcome to RAGnexus",
+  "hero-description": "Empowering your business with cutting-edge AI solutions",
+  "custom-ai-solutions": "Custom AI Solutions",
+  "custom-ai-solutions-description": "Build bespoke AI systems tailored to your unique needs.",
+  "highly-personalized-responses": "Highly Personalized Responses",
+  "highly-personalized-responses-description": "And contextually relevant responses to your individual needs.",
+  "efficiency-and-productivity": "Efficiency & Productivity",
+  "efficiency-and-productivity-description": "Improved by obtaining accurate information quickly and conveniently.",
+  "cost-reduction": "Cost Reduction",
+  "cost-reduction-description": "By automating repetitive tasks and improving data-driven decision making.",
+  "cutting-edge-technology": "Cutting-Edge Technology",
+  "cutting-edge-technology-description": "And AI with no need to internally develop the corresponding infrastructure.",
+  "about-ragnexus": "About RAGnexus",
+  "about-ragnexus-description": "RAGnexus is a company specialized in creating customized personal assistants using RAG (Retriever-Augmented Generation) technology. Our assistants are designed to provide highly personalized and contextually relevant responses to our clients' individual needs. We use private information provided by customers to ensure that responses are accurate and tailored to each specific use case.",
+  "offer-carousel": [
+    {
+      "title": "Retriever-Augmented Generation (RAG) tech uses a 2 step approach for generating responses:",
+      "description": "**First**, it retrieves relevant information from a database. <br><br> **Second**, it uses that information to generate accurate and context-specific answers."
+    },
+    {
+      "title": "Personalization and Relevance:",
+      "description": "We get your provided knowledge base and use it to generate a responses that are relevant to your use case. <br><br> Data is kept private and secure following the highest security standards."
+    },
+    {
+      "title": "Get the ultimate competitive advantage with RAG:",
+      "description": "Get ahead of the competition by providing your employees with a tool that can generate accurate and context-specific answers."
+    }
+  ],
+  "talk-with-employee-x-cta": "Talk directly with the {{title}}, {{name}} at:"
+}
