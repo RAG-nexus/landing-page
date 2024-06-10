@@ -6,6 +6,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import useTranslation from "next-translate/useTranslation";
 
 interface ListDiscProps {
   children: React.ReactNode;
@@ -18,6 +19,7 @@ const ListDisc: React.FC<ListDiscProps> = ({ children }) => (
 );
 
 const ServicesPage: React.FC = () => {
+  const { t } = useTranslation("services");
   return (
     <section className="py-16 dark:bg-gray-700" id="offer">
       <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -28,7 +30,7 @@ const ServicesPage: React.FC = () => {
                 color: "#04a118",
               }}
             >
-              Custom Personal Assistant Development
+              {t`custom-personal-assistants-development`}
             </CardTitle>
           </CardHeader>
           <CardContent>

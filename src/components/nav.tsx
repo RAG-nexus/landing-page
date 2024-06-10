@@ -10,8 +10,10 @@ import {
 } from "@/constants";
 import { Burger } from "./burger";
 import Link from "next/link";
+import useTranslation from "next-translate/useTranslation";
 
 const NavBar: React.FC = () => {
+  const { t, lang } = useTranslation("common");
   return (
     <nav
       className="bg-white py-4"
@@ -20,7 +22,7 @@ const NavBar: React.FC = () => {
         borderColor: "#59A52C",
       }}
     >
-      <div className="max-w-7xl mx-auto px-4 flex justify-between items-center">
+      <div className="max-w-7xl px-4 flex justify-between items-center">
         <a className="flex items-center space-x-2" href={HOME_PAGE_PATH}>
           <img
             alt="RAGnexus logo"
@@ -34,13 +36,17 @@ const NavBar: React.FC = () => {
             width="40"
           />
         </a>
-        <div className="text-2xl hidden sm:block">
-          <NavLink url={ABOUT_PAGE_PATH}>About</NavLink>
-          <NavLink url={SERVICES_PAGE_PATH}>Services</NavLink>
-          <NavLink url={CONTACT_PAGE_PATH}>Contact</NavLink>
+        <div className="text-2xl hidden sm:flex w-1/2 justify-center gap-x-16">
+          <NavLink url={ABOUT_PAGE_PATH}>{t("about")}</NavLink>
+          <NavLink url={`/${lang}/${SERVICES_PAGE_PATH}`}>
+            {t("services")}
+          </NavLink>
+          <NavLink url={`/${lang}/${CONTACT_PAGE_PATH}`}>
+            {t("contact")}
+          </NavLink>
         </div>
-        <Link href={CONTACT_PAGE_PATH}>
-          <Button className="hidden sm:block">Get Started</Button>
+        <Link href={`/${lang}/${CONTACT_PAGE_PATH}`}>
+          <Button className="hidden sm:block">{t("get-started")}</Button>
         </Link>
         <Burger />
       </div>

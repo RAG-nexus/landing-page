@@ -1,0 +1,31 @@
+{
+  "welcome-to-ragnexus": "Bienvenido a RAGNexus",
+  "hero-description": "Potenciamos tu negocio con soluciones IA de vanguardia",
+  "custom-ai-solutions": "Soluciones de IA personalizadas",
+  "custom-ai-solutions-description": "Construye sistemas de IA ajustados a tus necesidades.",
+  "highly-personalized-responses": "Respuestas altamente personalizadas",
+  "highly-personalized-responses-description": "Respuestas contextualmente relevantes para tu caso de uso específico.",
+  "efficiency-and-productivity": "Eficiencia & productividad",
+  "efficiency-and-productivity-description": "Mejorada mediante la obtención de información de forma rápida.",
+  "cost-reduction": "Reducción de costes",
+  "cost-reduction-description": "Mediante la automatizacion de tareas repetitivas y la mejora de la toma de decisiones basada en datos.",
+  "cutting-edge-technology": "Tecnología de vanguardia",
+  "cutting-edge-technology-description": "E IA, sin necesidad de desarrollar una infraestructura propia.",
+  "about-ragnexus": "Sobre RAGnexus",
+  "about-ragnexus-description": "RAGnexus es una empresa especializada en la creación de asistentes personales customizados utilizando tecnología RAG (Retriever-Augmented Generation). Nuestros asistentes están diseñados para proporcionar respuestas altamente personalizadas y contextualmente relevantes a las necesidades individuales de nuestros clientes. Utilizamos información propia proporcionada por los clientes para asegurar que las respuestas sean precisas y adaptadas a cada caso de uso específico.",
+  "offer-carousel": [
+    {
+      "title": "La tecnología RAG emplea un enfoque de 2 etapas para generar respuestas:",
+      "description": "**Primero**, obtiene la información relevante de una base de datos. <br><br> **Segundo**, usa esta información para generar respuestas precisas y contextualmente relevantes."
+    },
+    {
+      "title": "Personalización y relevancia:",
+      "description": "Usamos su base de conocimiento para generar respuestas que son relevantes para su caso de uso.<br><br> La información se mantiene privada y segura usando los estándares de seguridad más altos."
+    },
+    {
+      "title": "Obtén la ventaja competitiva definitiva con IA:",
+      "description": "Adelante a sus competidores otorgando a sus empleados con una herramienta que los convertirá en más productivos y eficientes."
+    }
+  ],
+  "talk-with-employee-x-cta": "Contacte directamente con el {{title}}, {{name}} en:"
+}

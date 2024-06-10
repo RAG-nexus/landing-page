@@ -1,6 +1,7 @@
 import React from "react";
 import { CustomLink } from "./ui/CustomLink";
 import { Card } from "./ui/card";
+import useTranslation from "next-translate/useTranslation";
 
 interface ContactWithMeProps {
   name: string;
@@ -13,11 +14,10 @@ const ContactWithMe: React.FC<ContactWithMeProps> = ({
   email,
   title,
 }) => {
+  const { t } = useTranslation("home");
   return (
     <Card className=" p-4">
-      <h3>
-        Talk directly with the {title}, {name} at:
-      </h3>
+      <h3>{t("talk-with-employee-x-cta", { name, title })}</h3>
       <p>
         <CustomLink href={`mailto:${email}`} className="text-xl">
           {email}

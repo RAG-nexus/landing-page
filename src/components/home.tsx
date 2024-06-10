@@ -15,8 +15,10 @@ import { OfferCarousel } from "./offer-carousel";
 import { EmailCta } from "./email-cta";
 import ContactWithMe from "./contact-with-me";
 import { CEO_EMAIL, CEO_NAME, CEO_TITLE } from "@/constants";
+import useTranslation from "next-translate/useTranslation";
 
 export function Home() {
+  const { t } = useTranslation("home");
   return (
     <div key="1">
       <header className="bg-ai-cubes dark:bg-gray-800 bg-cover bg-center bg-no-repeat relative">
@@ -24,14 +26,14 @@ export function Home() {
         <div className="max-w-7xl mx-auto py-24 px-4 text-center">
           <div className="backdrop-blur min-w-fit bg-black bg-opacity-25 box-content rounded-lg">
             <h1 className="text-5xl font-bold text-emerald-200 mb-4 antialiased">
-              Welcome to RAGnexus
+              {t`welcome-to-ragnexus`}
             </h1>
-            <div className="text-xl text-gray-900">
-              Empowering your business with cutting-edge AI solutions
+            <div className="text-xl text-emerald-100">
+              {t`hero-description`}
             </div>
           </div>
           <Link href="#offer">
-            <Button className="mt-8">Learn More</Button>
+            <Button className="mt-8">{t`common:learn-more`}</Button>
           </Link>
         </div>
       </header>
@@ -44,12 +46,12 @@ export function Home() {
                   color: "#04a118",
                 }}
               >
-                Custom AI Solutions
+                {t`custom-ai-solutions`}
               </CardTitle>
             </CardHeader>
             <CardContent>
               <CardDescription>
-                Build bespoke AI systems tailored to your unique needs.
+                {t`custom-ai-solutions-description`}
               </CardDescription>
             </CardContent>
           </Card>
@@ -60,13 +62,12 @@ export function Home() {
                   color: "#04a118",
                 }}
               >
-                Personalized Responses
+                {t`highly-personalized-responses`}
               </CardTitle>
             </CardHeader>
             <CardContent>
               <CardDescription>
-                Highly personalized and contextually relevant responses to your
-                individual needs.
+                {t`highly-personalized-responses-description`}
               </CardDescription>
             </CardContent>
           </Card>
@@ -77,13 +78,12 @@ export function Home() {
                   color: "#04a118",
                 }}
               >
-                Efficiency & Productivity
+                {t`efficiency-and-productivity`}
               </CardTitle>
             </CardHeader>
             <CardContent>
               <CardDescription>
-                Greater efficiency and productivity by obtaining accurate
-                information quickly and conveniently.
+                {t`efficiency-and-productivity-description`}
               </CardDescription>
             </CardContent>
           </Card>
@@ -99,8 +99,7 @@ export function Home() {
             </CardHeader>
             <CardContent>
               <CardDescription>
-                Improvement in customer experience by providing personalized and
-                adapted solutions.
+                By providing personalized and adapted solutions.
               </CardDescription>
             </CardContent>
           </Card>
@@ -111,14 +110,11 @@ export function Home() {
                   color: "#04a118",
                 }}
               >
-                Cost Reduction
+                {t`cost-reduction`}
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <CardDescription>
-                Reduced costs by automating repetitive tasks and improving
-                data-driven decision making.
-              </CardDescription>
+              <CardDescription>{t`cost-reduction-description`}</CardDescription>
             </CardContent>
           </Card>
           <Card className="w-full">
@@ -128,14 +124,12 @@ export function Home() {
                   color: "#04a118",
                 }}
               >
-                Cutting-Edge Technology
+                {t`cutting-edge-technology`}
               </CardTitle>
             </CardHeader>
             <CardContent>
               <CardDescription>
-                Access to cutting-edge technology and artificial intelligence
-                capabilities without the need to internally develop the
-                corresponding infrastructure.
+                {t`cutting-edge-technology-description`}
               </CardDescription>
             </CardContent>
           </Card>
@@ -144,23 +138,11 @@ export function Home() {
       <section className="py-8 px-4 bg-gray-100 dark:bg-gray-800" id="about">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-gray-900 dark:text-gray-300 mb-6">
-            About RAGnexus
+            {t`about-ragnexus`}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="text-justify text-lg text-gray-500 dark:text-gray-400">
-              <p>
-                RAGnexus is a company specialized in creating personalized
-                personal assistants using RAG (Retriever-Augmented Generation)
-                technology.
-              </p>
-              <br />
-              <p>
-                Our assistants are designed to provide highly personalized and
-                contextually relevant responses to our clients&apos; individual
-                needs. We use private information provided by customers to
-                ensure that responses are accurate and tailored to each specific
-                use case.
-              </p>
+            <div className="text-justify text-lg text-gray-500 dark:text-gray-400 leading-10">
+              <p>{t`about-ragnexus-description`}</p>
             </div>
             <div className="md:ml-8 justify-center flex">
               <OfferCarousel />
