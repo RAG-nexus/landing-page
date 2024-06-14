@@ -4,7 +4,7 @@ import { Button } from "./ui/button";
 import Link from "next/link";
 import { SERVICES_PAGE_PATH } from "@/constants";
 import { useForm } from "react-hook-form";
-import { ContactForm } from "@/lib/types";
+import { ContactFormProps } from "@/lib/types";
 import { subscribeToNewsletter } from "@/lib/services";
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
 import { emailOptions } from "@/constants";
@@ -17,7 +17,7 @@ export const EmailCta: React.FC = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<ContactForm>({
+  } = useForm<ContactFormProps>({
     defaultValues: {
       email: "",
       newsletter: true,
@@ -39,12 +39,12 @@ export const EmailCta: React.FC = () => {
             })}
           >
             <EmailInput
-              withPlaceholder
+              withplaceholder="true"
               errors={errors}
               {...register("email", emailOptions)}
               className="text-2xl md:text-lg w-full md:w-1/2"
               placeholder={t`common:enter-your-email`}
-              containerClassName="min-w-96"
+              containerclassname="min-w-96"
             />
             <Button className="md:text-lg w-auto md:w-auto">
               {t`common:keep-me-updated`}

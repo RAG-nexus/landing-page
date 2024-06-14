@@ -1,5 +1,4 @@
 import React from "react";
-import { Button } from "@/components/ui/button";
 import { NavLink } from "@/components/ui/navLink";
 import {
   ABOUT_PAGE_PATH,
@@ -8,21 +7,21 @@ import {
   RAG_NEXUS_SVG,
   SERVICES_PAGE_PATH,
 } from "@/constants";
-import { Burger } from "./burger";
 import Link from "next/link";
 import useTranslation from "next-translate/useTranslation";
+import ChangeLanguage from "./change-language";
 
 const NavBar: React.FC = () => {
   const { t, lang } = useTranslation("common");
   return (
     <nav
-      className="bg-white py-4"
+      className="bg-white py-4 flex justify-evenly"
       style={{
         backgroundColor: "#04a118",
         borderColor: "#59A52C",
       }}
     >
-      <div className="max-w-7xl px-4 flex justify-between items-center">
+      <div className="px-4 flex justify-between items-center w-4/5">
         <a className="flex items-center space-x-2" href={HOME_PAGE_PATH}>
           <img
             alt="RAGnexus logo"
@@ -36,7 +35,7 @@ const NavBar: React.FC = () => {
             width="40"
           />
         </a>
-        <div className="text-2xl hidden sm:flex w-1/2 justify-center gap-x-16">
+        <div className="text-2xl hidden lg:flex w-1/2 justify-center gap-x-16">
           <NavLink url={ABOUT_PAGE_PATH}>{t("about")}</NavLink>
           <NavLink url={`/${lang}/${SERVICES_PAGE_PATH}`}>
             {t("services")}
@@ -45,10 +44,13 @@ const NavBar: React.FC = () => {
             {t("contact")}
           </NavLink>
         </div>
-        <Link href={`/${lang}/${CONTACT_PAGE_PATH}`}>
-          <Button className="hidden sm:block">{t("get-started")}</Button>
+        <Link
+          className="hidden lg:block bg-white p-2 rounded-md hover:bg-slate-800 hover:text-white dark:hover:bg-white dark:bg-slate-800 dark:text-white dark:hover:text-slate-800"
+          href={`/${lang}/${CONTACT_PAGE_PATH}`}
+        >
+          {t("get-started")}
         </Link>
-        <Burger />
+        <ChangeLanguage />
       </div>
     </nav>
   );

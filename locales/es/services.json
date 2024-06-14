@@ -1,4 +1,37 @@
 {
-  "custom-personal-assistants-development": "Desarrollo de Asistentes Personales Customizados",
-  "custom-personal-assistants-development-description": "* Personalized consultancy to understand the specific needs and objectives of each client. * Creation of personal assistants using RAG technology, integrating client's private data for highly customized responses. * Delivery of assistants for different use cases, such as: - customer service - technical support - medical inquiries among others."
+  "custom-personal-assistants-development": {
+    "title": "Desarrollo de Asistentes Personales Customizados",
+    "li1": "Consultoría personalizada para entender las necesidades y objetivos específicos de cada cliente.",
+    "li2": "Creación de asistentes personales utilizando tecnología RAG, integrando datos privados del cliente para respuestas altamente personalizadas.",
+    "li3": "Entrega de asistentes para diferentes casos de uso, como los siguientes ejemplos:",
+    "subli3": [
+      {
+        "element": "- servicio al cliente"
+      },
+      {
+        "element": "- soporte técnico"
+      },
+      {
+        "element": "- consultas médicas"
+      }
+    ]
+  },
+  "integration-of-assistants-into-existing-platforms-and-systems": {
+    "title": "Integración De Asistentes En Plataformas Y Sistemas Existentes",
+    "li1": "Evaluación de las necesidades de integración del cliente y de sus sistemas existentes.",
+    "li2": "Desarrollo e implementación de soluciones de integración personalizadas para garantizar una experiencia de usuario fluida y coherente.",
+    "li3": "Pruebas exhaustivas para garantizar la interoperabilidad y el rendimiento óptimo de los asistentes en diferentes entornos tecnológicos."
+  },
+  "subscriptions-and-maintenance-services": {
+    "title": "Servicios de Suscripción y Mantenimiento",
+    "li1": "Ofrecemos planes de suscripción flexibles para acceder continuamente a servicios de asistentes personalizados.",
+    "li2": "Actualizaciones periódicas para mejorar la precisión y relevancia de las respuestas proporcionadas por los asistentes.",
+    "li3": "Servicios de soporte técnico dedicado y mantenimiento para abordar problemas y garantizar el funcionamiento fluido de los asistentes."
+  },
+  "specialized-training-and-consultancy": {
+    "title": "Entrenamiento y Consultoría Especializada",
+    "li1": "Programas de entrenamiento para ayudar a los clientes a maximizar el potencial de sus asistentes personales.",
+    "li2": "Servicios de consultoría para brindar orientación sobre las mejores prácticas para utilizar los asistentes de manera efectiva.",
+    "li3": "Servicios de entrenamiento y consultoría personalizados para satisfacer las necesidades y objetivos específicos de cada cliente."
+  }
 }

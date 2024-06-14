@@ -8,36 +8,20 @@ import {
 } from "@/constants";
 import { NavLinkMobile } from "./ui/navLinkMobile";
 import useTranslation from "next-translate/useTranslation";
+import { OpenIcon, CloseIcon } from "@/components/ui/burger-icons";
 
 export const Burger: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { t, lang } = useTranslation("common");
+  const handleClickOnBurgerButton = () => {
+    setIsOpen((status) => !status);
+  };
   return (
-    <div className="sm:hidden">
-      <button onClick={() => setIsOpen(!isOpen)}>
-        <svg
-          fill="none"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth="2"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-          className="h-6 w-6"
-        >
-          {isOpen ? (
-            <path d="M6 18L18 6M6 6l12 12"></path>
-          ) : (
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M4 6h16M4 12h16M4 18h16"
-            ></path>
-          )}
-        </svg>
+    <div className="lg:hidden">
+      <button onClick={handleClickOnBurgerButton}>
+        {isOpen ? <OpenIcon /> : <CloseIcon />}
       </button>
-
-      {isOpen && (
+      {isOpen ? (
         <div className="flex flex-col absolute top-24 inset-x-0 bg-green-light/25 backdrop-blur p-2 mx-2 rounded-lg z-50">
           <NavLinkMobile url={HOME_PAGE_PATH}>Home</NavLinkMobile>
           <NavLinkMobile url={ABOUT_PAGE_PATH}>{t`about`}</NavLinkMobile>
@@ -48,7 +32,7 @@ export const Burger: React.FC = () => {
             url={`/${lang}/${CONTACT_PAGE_PATH}`}
           >{t`contact`}</NavLinkMobile>
         </div>
-      )}
+      ) : null}
     </div>
   );
 };

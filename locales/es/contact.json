@@ -1,0 +1,13 @@
+{
+  "get-in-touch": "Ponte en contacto con nosotros",
+  "cta": "Contáctanos hoy mismo para explorar cómo la IA puede transformar tu negocio.",
+  "contact-form": {
+    "name": "Nombre o nombre de la empresa:",
+    "email": "Correo electrónico:",
+    "phone": "Número de teléfono:",
+    "website": "Sitio web:",
+    "linkedin": "Perfil de LinkedIn:",
+    "suscribe": "Suscribirse a nuestro boletín",
+    "submit": "Enviar"
+  }
+}

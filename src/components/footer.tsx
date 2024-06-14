@@ -5,7 +5,7 @@ export const Footer: React.FC = () => {
   const { t } = useTranslation("common");
   return (
     <footer
-      className="bg-white dark:bg-slate-800 border-t py-6 mb-0"
+      className="bg-white dark:bg-slate-800 border-t py-6 mb-0 flex justify-evenly"
       style={{
         borderColor: "#59A52C",
       }}
