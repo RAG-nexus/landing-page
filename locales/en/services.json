@@ -1,4 +1,37 @@
 {
-  "custom-personal-assistants-development": "Custom Personal Assistant Development",
-  "custom-personal-assistants-development-description": "* Personalized consultancy to understand the specific needs and objectives of each client.\n * Creation of personal assistants using RAG technology, integrating client's private data for highly customized responses.\n * Delivery of assistants for different use cases, such as: - customer service - technical support - medical inquiries among others."
+  "custom-personal-assistants-development": {
+    "title": "Custom Personal Assistants Development",
+    "li1": "Personalized consultancy to understand the specific needs and objectives of each client.",
+    "li2": "Creation of personal assistants using RAG technology, integrating client's private data for highly customized responses.",
+    "li3": "Delivery of assistants for different use cases, such as:",
+    "subli3": [
+      {
+        "element": "- customer service"
+      },
+      {
+        "element": "- technical support"
+      },
+      {
+        "element": "- medical inquiries"
+      }
+    ]
+  },
+  "integration-of-assistants-into-existing-platforms-and-systems": {
+    "title": "Integration of Assistants into Existing Platforms and Systems",
+    "li1": "Evaluation of client's integration needs and their existing systems.",
+    "li2": "Development and implementation of customized integration solutions to ensure a smooth and coherent user experience.",
+    "li3": "Comprehensive testing to ensure interoperability and optimal performance of the assistants across different technological environments."
+  },
+  "subscriptions-and-maintenance-services": {
+    "title": "Subscriptions and Maintenance Services",
+    "li1": "Offering flexible subscription plans to access personalized assistant services continuously.",
+    "li2": "Periodic updates to enhance the accuracy and relevance of the responses provided by the assistants.",
+    "li3": "Dedicated technical support and maintenance services to address issues and ensure smooth operation of the assistants."
+  },
+  "specialized-training-and-consultancy": {
+    "title": "Specialized Training and Consultancy",
+    "li1": "Training programs to help clients maximize the potential of their personal assistants.",
+    "li2": "Consultancy services to provide guidance on the best practices for using the assistants effectively.",
+    "li3": "Tailored training and consultancy services to meet the specific needs and objectives of each client."
+  }
 }

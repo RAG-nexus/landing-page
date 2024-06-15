@@ -3,7 +3,7 @@ export interface NavLinkProps {
   children: React.ReactNode;
 }
 
-export interface ContactForm {
+export interface ContactFormProps {
   name: string;
   email: string;
   phone?: string;

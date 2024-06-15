@@ -1,9 +1,9 @@
 import { database } from "./firebase";
 import { ref, set } from "firebase/database";
-import { ContactForm } from "./types";
+import { ContactFormProps } from "./types";
 import { v4 as uuidv4 } from "uuid";
 
-export const writeContactForm = async (contactData: ContactForm) => {
+export const writeContactForm = async (contactData: ContactFormProps) => {
   const { name, email, phone, website, linkedin, newsletter } = contactData;
 
   try {
@@ -20,7 +20,9 @@ export const writeContactForm = async (contactData: ContactForm) => {
   }
 };
 
-export const subscribeToNewsletter = async (email: ContactForm["email"]) => {
+export const subscribeToNewsletter = async (
+  email: ContactFormProps["email"]
+) => {
   try {
     await set(ref(database, `newsletter-subscription/${uuidv4()}`), {
       email,

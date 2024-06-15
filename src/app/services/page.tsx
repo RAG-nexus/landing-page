@@ -18,6 +18,10 @@ const ListDisc: React.FC<ListDiscProps> = ({ children }) => (
   </ul>
 );
 
+type TListElement = {
+  element: string;
+};
+
 const ServicesPage: React.FC = () => {
   const { t } = useTranslation("services");
   return (
@@ -30,28 +34,24 @@ const ServicesPage: React.FC = () => {
                 color: "#04a118",
               }}
             >
-              {t`custom-personal-assistants-development`}
+              {t`custom-personal-assistants-development.title`}
             </CardTitle>
           </CardHeader>
           <CardContent>
             <ListDisc>
+              <li>{t`custom-personal-assistants-development.li1`}</li>
+              <li>{t`custom-personal-assistants-development.li2`}</li>
               <li>
-                Personalized consultancy to understand the specific needs and
-                objectives of each client.
-              </li>
-              <li>
-                Creation of personal assistants using RAG technology,
-                integrating client&apos;s private data for highly customized
-                responses.
-              </li>
-              <li>
-                Delivery of assistants for different use cases, such as:
+                {t`custom-personal-assistants-development.li3`}
                 <ul className=" pl-6">
-                  <li>- customer service</li>
-                  <li>- technical support</li>
-                  <li>- medical inquiries</li>
+                  {t<TListElement[]>(
+                    "custom-personal-assistants-development.subli3",
+                    {},
+                    { returnObjects: true }
+                  ).map(({ element }: TListElement) => (
+                    <li key={element}>{element}</li>
+                  ))}
                 </ul>
-                among others.
               </li>
             </ListDisc>
           </CardContent>
@@ -63,23 +63,19 @@ const ServicesPage: React.FC = () => {
                 color: "#04a118",
               }}
             >
-              Integration of Assistants into Existing Platforms and Systems
+              {t`integration-of-assistants-into-existing-platforms-and-systems.title`}
             </CardTitle>
           </CardHeader>
           <CardContent>
             <ListDisc>
               <li>
-                Evaluation of client&apos;s integration needs and their existing
-                systems.
+                {t`integration-of-assistants-into-existing-platforms-and-systems.li1`}
               </li>
               <li>
-                Development and implementation of customized integration
-                solutions to ensure a smooth and coherent user experience.
+                {t`integration-of-assistants-into-existing-platforms-and-systems.li2`}
               </li>
               <li>
-                Comprehensive testing to ensure interoperability and optimal
-                performance of the assistants across different technological
-                environments.
+                {t`integration-of-assistants-into-existing-platforms-and-systems.li3`}
               </li>
             </ListDisc>
           </CardContent>
@@ -91,23 +87,14 @@ const ServicesPage: React.FC = () => {
                 color: "#04a118",
               }}
             >
-              Subscriptions and Maintenance Services
+              {t`subscriptions-and-maintenance-services.title`}
             </CardTitle>
           </CardHeader>
           <CardContent>
             <ListDisc>
-              <li>
-                Offering flexible subscription plans to access personalized
-                assistant services continuously.
-              </li>
-              <li>
-                Periodic updates to enhance the accuracy and relevance of the
-                responses provided by the assistants.
-              </li>
-              <li>
-                Dedicated technical support and maintenance services to address
-                issues and ensure smooth operation of the assistants.
-              </li>
+              <li>{t`subscriptions-and-maintenance-services.li1`}</li>
+              <li>{t`subscriptions-and-maintenance-services.li2`}</li>
+              <li>{t`subscriptions-and-maintenance-services.li3`}</li>
             </ListDisc>
           </CardContent>
         </Card>
@@ -118,23 +105,14 @@ const ServicesPage: React.FC = () => {
                 color: "#04a118",
               }}
             >
-              Specialized Training and Consultancy
+              {t`specialized-training-and-consultancy.title`}
             </CardTitle>
           </CardHeader>
           <CardContent>
             <ListDisc>
-              <li>
-                Training programs to help clients maximize the potential of
-                their personal assistants.
-              </li>
-              <li>
-                Consultancy services to provide guidance on the best practices
-                for using the assistants effectively.
-              </li>
-              <li>
-                Tailored training and consultancy services to meet the specific
-                needs and objectives of each client.
-              </li>
+              <li>{t`specialized-training-and-consultancy.li1`}</li>
+              <li>{t`specialized-training-and-consultancy.li2`}</li>
+              <li>{t`specialized-training-and-consultancy.li3`}</li>
             </ListDisc>
           </CardContent>
         </Card>

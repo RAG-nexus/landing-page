@@ -1,0 +1,13 @@
+{
+  "get-in-touch": "Get in touch with us",
+  "cta": "Reach out to us today to explore how AI can transform your business.",
+  "contact-form": {
+    "name": "Name or company name:",
+    "email": "Email:",
+    "phone": "Phone number:",
+    "website": "Website:",
+    "linkedin": "LinkedIn profile:",
+    "suscribe": "Subscribe to our newsletter",
+    "submit": "Submit"
+  }
+}

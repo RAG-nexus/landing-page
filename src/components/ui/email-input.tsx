@@ -2,30 +2,30 @@ import * as React from "react";
 import { Input, InputProps } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
 import { FieldErrors } from "react-hook-form";
-import { ContactForm } from "@/lib/types";
+import { ContactFormProps } from "@/lib/types";
 
 export interface EmailInputProps extends InputProps {
-  withLabel?: boolean;
+  withlabel?: "true" | "false";
   labelClassName?: string;
-  containerClassName?: string;
-  withPlaceholder?: boolean;
-  errors: FieldErrors<ContactForm>;
+  containerclassname?: string;
+  withplaceholder?: "true" | "false";
+  errors: FieldErrors<ContactFormProps>;
   type?: "email";
 }
 
 const EmailInput = React.forwardRef<HTMLInputElement, EmailInputProps>(
   ({ className, ...props }, ref) => {
     const {
-      withLabel,
-      withPlaceholder,
+      withlabel,
+      withplaceholder,
       labelClassName,
       errors,
-      containerClassName,
+      containerclassname,
     } = props;
 
     return (
-      <div className={containerClassName}>
-        {withLabel && (
+      <div className={containerclassname}>
+        {withlabel === "true" && (
           <label
             htmlFor="email"
             className={cn(
@@ -43,7 +43,9 @@ const EmailInput = React.forwardRef<HTMLInputElement, EmailInputProps>(
           className={cn("min-w-full", className)}
           ref={ref}
           {...props}
-          placeholder={withPlaceholder ? "Enter your email" : undefined}
+          placeholder={
+            withplaceholder === "true" ? "Enter your email" : undefined
+          }
           aria-invalid={errors.email ? "true" : "false"}
         />
         {errors.email && (
