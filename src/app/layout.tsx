@@ -29,7 +29,7 @@ export default function RootLayout({
         <Script
           id="__webwhizSdk__"
           src="https://widget.webwhiz.ai/webwhiz-sdk.js"
-          data-chatbot-id="66c626b3b523619c67c94428"
+          data-chatbot-id="66c62c89b94e891acbdb5180"
         />
         <NavBar />
         <div className="flex-grow min-w-full">{children}</div>
