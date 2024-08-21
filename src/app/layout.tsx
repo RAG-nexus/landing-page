@@ -28,7 +28,7 @@ export default function RootLayout({
       >
         <Script
           id="__webwhizSdk__"
-          src="http://widget.webwhiz.ai/webwhiz-sdk.js"
+          src="https://widget.webwhiz.ai/webwhiz-sdk.js"
           data-chatbot-id="66c626b3b523619c67c94428"
         />
         <NavBar />
