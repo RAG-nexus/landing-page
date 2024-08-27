@@ -1,0 +1,8 @@
+{
+  "rag-nexus-chat": {
+    "title": "RAG Nexus Chat",
+    "description": "The same chat you can use to learn about our AI services in this website!",
+    "descriptionP1": "¡The very same chat you can use in this website to learn about our AI services!",
+    "descriptionP2": "We can integrate a chat like the one you can fing on this website in your web powered by LLMs. This software makes scraping of your web periodically and uses RAG technology to have a complete context about your offer."
+  }
+}
