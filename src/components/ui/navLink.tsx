@@ -5,7 +5,7 @@ import { NavLinkProps } from "@/lib/types";
 const NavLink: React.FC<NavLinkProps> = ({ url, children }) => {
   return (
     <Link
-      className="content-center text-2xl text-white hover:text-gray-900 mx-2"
+      className="content-center text-white hover:text-gray-900 mx-1"
       href={url}
     >
       {children}
