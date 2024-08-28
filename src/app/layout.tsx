@@ -4,6 +4,7 @@ import "./globals.css";
 import { Footer } from "@/components/footer";
 import { NavBar } from "@/components/nav";
 import Script from "next/script";
+import { Analytics } from "@vercel/analytics/react";
 const inter = Inter({
   subsets: ["latin"],
   display: "swap",
@@ -26,6 +27,7 @@ export default function RootLayout({
       <body
         className={`${inter.className} flex flex-col h-full bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-100 min-h-screen`}
       >
+        <Analytics />
         <Script
           id="__webwhizSdk__"
           src="https://widget.webwhiz.ai/webwhiz-sdk.js"
