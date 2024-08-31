@@ -16,6 +16,16 @@ export const Footer: React.FC = () => {
           © {new Date().getFullYear()} RAGnexus. {t`all-rights-reserved`}
         </span>
       </div>
+      <a
+        href="https://www.iubenda.com/privacy-policy/72497857"
+        className="iubenda-black iubenda-noiframe iubenda-embed iub-legal-only iubenda-noiframe "
+        title="Política de Privacidad "
+      >
+        Política de Privacidad
+      </a>
+      <Script>
+        {`(function (w,d) {var loader = function () {var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src="https://cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s,tag);}; if(w.addEventListener){w.addEventListener("load", loader, false);}else if(w.attachEvent){w.attachEvent("onload", loader);}else{w.onload = loader;}})(window, document);`}
+      </Script>
       <Script id="__linkedin_partner_id__">
         {`_linkedin_partner_id = "7569273";
             window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
