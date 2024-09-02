@@ -36,6 +36,19 @@ export default function RootLayout({
         <NavBar />
         <div className="flex-grow min-w-full">{children}</div>
         <Footer />
+        <Script id="_cookie_banner_">
+          {`var _iub = _iub || [];
+          _iub.csConfiguration = {"siteId":3748707,"cookiePolicyId":72497857,"lang":"es"};`}
+        </Script>
+        <Script
+          id="_iubenda_autoblocking_"
+          src="https://cs.iubenda.com/autoblocking/3748707.js"
+        />
+        <Script
+          id="_iubenda_cs_"
+          src="//cdn.iubenda.com/cs/iubenda_cs.js"
+          async
+        />
       </body>
     </html>
   );
