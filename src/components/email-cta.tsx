@@ -32,7 +32,7 @@ export const EmailCta: React.FC = () => {
         </h2>
         {!isSubmitted ? (
           <form
-            className="flex flex-col items-center gap-4 md:flex-row md:items-start md:justify-center"
+            className="flex flex-col items-center gap-4 xl:flex-row xl:items-start xl:justify-center"
             onSubmit={handleSubmit((data) => {
               subscribeToNewsletter(data.email);
               setIsSubmitted(true);
