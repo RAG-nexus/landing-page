@@ -5,6 +5,7 @@
   "use-cases": "Casos de uso",
   "contact": "Contacto",
   "get-started": "Comience Ahora",
+  "get-started-free": "Consultoría gratuita",
   "learn-more": "Aprenda Más",
   "discover-the-power-of-ai": "Descubre el poder de la inteligencia artificial",
   "enter-your-email": "Introduzca su email",
@@ -14,5 +15,6 @@
   "all-rights-reserved": "Todos los derechos reservados",
   "home": "Inicio",
   "language-name-es": "ES",
-  "language-name-en": "EN"
+  "language-name-en": "EN",
+  "navigation-menu": "Menú de navegación"
 }

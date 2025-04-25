@@ -22,6 +22,9 @@ const config: Config = {
       fontSize: {
         base: ["1.2rem", { lineHeight: "1.5rem" }],
       },
+      screens: {
+        "3xl": "1680px",
+      },
     },
   },
   plugins: [require("tailwindcss-animate")],

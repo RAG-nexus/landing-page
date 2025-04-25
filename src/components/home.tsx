@@ -140,7 +140,7 @@ export function Home() {
           <h2 className="text-gray-900 dark:text-gray-300 mb-6">
             {t`about-ragnexus`}
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 xl:grid-cols-2 gap-8">
             <div className="text-justify text-lg text-gray-500 dark:text-gray-400 leading-10">
               <p>{t`about-ragnexus-description`}</p>
             </div>
