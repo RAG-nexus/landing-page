@@ -13,6 +13,7 @@ import {
   CONTACT_PAGE_PATH,
   SERVICES_PAGE_PATH,
   USE_CASES_PAGE_PATH,
+  INTEGRATIONS_PAGE_PATH,
 } from "@/constants";
 
 interface MobileNavProps {
@@ -65,6 +66,12 @@ export const MobileNav = ({ className }: MobileNavProps) => {
               className="text-muted-foreground hover:text-foreground"
             >
               {t("use-cases")}
+            </Link>
+            <Link
+              href={`/${lang}/${INTEGRATIONS_PAGE_PATH}`}
+              className="text-muted-foreground hover:text-foreground"
+            >
+              {t("integrations")}
             </Link>
             <Link
               href={`/${lang}/${CONTACT_PAGE_PATH}`}

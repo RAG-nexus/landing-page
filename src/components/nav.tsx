@@ -7,6 +7,7 @@ import {
   RAG_NEXUS_SVG,
   SERVICES_PAGE_PATH,
   USE_CASES_PAGE_PATH,
+  INTEGRATIONS_PAGE_PATH,
 } from "@/constants";
 import Link from "next/link";
 import useTranslation from "next-translate/useTranslation";
@@ -48,6 +49,9 @@ const NavBar: React.FC = () => {
           </NavLink>
           <NavLink url={`/${lang}/${USE_CASES_PAGE_PATH}`}>
             {t("use-cases")}
+          </NavLink>
+          <NavLink url={`/${lang}/${INTEGRATIONS_PAGE_PATH}`}>
+            {t("integrations")}
           </NavLink>
           <NavLink url={`/${lang}/${CONTACT_PAGE_PATH}`}>
             {t("contact")}
