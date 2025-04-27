@@ -16,5 +16,21 @@
   "home": "Home",
   "language-name-es": "ES",
   "language-name-en": "EN",
-  "navigation-menu": "Navigation menu"
+  "navigation-menu": "Navigation menu",
+  "language": "English",
+  "contact-us": "Contact Us",
+  "faq": "FAQ",
+  "pricing": "Pricing",
+  "privacy-policy": "Privacy Policy",
+  "terms-of-service": "Terms of Service",
+  "footer-text": "© 2024 RAGnexus. All rights reserved.",
+  "send-message": "Send Message",
+  "select-language": "Select Language",
+  "contact-title": "Contact RAGnexus",
+  "contact-description": "Have questions or want to discuss a project? Reach out to us!",
+  "integrations": "Integrations",
+  "integrations-title": "Connect Your Tools",
+  "integrations-description-1": "RAGnexus integrates seamlessly with the platforms you already use.",
+  "integrations-description-2": "We offer 40 integrations to streamline your workflow.",
+  "integrations-view-all": "View All Integrations"
 }

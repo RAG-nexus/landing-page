@@ -6,6 +6,7 @@
     "/": ["home", "common"],
     "/services": ["services", "common"],
     "/contact": ["contact", "common"],
-    "/use-cases": ["use-cases", "common"]
+    "/use-cases": ["use-cases", "common"],
+    "/integrations": ["integrations"]
   }
 }

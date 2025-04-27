@@ -16,6 +16,7 @@ import { EmailCta } from "./email-cta";
 import ContactWithMe from "./contact-with-me";
 import { CEO_EMAIL, CEO_NAME, CEO_TITLE } from "@/constants";
 import useTranslation from "next-translate/useTranslation";
+import { Integrations } from "./integrations";
 
 export function Home() {
   const { t } = useTranslation("home");
@@ -135,6 +136,7 @@ export function Home() {
           </Card>
         </div>
       </section>
+      <Integrations />
       <section className="py-8 px-4 bg-gray-100 dark:bg-gray-800" id="about">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-gray-900 dark:text-gray-300 mb-6">
