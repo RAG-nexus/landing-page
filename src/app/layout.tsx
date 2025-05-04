@@ -5,6 +5,7 @@ import { Footer } from "@/components/footer";
 import { NavBar } from "@/components/nav";
 import Script from "next/script";
 import { Analytics } from "@vercel/analytics/react";
+import useTranslation from "next-translate/useTranslation";
 const inter = Inter({
   subsets: ["latin"],
   display: "swap",
@@ -17,11 +18,10 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-  params: { lang },
 }: Readonly<{
   children: React.ReactNode;
-  params: { lang: string };
 }>) {
+  const { lang } = useTranslation();
   return (
     <html lang={lang} className="h-full">
       <body
