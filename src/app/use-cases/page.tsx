@@ -1,13 +1,29 @@
 import React from "react";
-import Image from "next/image";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import useTranslation from "next-translate/useTranslation";
+import type { Metadata } from "next";
+
+export async function generateMetadata({
+  searchParams,
+}: {
+  searchParams: { lang: string };
+}): Promise<Metadata> {
+  const metaData = {
+    en: {
+      title: "Use Cases | How RAGnexus AI Chatbots Transform Businesses",
+      description:
+        "Discover real-world use cases of RAGnexus AI chatbots. Learn how businesses leverage our solutions to streamline operations, enhance customer support, and unlock the power of their internal knowledge.",
+    },
+    es: {
+      title:
+        "Casos de Uso | Cómo los Chatbots de RAGnexus Transforman Empresas",
+      description:
+        "Descubre casos de uso reales de los chatbots de RAGnexus. Aprende cómo las empresas aprovechan nuestras soluciones para optimizar operaciones, mejorar el soporte al cliente y aprovechar el conocimiento interno.",
+    },
+  };
+
+  return metaData[searchParams.lang as keyof typeof metaData];
+}
 
 const UseCasesPage: React.FC = () => {
   const { t } = useTranslation("use-cases");

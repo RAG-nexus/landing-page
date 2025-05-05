@@ -19,6 +19,26 @@ import {
 } from "@/components";
 import { CEO_EMAIL, CEO_NAME, CEO_TITLE } from "@/constants";
 import useTranslation from "next-translate/useTranslation";
+import type { Metadata } from "next";
+
+export async function generateMetadata({
+  searchParams,
+}: {
+  searchParams: { lang: string };
+}): Promise<Metadata> {
+  const metaData = {
+    en: {
+      title: "RAGnexus",
+      description: "RAGnexus. Your AI enabler.",
+    },
+    es: {
+      title: "RAGnexus",
+      description: "RAGnexus. Tu conexión con la IA",
+    },
+  };
+
+  return metaData[searchParams.lang as keyof typeof metaData];
+}
 
 export default function Index() {
   const { t } = useTranslation("home");

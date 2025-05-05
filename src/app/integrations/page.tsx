@@ -48,6 +48,29 @@ import {
 
 import { BsMicrosoftTeams } from "react-icons/bs";
 
+import type { Metadata } from "next";
+
+export async function generateMetadata({
+  searchParams,
+}: {
+  searchParams: { lang: string };
+}): Promise<Metadata> {
+  const metaData = {
+    en: {
+      title: "Integrations | Connect Your Tools with RAGnexus",
+      description:
+        "Discover how RAGnexus integrates with your favorite tools like Confluence, Gmail, Slack, and more. Seamlessly connect your knowledge sources to power smarter chatbots for your business.",
+    },
+    es: {
+      title: "Integraciones | Conecta Tus Herramientas con RAGnexus",
+      description:
+        "Descubre cómo RAGnexus se integra con tus herramientas favoritas como Confluence, Gmail, Slack y más. Conecta tus fuentes de conocimiento fácilmente para potenciar chatbots más inteligentes para tu empresa.",
+    },
+  };
+
+  return metaData[searchParams.lang as keyof typeof metaData];
+}
+
 interface Integration {
   name: string;
   icon: IconType;

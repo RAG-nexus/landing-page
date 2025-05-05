@@ -1,12 +1,28 @@
 import React from "react";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import useTranslation from "next-translate/useTranslation";
+import type { Metadata } from "next";
+
+export async function generateMetadata({
+  searchParams,
+}: {
+  searchParams: { lang: string };
+}): Promise<Metadata> {
+  const metaData = {
+    en: {
+      title: "Services | Custom AI Chatbots and Integrations by RAGnexus",
+      description:
+        "Explore RAGnexus services, including custom chatbot development, seamless integration into your platforms, subscription maintenance, and expert training. Empower your business with AI-driven solutions.",
+    },
+    es: {
+      title: "Servicios | Chatbots Personalizados e Integraciones por RAGnexus",
+      description:
+        "Descubre los servicios de RAGnexus, como el desarrollo de chatbots personalizados, integración en tus plataformas, mantenimiento por suscripción y formación experta. Impulsa tu negocio con soluciones basadas en IA.",
+    },
+  };
+
+  return metaData[searchParams.lang as keyof typeof metaData];
+}
 
 interface ListDiscProps {
   children: React.ReactNode;
