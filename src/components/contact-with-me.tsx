@@ -9,7 +9,7 @@ interface ContactWithMeProps {
   title: string;
 }
 
-const ContactWithMe: React.FC<ContactWithMeProps> = ({
+export const ContactWithMe: React.FC<ContactWithMeProps> = ({
   name,
   email,
   title,
@@ -26,5 +26,3 @@ const ContactWithMe: React.FC<ContactWithMeProps> = ({
     </Card>
   );
 };
-
-export default ContactWithMe;

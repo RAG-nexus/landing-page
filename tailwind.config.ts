@@ -12,7 +12,7 @@ const config: Config = {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
-        "ai-cubes": "url('/ai-cubes.jpeg')",
+        "ai-cubes": "url('/ai-cubes.webp')",
       },
       colors: {
         "green-light": "#05d31f",

@@ -1,3 +1,26 @@
+import type { Metadata } from "next";
+
+export async function generateMetadata({
+  searchParams,
+}: {
+  searchParams: { lang: string };
+}): Promise<Metadata> {
+  const metaData = {
+    en: {
+      title: "Privacy Policy | How RAGnexus Protects Your Data",
+      description:
+        "Learn how RAGnexus collects, uses, and protects your personal data. Read our privacy policy to understand your rights and how we ensure data security.",
+    },
+    es: {
+      title: "Política de Privacidad | Cómo RAGnexus Protege Tus Datos",
+      description:
+        "Descubre cómo RAGnexus recopila, utiliza y protege tus datos personales. Lee nuestra política de privacidad para conocer tus derechos y cómo garantizamos la seguridad de tus datos.",
+    },
+  };
+
+  return metaData[searchParams.lang as keyof typeof metaData];
+}
+
 export default function PrivacyPolicy() {
   return (
     <div className="mx-12 my-4 text-justify text-sm">
