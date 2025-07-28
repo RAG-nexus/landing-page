@@ -20,6 +20,7 @@ import {
 import { CEO_EMAIL, CEO_NAME, CEO_TITLE } from "@/constants";
 import useTranslation from "next-translate/useTranslation";
 import type { Metadata } from "next";
+import VideoSection from "@/components/video-section";
 
 export async function generateMetadata({
   searchParams,
@@ -40,8 +41,15 @@ export async function generateMetadata({
   return metaData[searchParams.lang as keyof typeof metaData];
 }
 
-export default function Index() {
+export default async function Index({
+  searchParams,
+}: {
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+}) {
   const { t } = useTranslation("home");
+  // Await the searchParams promise to get the actual object
+  const params = await searchParams;
+  const lang = params.lang as string;
   return (
     <div key="1">
       <header className="bg-ai-cubes dark:bg-gray-800 bg-cover bg-center bg-no-repeat relative">
@@ -159,6 +167,7 @@ export default function Index() {
         </div>
       </section>
       <Integrations />
+      {lang === "es" && <VideoSection />}
       <section className="py-8 px-4 bg-gray-100 dark:bg-gray-800" id="about">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-gray-900 dark:text-gray-300 mb-6">
