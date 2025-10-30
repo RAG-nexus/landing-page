@@ -9,6 +9,7 @@ const CSP = `
     https://*.linkedin.com
     https://*.firebaseio.com
     https://*.firebaseapp.com
+    https://*.firebasedatabase.app
     https://*.googleapis.com
     https://*.googletagmanager.com
     https://*.iubenda.com
@@ -19,7 +20,10 @@ const CSP = `
   img-src 'self' data: https: https://px.ads.linkedin.com;
   font-src 'self' https:;
   connect-src 'self'
+    https://*.licdn.com
+    https://*.linkedin.com
     https://*.firebaseio.com
+    https://*.firebasedatabase.app
     https://*.googleapis.com
     https://*.googletagmanager.com
     https://*.iubenda.com
