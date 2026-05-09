@@ -1,7 +1,7 @@
 "use client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { writeContactForm } from "@/lib/services";
+import { useSubmit } from "@formspree/react";
 import { cn } from "@/lib/utils";
 import { emailOptions } from "@/constants";
 import { EmailInput } from "@/components/ui/email-input";
@@ -11,6 +11,9 @@ import useTranslation from "next-translate/useTranslation";
 
 export const ContactForm: React.FC = () => {
   const { t } = useTranslation("contact");
+  const submitToFormspree = useSubmit(
+    process.env.NEXT_PUBLIC_FORMSPREE_CONTACT_FORM_ID || ""
+  );
   const {
     register,
     handleSubmit,
@@ -28,9 +31,9 @@ export const ContactForm: React.FC = () => {
   return (
     <form
       className="min-w-96 px-4 md:px-0 mx-auto space-y-4"
-      onSubmit={handleSubmit((data) => {
+      onSubmit={handleSubmit(async (data) => {
         console.log("Newsletter", data.newsletter);
-        writeContactForm(data);
+        await submitToFormspree(data as any);
         window.location.href = "/thank-you";
       })}
     >

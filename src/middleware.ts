@@ -24,13 +24,15 @@ const CSP = `
     https://*.linkedin.com
     https://*.firebaseio.com
     https://*.firebasedatabase.app
+    wss://*.firebasedatabase.app
     https://*.googleapis.com
     https://*.googletagmanager.com
     https://*.iubenda.com
     https://*.webwhiz.ai
-    https://*.google-analytics.com;
+    https://*.google-analytics.com
+    https://formspree.io;
   frame-ancestors 'none';
-  frame-src https://*.linkedin.com https://*.iubenda.com https://www.youtube.com https://www.youtube-nocookie.com https://widget.webwhiz.ai/;
+  frame-src https://*.linkedin.com https://*.iubenda.com https://www.youtube.com https://www.youtube-nocookie.com https://widget.webwhiz.ai/ https://*.firebasedatabase.app;
   upgrade-insecure-requests;
 `
   .replace(/\s{2,}/g, " ")
