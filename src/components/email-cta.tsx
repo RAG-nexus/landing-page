@@ -5,7 +5,7 @@ import Link from "next/link";
 import { SERVICES_PAGE_PATH } from "@/constants";
 import { useForm } from "react-hook-form";
 import { ContactFormProps } from "@/lib/types";
-import { subscribeToNewsletter } from "@/lib/services";
+import { useSubmit } from "@formspree/react";
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
 import { emailOptions } from "@/constants";
 import { EmailInput } from "./ui/email-input";
@@ -13,6 +13,9 @@ import useTranslation from "next-translate/useTranslation";
 
 export const EmailCta: React.FC = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const submitToFormspree = useSubmit(
+    process.env.NEXT_PUBLIC_FORMSPREE_NEWSLETTER_FORM_ID || ""
+  );
   const {
     register,
     handleSubmit,
@@ -33,8 +36,8 @@ export const EmailCta: React.FC = () => {
         {!isSubmitted ? (
           <form
             className="flex flex-col items-center gap-4 xl:flex-row xl:items-start xl:justify-center"
-            onSubmit={handleSubmit((data) => {
-              subscribeToNewsletter(data.email);
+            onSubmit={handleSubmit(async (data) => {
+              await submitToFormspree({ email: data.email } as any);
               setIsSubmitted(true);
             })}
           >

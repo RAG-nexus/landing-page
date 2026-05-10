@@ -23,9 +23,8 @@ export async function generateMetadata({
   return metaData[searchParams.lang as keyof typeof metaData];
 }
 
-export default function Contact() {
+export default async function Contact() {
   const { t } = useTranslation("contact");
-
   return (
     <div className="flex justify-center items-center self-center min-w-full">
       <div className="min-w-lg mt-10">
