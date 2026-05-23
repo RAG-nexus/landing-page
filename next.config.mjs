@@ -1,6 +1,8 @@
+import createNextIntlPlugin from "next-intl/plugin";
+
+const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");
+
 /** @type {import('next').NextConfig} */
-import nextTranslate from "next-translate-plugin";
+const nextConfig = {};
 
-const nextConfig = nextTranslate();
-
-export default nextConfig;
+export default withNextIntl(nextConfig);

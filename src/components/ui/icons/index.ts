@@ -10,3 +10,4 @@ export * from "./GoogleGmail";
 export * from "./AwsS3";
 export * from "./Zendesk";
 export * from "./Jira";
+export * from "./SharePoint";

@@ -32,5 +32,20 @@
   "integrations-title": "Connect Your Tools",
   "integrations-description-1": "RAGnexus integrates seamlessly with the platforms you already use.",
   "integrations-description-2": "We offer 40 integrations to streamline your workflow.",
-  "integrations-view-all": "View All Integrations"
+  "integrations-view-all": "View All Integrations",
+  "footer-tagline": "Private AI for European companies. Your data, on your infrastructure.",
+  "footer-badge-made-in-spain": "🇪🇸 Made in Spain",
+  "footer-badge-eu-data": "🇪🇺 Data in the EU",
+  "footer-badge-gdpr": "⚖️ GDPR compliant",
+  "footer-product": "Product",
+  "footer-how-it-works": "How it works",
+  "footer-sectors": "Sectors",
+  "footer-roi": "Estimated ROI",
+  "footer-vs-chatgpt": "vs. ChatGPT",
+  "footer-legal": "Legal",
+  "footer-privacy-policy": "Privacy Policy",
+  "footer-legal-notice": "Legal Notice",
+  "footer-cookies-policy": "Cookies Policy",
+  "footer-copyright": "© {year} RAGnexus S.L. All rights reserved.",
+  "footer-hosting": "Data hosted on European servers · GDPR · SOC 2-Ready"
 }

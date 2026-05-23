@@ -1,6 +1,6 @@
-import { NextResponse } from "next/server";
+import createMiddleware from "next-intl/middleware";
 import type { NextRequest } from "next/server";
-import i18n from "../i18n.json";
+import { routing } from "./i18n/routing";
 
 const CSP = `
   default-src 'self';
@@ -38,12 +38,10 @@ const CSP = `
   .replace(/\s{2,}/g, " ")
   .trim();
 
-export function middleware(request: NextRequest) {
-  const locale = request.nextUrl.locale || i18n.defaultLocale;
-  request.nextUrl.searchParams.set("lang", locale);
-  request.nextUrl.href = request.nextUrl.href.replace(`/${locale}`, "");
+const intlMiddleware = createMiddleware(routing);
 
-  const response = NextResponse.rewrite(request.nextUrl);
+export function middleware(request: NextRequest) {
+  const response = intlMiddleware(request);
 
   response.headers.set("Content-Security-Policy", CSP);
   response.headers.set("Access-Control-Allow-Origin", "https://ragnexus.com");
@@ -56,5 +54,5 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: "/:path*",
+  matcher: ["/((?!api|_next|_vercel|.*\\..*).*)"],
 };

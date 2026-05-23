@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import {
   Carousel,
@@ -7,7 +8,7 @@ import {
   CarouselNext,
 } from "./ui/carousel";
 import { Card, CardContent } from "./ui/card";
-import useTranslation from "next-translate/useTranslation";
+import { useTranslations } from "next-intl";
 import MarkdownRenderer from "@/components/ui/MarkdownRenderer";
 
 interface OfferCardContentProps {
@@ -24,17 +25,12 @@ type TranslateCarouselItemObject = {
   description: string;
 };
 export const OfferCarousel: React.FC = () => {
-  const { t } = useTranslation("home");
+  const t = useTranslations("home");
+  const items = t.raw("offer-carousel") as TranslateCarouselItemObject[];
   return (
     <Carousel className="w-full max-w-sm">
       <CarouselContent>
-        {t<TranslateCarouselItemObject[]>(
-          "offer-carousel",
-          {},
-          {
-            returnObjects: true,
-          }
-        ).map((item) => (
+        {items.map((item) => (
           <CarouselItem key={item.title}>
             <div className="p-1">
               <Card>
@@ -48,8 +44,8 @@ export const OfferCarousel: React.FC = () => {
           </CarouselItem>
         ))}
       </CarouselContent>
-      <CarouselPrevious className="hidden md:flex" />
-      <CarouselNext className="hidden md:flex" />
+      <CarouselPrevious className="hidden lg:flex" />
+      <CarouselNext className="hidden lg:flex" />
     </Carousel>
   );
 };

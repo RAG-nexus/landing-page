@@ -1,12 +1,13 @@
-import useTranslation from "next-translate/useTranslation";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { ContactForm } from "@/components/contact-form";
 import type { Metadata } from "next";
 
 export async function generateMetadata({
-  searchParams,
+  params,
 }: {
-  searchParams: { lang: string };
+  params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
+  const { locale } = await params;
   const metaData = {
     en: {
       title: "Contact Us | Get in Touch with RAGnexus",
@@ -20,19 +21,25 @@ export async function generateMetadata({
     },
   };
 
-  return metaData[searchParams.lang as keyof typeof metaData];
+  return metaData[locale as keyof typeof metaData];
 }
 
-export default async function Contact() {
-  const { t } = useTranslation("contact");
+export default async function Contact({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const t = await getTranslations("contact");
   return (
-    <div className="flex justify-center items-center self-center min-w-full">
+    <div className="flex justify-center items-center self-center min-w-full mb-8">
       <div className="min-w-lg mt-10">
         <div className="text-center">
-          <h2>{t`get-in-touch`}</h2>
-          <p>{t`cta`}</p>
+          <h2 className="text-gray-900 dark:text-gray-50">{t("get-in-touch")}</h2>
+          <p className="text-gray-600 dark:text-gray-400">{t("cta")}</p>
         </div>
-        <section className="pt-10 flex flex-col items-center gap-6 md:flex-row md:items-start md:justify-center">
+        <section className="pt-10 flex flex-col items-center gap-6 lg:flex-row lg:items-start lg:justify-center">
           <ContactForm />
         </section>
       </div>

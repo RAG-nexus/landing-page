@@ -33,5 +33,6 @@
   "Microsoft_Teams": "Access knowledge from your Teams Posts",
   "Web": "Access knowledge from Web Pages",
   "Zendesk": "Access knowledge from Zendesk Articles",
-  "Zulip": "Capture discussions from Zulip Streams and Topics"
+  "Zulip": "Capture discussions from Zulip Streams and Topics",
+  "Stripe": "Access invoice and transaction data from Stripe"
 }

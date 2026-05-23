@@ -33,5 +33,6 @@
   "Microsoft_Teams": "Accede a conocimiento de tus posts de Teams",
   "Web": "Accede a conocimiento de páginas Web",
   "Zendesk": "Accede a conocimiento de artículos de Zendesk",
-  "Zulip": "Captura conversaciones de los Streams y Temas de Zulip"
+  "Zulip": "Captura conversaciones de los Streams y Temas de Zulip",
+  "Stripe": "Accede a datos de facturas y transacciones de Stripe"
 }

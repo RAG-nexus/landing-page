@@ -1,7 +1,8 @@
+"use client";
 import React from "react";
 import { CustomLink } from "./ui/CustomLink";
 import { Card } from "./ui/card";
-import useTranslation from "next-translate/useTranslation";
+import { useTranslations } from "next-intl";
 
 interface ContactWithMeProps {
   name: string;
@@ -14,7 +15,7 @@ export const ContactWithMe: React.FC<ContactWithMeProps> = ({
   email,
   title,
 }) => {
-  const { t } = useTranslation("home");
+  const t = useTranslations("home");
   return (
     <Card className=" p-4">
       <h3>{t("talk-with-employee-x-cta", { name, title })}</h3>
