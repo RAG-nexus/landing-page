@@ -1,13 +1,14 @@
 import React from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import useTranslation from "next-translate/useTranslation";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { Metadata } from "next";
 
 export async function generateMetadata({
-  searchParams,
+  params,
 }: {
-  searchParams: { lang: string };
+  params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
+  const { locale } = await params;
   const metaData = {
     en: {
       title: "Use Cases | How RAGnexus AI Chatbots Transform Businesses",
@@ -22,11 +23,17 @@ export async function generateMetadata({
     },
   };
 
-  return metaData[searchParams.lang as keyof typeof metaData];
+  return metaData[locale as keyof typeof metaData];
 }
 
-const UseCasesPage: React.FC = () => {
-  const { t } = useTranslation("use-cases");
+export default async function UseCasesPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const t = await getTranslations("use-cases");
   return (
     <section className="py-16 dark:bg-gray-700" id="offer">
       <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 gap-8">
@@ -37,13 +44,13 @@ const UseCasesPage: React.FC = () => {
                 color: "#04a118",
               }}
             >
-              {t`rag-nexus-chat.title`}
+              {t("rag-nexus-chat.title")}
             </CardTitle>
           </CardHeader>
-          <CardContent className="grid md:grid-flow-col gap-4 grid-flow-row md:grid-cols-2">
+          <CardContent className="grid lg:grid-flow-col gap-4 grid-flow-row lg:grid-cols-2">
             <div>
-              <p>{t`rag-nexus-chat.descriptionP1`}</p>
-              <p>{t`rag-nexus-chat.descriptionP2`}</p>
+              <p>{t("rag-nexus-chat.descriptionP1")}</p>
+              <p>{t("rag-nexus-chat.descriptionP2")}</p>
             </div>
             <div>
               <video
@@ -63,6 +70,4 @@ const UseCasesPage: React.FC = () => {
       </div>
     </section>
   );
-};
-
-export default UseCasesPage;
+}

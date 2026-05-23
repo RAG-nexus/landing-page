@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { Button } from "./ui/button";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { SERVICES_PAGE_PATH } from "@/constants";
 import { useForm } from "react-hook-form";
 import { ContactFormProps } from "@/lib/types";
@@ -9,7 +9,7 @@ import { useSubmit } from "@formspree/react";
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
 import { emailOptions } from "@/constants";
 import { EmailInput } from "./ui/email-input";
-import useTranslation from "next-translate/useTranslation";
+import { useTranslations } from "next-intl";
 
 export const EmailCta: React.FC = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -26,12 +26,12 @@ export const EmailCta: React.FC = () => {
       newsletter: true,
     },
   });
-  const { t } = useTranslation("home");
+  const t = useTranslations("common");
   return (
     <section className="py-8 px-4 bg-gray-100 dark:bg-gray-800">
       <div className="flex flex-col gap-1 max-w-7xl mx-auto">
         <h2 className="text-gray-900 dark:text-gray-300 mb-6">
-          {t`common:discover-the-power-of-ai`}
+          {t("discover-the-power-of-ai")}
         </h2>
         {!isSubmitted ? (
           <form
@@ -46,14 +46,14 @@ export const EmailCta: React.FC = () => {
               errors={errors}
               {...register("email", emailOptions)}
               className="text-2xl md:text-lg w-full md:w-1/2"
-              placeholder={t`common:enter-your-email`}
+              placeholder={t("enter-your-email")}
               containerclassname="min-w-96"
             />
             <Button className="md:text-lg w-auto md:w-auto">
-              {t`common:keep-me-updated`}
+              {t("keep-me-updated")}
             </Button>
             <div className="text-gray-700 dark:text-gray-400 text-lg text-center md:text-left">
-              {t`common:reach-us-today`}
+              {t("reach-us-today")}
             </div>
           </form>
         ) : (
@@ -79,7 +79,7 @@ export const EmailCta: React.FC = () => {
           className="text-green-light text-center md:text-start font-medium hover:underline dark:text-green-light"
           href={SERVICES_PAGE_PATH}
         >
-          {t`common:learn-more-about-our-ai-solutions`}
+          {t("learn-more-about-our-ai-solutions")}
         </Link>
       </div>
     </section>

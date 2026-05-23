@@ -1,8 +1,10 @@
-import useTranslation from "next-translate/useTranslation";
-import Link from "next/link";
-import Image from "next/image"; // Assuming you use next/image for optimization
-import { Card, CardContent } from "@/components/ui/card"; // Using Card for consistency
+"use client";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
+import Image from "next/image";
+import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { SiHubspot } from "react-icons/si";
 import {
   Slack,
   Confluence,
@@ -16,63 +18,54 @@ import {
   AwsS3,
   Zendesk,
   Jira,
+  SharePoint,
 } from "./ui/icons";
 import { ReactElement } from "react";
 
 import { INTEGRATIONS_PAGE_PATH } from "@/constants";
 
-// Define the structure for an integration item
 interface IntegrationItem {
   name: string;
-  iconPath?: string; // Path to the icon in the public folder
+  iconPath?: string;
   icon?: ReactElement;
 }
 
-// Selected integrations based on relevance
 const integrations: IntegrationItem[] = [
-  { name: "Asana", icon: <Asana /> },
-  { name: "Confluence", icon: <Confluence /> },
-  { name: "Dropbox", icon: <Dropbox /> },
-  { name: "GitHub", icon: <Github /> },
   { name: "Gmail", icon: <GoogleGmail /> },
+  { name: "SharePoint", icon: <SharePoint /> },
   { name: "Google Drive", icon: <GoogleDrive /> },
-  { name: "Jira", icon: <Jira /> },
-  { name: "Notion", icon: <Notion /> },
-  { name: "Salesforce", icon: <Salesforce /> },
   { name: "Slack", icon: <Slack /> },
-  { name: "AWS S3", icon: <AwsS3 /> },
+  { name: "Notion", icon: <Notion /> },
+  { name: "Confluence", icon: <Confluence /> },
+  { name: "Salesforce", icon: <Salesforce /> },
+  { name: "HubSpot", icon: <SiHubspot className="w-12 h-12 text-[#ff7a59]" /> },
   { name: "Zendesk", icon: <Zendesk /> },
+  { name: "Jira", icon: <Jira /> },
+  { name: "GitHub", icon: <Github /> },
+  { name: "Dropbox", icon: <Dropbox /> },
 ];
 
-export function Integrations() {
-  const { t, lang } = useTranslation("common"); // Using 'common' namespace, adjust if needed
+export function Integrations({ minimal = false }: { minimal?: boolean }) {
+  const tCommon = useTranslations("common");
+  const tHome = useTranslations("home");
 
-  return (
-    <section className="py-16 bg-white dark:bg-gray-900" id="integrations">
-      <div className="max-w-7xl mx-auto px-4 text-center">
-        <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
-          {t`integrations-title`}
-        </h2>
-        <p className="text-lg text-gray-600 dark:text-gray-400 mb-12">
-          {t`integrations-description-1`}
-          <br />
-          {t`integrations-description-2`}
-        </p>
-        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-8 justify-center mb-12">
-          {integrations.map((integration) => (
+  if (minimal) {
+    return (
+      <div className="w-full">
+        <div className="grid grid-cols-3 gap-3 lg:gap-4 justify-center justify-items-center">
+          {integrations.slice(0, 6).map((integration) => (
             <div
               key={integration.name}
               className="flex flex-col items-center group"
             >
-              <Card className="p-4 mb-2 transition-transform duration-300 ease-in-out group-hover:scale-110 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-sm hover:shadow-md">
-                <CardContent className="flex justify-center items-center h-16 w-16 p-0">
-                  {/* Placeholder for Icon - Assuming icons are SVG and stored in public/icons/integrations */}
+              <Card className="p-2 transition-transform duration-300 ease-in-out group-hover:scale-110 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-sm">
+                <CardContent className="flex justify-center items-center h-10 w-10 p-0">
                   {integration.iconPath ? (
                     <Image
                       src={integration.iconPath}
                       alt={`${integration.name} logo`}
-                      width={48} // Adjust size as needed
-                      height={48} // Adjust size as needed
+                      width={32}
+                      height={32}
                       className="object-contain"
                     />
                   ) : (
@@ -80,15 +73,60 @@ export function Integrations() {
                   )}
                 </CardContent>
               </Card>
-              <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
+            </div>
+          ))}
+        </div>
+        <div className="mt-4 text-center">
+          <Link href={INTEGRATIONS_PAGE_PATH} className="text-sm text-emerald-600 dark:text-emerald-500 font-medium hover:underline">
+            {tCommon("integrations-view-all")}
+          </Link>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <section className="py-24 bg-gray-50 dark:bg-gray-800" id="integrations">
+      <div className="max-w-7xl mx-auto px-4 text-center">
+        <div className="max-w-3xl mx-auto mb-16">
+          <h2 className="text-3xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-6 tracking-tight">
+            {tHome("integrations-section-title")}
+          </h2>
+          <p className="text-lg lg:text-xl text-gray-600 dark:text-gray-300 leading-relaxed">
+            {tHome("integrations-section-subtitle")}
+          </p>
+        </div>
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 justify-center mb-16">
+          {integrations.map((integration) => (
+            <div
+              key={integration.name}
+              className="flex flex-col items-center group"
+            >
+              <Card className="p-6 mb-4 w-full transition-all duration-300 ease-in-out group-hover:-translate-y-1 group-hover:shadow-lg bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-700 rounded-2xl shadow-sm">
+                <CardContent className="flex justify-center items-center h-16 p-0">
+                  {integration.iconPath ? (
+                    <Image
+                      src={integration.iconPath}
+                      alt={`${integration.name} logo`}
+                      width={56}
+                      height={56}
+                      className="object-contain"
+                    />
+                  ) : (
+                    integration.icon
+                  )}
+                </CardContent>
+              </Card>
+              <span className="text-base font-semibold text-gray-700 dark:text-gray-300">
                 {integration.name}
               </span>
             </div>
           ))}
         </div>
-        <Link href={`/${lang}/${INTEGRATIONS_PAGE_PATH}`} passHref>
-          {/* Assuming '/integrations' is the route for the full list */}
-          <Button variant="outline">{t`integrations-view-all`}</Button>
+        <Link href={INTEGRATIONS_PAGE_PATH}>
+          <Button size="lg" className="text-lg px-8 py-6 bg-emerald-600 hover:bg-emerald-500 text-white rounded-full transition-all duration-300 shadow-[0_0_20px_rgba(5,150,105,0.2)] hover:shadow-[0_0_30px_rgba(5,150,105,0.4)]">
+            {tHome("integrations-section-cta")}
+          </Button>
         </Link>
       </div>
     </section>

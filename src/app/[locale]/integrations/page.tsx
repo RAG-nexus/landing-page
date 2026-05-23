@@ -1,5 +1,5 @@
 import React from "react";
-import useTranslation from "next-translate/useTranslation";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import {
   Card,
   CardContent,
@@ -20,6 +20,7 @@ import {
   FaTicketAlt,
   FaGlobe,
   FaMicrosoft,
+  FaDatabase,
 } from "react-icons/fa";
 import {
   SiAirtable,
@@ -36,7 +37,6 @@ import {
   SiSalesforce,
   SiSlack,
   SiStripe,
-  SiOracle,
   SiCloudflare,
   SiZendesk,
   SiZulip,
@@ -47,14 +47,16 @@ import {
 } from "react-icons/si";
 
 import { BsMicrosoftTeams } from "react-icons/bs";
+import { GoogleGmail } from "@/components/ui/icons";
 
 import type { Metadata } from "next";
 
 export async function generateMetadata({
-  searchParams,
+  params,
 }: {
-  searchParams: { lang: string };
+  params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
+  const { locale } = await params;
   const metaData = {
     en: {
       title: "Integrations | Connect Your Tools with RAGnexus",
@@ -68,7 +70,7 @@ export async function generateMetadata({
     },
   };
 
-  return metaData[searchParams.lang as keyof typeof metaData];
+  return metaData[locale as keyof typeof metaData];
 }
 
 interface Integration {
@@ -76,59 +78,63 @@ interface Integration {
   icon: IconType;
 }
 
-// Full list of integrations with icons
 const integrations: Integration[] = [
   { name: "Airtable", icon: SiAirtable },
   { name: "Asana", icon: SiAsana },
   { name: "Confluence", icon: SiConfluence },
   { name: "Dropbox", icon: SiDropbox },
   { name: "Discord", icon: SiDiscord },
-  { name: "Egnyte", icon: FaFolder }, // Generic icon
-  { name: "Fireflies AI", icon: FaMicrophone }, // Generic icon
-  { name: "Freshworks", icon: FaBriefcase }, // Generic icon
+  { name: "Egnyte", icon: FaFolder },
+  { name: "Fireflies AI", icon: FaMicrophone },
+  { name: "Freshworks", icon: FaBriefcase },
   { name: "GitHub", icon: SiGithub },
   { name: "GitLab", icon: SiGitlab },
-  { name: "Gong", icon: FaBullhorn }, // Generic icon
+  { name: "Gong", icon: FaBullhorn },
   { name: "GitBook", icon: SiGitbook },
-  { name: "Gmail", icon: SiGmail },
+  { name: "Gmail", icon: GoogleGmail as any },
   { name: "Google Drive", icon: SiGoogledrive },
   { name: "Google Sites", icon: FaGoogle },
-  { name: "Google Storage", icon: SiGooglecloudstorage }, // Generic cloud
+  { name: "Google Storage", icon: SiGooglecloudstorage },
   { name: "HubSpot", icon: SiHubspot },
-  { name: "Highspot", icon: FaChartLine }, // Generic icon
+  { name: "Highspot", icon: FaChartLine },
   { name: "Jira", icon: SiJira },
   { name: "Linear", icon: SiLinear },
   { name: "Notion", icon: SiNotion },
-  { name: "Oracle Storage", icon: SiOracle },
-  { name: "Productboard", icon: FaClipboardList }, // Generic icon
+  { name: "Oracle Storage", icon: FaDatabase },
+  { name: "Productboard", icon: FaClipboardList },
   { name: "Cloudflare R2", icon: SiCloudflare },
   { name: "AWS S3", icon: FaAws },
-  { name: "Request Tracker", icon: FaTicketAlt }, // Generic icon
+  { name: "Request Tracker", icon: FaTicketAlt },
   { name: "Salesforce", icon: SiSalesforce },
   { name: "Sharepoint", icon: FaMicrosoft },
   { name: "Slack", icon: SiSlack },
   { name: "Stripe", icon: SiStripe },
-  { name: "Microsoft Teams", icon: BsMicrosoftTeams }, // Generic icon
+  { name: "Microsoft Teams", icon: BsMicrosoftTeams },
   { name: "Web", icon: FaGlobe },
   { name: "Zendesk", icon: SiZendesk },
   { name: "Zulip", icon: SiZulip },
 ];
 
-// Helper to generate translation key for description
 const generateDescKey = (name: string) => name.replace(/\s+/g, "_");
 
-const IntegrationsPage: React.FC = () => {
-  const { t } = useTranslation("integrations");
+export default async function IntegrationsPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const t = await getTranslations("integrations");
 
   return (
     <section className="py-16 bg-white dark:bg-gray-900">
       <div className="max-w-7xl mx-auto px-4">
         <div className="mb-12">
           <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
-            {t`title`}
+            {t("title")}
           </h1>
           <p className="text-lg text-gray-600 dark:text-gray-400 max-w-3xl">
-            {t`description`}
+            {t("description")}
           </p>
         </div>
 
@@ -145,7 +151,6 @@ const IntegrationsPage: React.FC = () => {
                     {integration.name}
                   </CardTitle>
                 </div>
-                {/* Add Connect/Connected button logic here if needed */}
               </CardHeader>
               <CardContent className="flex-grow flex p-5 pt-0">
                 <CardDescription className="text-sm text-gray-500 dark:text-gray-400 text-left">
@@ -158,6 +163,4 @@ const IntegrationsPage: React.FC = () => {
       </div>
     </section>
   );
-};
-
-export default IntegrationsPage;
+}

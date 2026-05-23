@@ -1,13 +1,14 @@
 import React from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import useTranslation from "next-translate/useTranslation";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { Metadata } from "next";
 
 export async function generateMetadata({
-  searchParams,
+  params,
 }: {
-  searchParams: { lang: string };
+  params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
+  const { locale } = await params;
   const metaData = {
     en: {
       title: "Services | Custom AI Chatbots and Integrations by RAGnexus",
@@ -21,7 +22,7 @@ export async function generateMetadata({
     },
   };
 
-  return metaData[searchParams.lang as keyof typeof metaData];
+  return metaData[locale as keyof typeof metaData];
 }
 
 interface ListDiscProps {
@@ -38,11 +39,20 @@ type TListElement = {
   element: string;
 };
 
-const ServicesPage: React.FC = () => {
-  const { t } = useTranslation("services");
+export default async function ServicesPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const t = await getTranslations("services");
+  const subli3 = t.raw(
+    "custom-personal-assistants-development.subli3"
+  ) as TListElement[];
   return (
     <section className="py-16 dark:bg-gray-700" id="offer">
-      <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-8">
         <Card className="w-full">
           <CardHeader>
             <CardTitle
@@ -50,21 +60,17 @@ const ServicesPage: React.FC = () => {
                 color: "#04a118",
               }}
             >
-              {t`custom-personal-assistants-development.title`}
+              {t("custom-personal-assistants-development.title")}
             </CardTitle>
           </CardHeader>
           <CardContent>
             <ListDisc>
-              <li>{t`custom-personal-assistants-development.li1`}</li>
-              <li>{t`custom-personal-assistants-development.li2`}</li>
+              <li>{t("custom-personal-assistants-development.li1")}</li>
+              <li>{t("custom-personal-assistants-development.li2")}</li>
               <li>
-                {t`custom-personal-assistants-development.li3`}
+                {t("custom-personal-assistants-development.li3")}
                 <ul className=" pl-6">
-                  {t<TListElement[]>(
-                    "custom-personal-assistants-development.subli3",
-                    {},
-                    { returnObjects: true }
-                  ).map(({ element }: TListElement) => (
+                  {subli3.map(({ element }: TListElement) => (
                     <li key={element}>{element}</li>
                   ))}
                 </ul>
@@ -79,19 +85,27 @@ const ServicesPage: React.FC = () => {
                 color: "#04a118",
               }}
             >
-              {t`integration-of-assistants-into-existing-platforms-and-systems.title`}
+              {t(
+                "integration-of-assistants-into-existing-platforms-and-systems.title"
+              )}
             </CardTitle>
           </CardHeader>
           <CardContent>
             <ListDisc>
               <li>
-                {t`integration-of-assistants-into-existing-platforms-and-systems.li1`}
+                {t(
+                  "integration-of-assistants-into-existing-platforms-and-systems.li1"
+                )}
               </li>
               <li>
-                {t`integration-of-assistants-into-existing-platforms-and-systems.li2`}
+                {t(
+                  "integration-of-assistants-into-existing-platforms-and-systems.li2"
+                )}
               </li>
               <li>
-                {t`integration-of-assistants-into-existing-platforms-and-systems.li3`}
+                {t(
+                  "integration-of-assistants-into-existing-platforms-and-systems.li3"
+                )}
               </li>
             </ListDisc>
           </CardContent>
@@ -103,14 +117,14 @@ const ServicesPage: React.FC = () => {
                 color: "#04a118",
               }}
             >
-              {t`subscriptions-and-maintenance-services.title`}
+              {t("subscriptions-and-maintenance-services.title")}
             </CardTitle>
           </CardHeader>
           <CardContent>
             <ListDisc>
-              <li>{t`subscriptions-and-maintenance-services.li1`}</li>
-              <li>{t`subscriptions-and-maintenance-services.li2`}</li>
-              <li>{t`subscriptions-and-maintenance-services.li3`}</li>
+              <li>{t("subscriptions-and-maintenance-services.li1")}</li>
+              <li>{t("subscriptions-and-maintenance-services.li2")}</li>
+              <li>{t("subscriptions-and-maintenance-services.li3")}</li>
             </ListDisc>
           </CardContent>
         </Card>
@@ -121,20 +135,18 @@ const ServicesPage: React.FC = () => {
                 color: "#04a118",
               }}
             >
-              {t`specialized-training-and-consultancy.title`}
+              {t("specialized-training-and-consultancy.title")}
             </CardTitle>
           </CardHeader>
           <CardContent>
             <ListDisc>
-              <li>{t`specialized-training-and-consultancy.li1`}</li>
-              <li>{t`specialized-training-and-consultancy.li2`}</li>
-              <li>{t`specialized-training-and-consultancy.li3`}</li>
+              <li>{t("specialized-training-and-consultancy.li1")}</li>
+              <li>{t("specialized-training-and-consultancy.li2")}</li>
+              <li>{t("specialized-training-and-consultancy.li3")}</li>
             </ListDisc>
           </CardContent>
         </Card>
       </div>
     </section>
   );
-};
-
-export default ServicesPage;
+}

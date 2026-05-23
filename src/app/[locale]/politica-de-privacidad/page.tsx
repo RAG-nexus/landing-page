@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
+import { setRequestLocale } from "next-intl/server";
 
 export async function generateMetadata({
-  searchParams,
+  params,
 }: {
-  searchParams: { lang: string };
+  params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
+  const { locale } = await params;
   const metaData = {
     en: {
       title: "Privacy Policy | How RAGnexus Protects Your Data",
@@ -18,10 +20,16 @@ export async function generateMetadata({
     },
   };
 
-  return metaData[searchParams.lang as keyof typeof metaData];
+  return metaData[locale as keyof typeof metaData];
 }
 
-export default function PrivacyPolicy() {
+export default async function PrivacyPolicy({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  setRequestLocale(locale);
   return (
     <div className="mx-12 my-4 text-justify text-sm">
       <div className="iub_container iub_base_container">
