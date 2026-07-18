@@ -7,6 +7,9 @@ import { notFound } from "next/navigation";
 import { Footer } from "@/components/footer";
 import { NavBar } from "@/components/nav";
 import { routing } from "@/i18n/routing";
+import { PostHogProvider } from '../providers'
+import PostHogPageView from '../PostHogPageView'
+import { Suspense } from 'react'
 
 const inter = Inter({
   subsets: ["latin"],
@@ -34,10 +37,15 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale}>
+
       <body
         className={`${inter.className} flex flex-col bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-100 min-h-screen`}
       >
-        <NextIntlClientProvider messages={messages}>
+      <NextIntlClientProvider messages={messages}>
+        <PostHogProvider>
+          <Suspense fallback={null}>
+            <PostHogPageView />
+          </Suspense>
           <Analytics />
           <Script
             id="__webwhizSdk__"
@@ -59,7 +67,8 @@ export default async function LocaleLayout({
             id="_iubenda_cs_"
             src="//cdn.iubenda.com/cs/iubenda_cs.js"
             async
-          />
+            />
+        </PostHogProvider>
         </NextIntlClientProvider>
       </body>
     </html>
