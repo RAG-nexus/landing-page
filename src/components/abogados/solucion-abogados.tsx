@@ -20,10 +20,10 @@ export function SolucionAbogados() {
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16 relative">
           {[
-            { 
-              num: t("solucion_s1_num"), 
-              title: t("solucion_s1_title"), 
-              desc: t("solucion_s1_desc"), 
+            {
+              num: t("solucion_s1_num"),
+              title: t("solucion_s1_title"),
+              desc: t("solucion_s1_desc"),
               visual: (
                 <div className="flex items-center justify-center gap-3">
                   <div className="p-3 bg-white rounded-xl shadow-sm border border-gray-100 text-emerald-600"><Database className="w-6 h-6" /></div>
@@ -32,10 +32,10 @@ export function SolucionAbogados() {
                 </div>
               )
             },
-            { 
-              num: t("solucion_s2_num"), 
-              title: t("solucion_s2_title"), 
-              desc: t("solucion_s2_desc"), 
+            {
+              num: t("solucion_s2_num"),
+              title: t("solucion_s2_title"),
+              desc: t("solucion_s2_desc"),
               visual: (
                 <div className="relative flex items-center justify-center text-emerald-600">
                   <Server className="w-12 h-12" />
@@ -45,10 +45,10 @@ export function SolucionAbogados() {
                 </div>
               )
             },
-            { 
-              num: t("solucion_s3_num"), 
-              title: t("solucion_s3_title"), 
-              desc: t("solucion_s3_desc"), 
+            {
+              num: t("solucion_s3_num"),
+              title: t("solucion_s3_title"),
+              desc: t("solucion_s3_desc"),
               visual: (
                 <div className="flex flex-col gap-2 w-full max-w-[160px] mx-auto">
                   <div className="bg-emerald-100 rounded-2xl rounded-tl-sm p-3 shadow-sm border border-emerald-200">
@@ -65,12 +65,12 @@ export function SolucionAbogados() {
               )
             },
           ].map((step, i) => (
-             <div key={i} className="flex flex-col bg-white rounded-3xl p-8 border border-gray-200 shadow-sm relative overflow-hidden">
+             <div key={i} className="flex flex-col bg-white rounded-3xl p-12 border border-gray-200 shadow-sm relative overflow-hidden">
                <div className="text-4xl font-extrabold text-emerald-100 mb-4 tracking-tighter absolute top-4 right-6 opacity-50">
                  {step.num}
                </div>
                <h3 className="text-2xl font-bold text-gray-900 mb-4 z-10">
-                 {step.num} — {step.title}
+                 {step.title}
                </h3>
                <p className="text-gray-600 leading-relaxed mb-8 z-10 flex-grow">
                  {step.desc}
@@ -84,7 +84,7 @@ export function SolucionAbogados() {
 
         <div className="text-center">
           <Link href="/contact">
-            <Button size="lg" className="text-lg px-10 py-6 bg-emerald-600 hover:bg-emerald-500 text-white rounded-full transition-all duration-300 shadow-[0_0_20px_rgba(5,150,105,0.2)]">
+            <Button size="lg" className="text-lg px-10 py-6 bg-emerald-600 hover:bg-emerald-500 text-white rounded-full transition-all duration-300 shadow-[0_0_20px_rgba(5,150,105,0.2)] max-w-xs sm:max-w-none">
               {t("solucion_cta")}
             </Button>
           </Link>
