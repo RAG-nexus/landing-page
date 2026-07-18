@@ -16,7 +16,8 @@ const CSP = `
     https://*.webwhiz.ai
     https://va.vercel-scripts.com
     https://cdn.jsdelivr.net
-    https://*.posthog.com;
+    https://*.posthog.com
+    https://cdn.ragnexus.com;
   style-src 'self' 'unsafe-inline' https://*.iubenda.com https://cdn.jsdelivr.net;
   img-src 'self' data: https: https://px.ads.linkedin.com;
   font-src 'self' https:;
@@ -32,7 +33,8 @@ const CSP = `
     https://*.webwhiz.ai
     https://*.google-analytics.com
     https://formspree.io
-    https://*.posthog.com;
+    https://*.posthog.com
+    https://cdn.ragnexus.com;
   frame-ancestors 'none';
   frame-src https://*.linkedin.com https://*.iubenda.com https://www.youtube.com https://www.youtube-nocookie.com https://widget.webwhiz.ai/ https://*.firebasedatabase.app;
   upgrade-insecure-requests;
