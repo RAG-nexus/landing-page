@@ -54,7 +54,7 @@ export function CasosUsoAbogados() {
 
         <div className="text-center">
           <Link href="/contact">
-            <Button size="lg" className="text-lg px-8 py-6 bg-emerald-600 hover:bg-emerald-500 text-white rounded-full transition-all duration-300 shadow-[0_0_20px_rgba(5,150,105,0.2)]">
+            <Button size="lg" className="text-lg px-8 py-6 bg-emerald-600 hover:bg-emerald-500 text-white rounded-full transition-all duration-300 shadow-[0_0_20px_rgba(5,150,105,0.2)] max-w-xs sm:max-w-none">
               {t("casos_cta")}
             </Button>
           </Link>

@@ -16,9 +16,10 @@ export function SobreRAGnexus() {
               <p>{t("sobre_p1")}</p>
               <p>{t("sobre_p2")}</p>
             </div>
-            <Link href="/about" className="inline-flex items-center gap-2 text-emerald-600 font-semibold hover:text-emerald-700 transition-colors">
+            {/* TODO: Implement the link back once the /about page is ready */}
+            {/* <Link href="/about" className="inline-flex items-center gap-2 text-emerald-600 font-semibold hover:text-emerald-700 transition-colors">
               {t("sobre_link")}
-            </Link>
+            </Link> */}
           </div>
 
           <div className="mt-8 lg:mt-0">

@@ -30,10 +30,10 @@ export function ModalidadesDespliegue() {
                 {t("mod_c1_desc")}
               </p>
             </div>
-            
+
             <div className="flex-grow mb-8">
               <ul className="space-y-4">
-                {[t("mod_c1_l1"), t("mod_c1_l2"), t("mod_c1_l3"), t("mod_c1_l4"), t("mod_c1_l5")].map((item, i) => (
+                {[t("mod_c1_l1"), t("mod_c1_l2"), t("mod_c1_l4"), t("mod_c1_l5")].map((item, i) => (
                   <li key={i} className="flex items-start gap-3 text-gray-700">
                     <Check className="w-5 h-5 text-emerald-500 mt-0.5 shrink-0" />
                     <span>{item}</span>
@@ -63,7 +63,7 @@ export function ModalidadesDespliegue() {
                 {t("mod_c2_desc")}
               </p>
             </div>
-            
+
             <div className="flex-grow mb-8">
               <ul className="space-y-4">
                 {[t("mod_c2_l1"), t("mod_c2_l2"), t("mod_c2_l3"), t("mod_c2_l4"), t("mod_c2_l5"), t("mod_c2_l6")].map((item, i) => (
@@ -89,7 +89,7 @@ export function ModalidadesDespliegue() {
 
         <div className="text-center">
           <Link href="/contact">
-            <Button size="lg" variant="outline" className="text-lg px-8 py-6 border-gray-300 text-gray-700 hover:bg-gray-50 dark:text-gray-200 dark:border-gray-700 dark:hover:bg-gray-800 dark:hover:text-white rounded-full transition-all duration-300">
+            <Button size="lg" variant="outline" className="text-lg px-8 py-6 border-gray-300 text-gray-700 hover:bg-gray-50 dark:text-gray-200 dark:border-gray-700 dark:hover:bg-gray-800 dark:hover:text-white rounded-full transition-all duration-300 max-w-xs sm:max-w-none">
               {t("mod_cta")}
             </Button>
           </Link>

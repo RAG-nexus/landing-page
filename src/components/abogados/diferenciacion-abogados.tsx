@@ -1,72 +1,169 @@
+"use client";
+
 import { useTranslations } from "next-intl";
-import { Check, X, AlertTriangle } from "lucide-react";
+import { Check, AlertTriangle, X } from "lucide-react";
+import { Link } from "@/i18n/navigation";
+import { Button } from "@/components/ui/button";
+
+type CellValue = "yes" | "warn" | "no" | "text";
+
+interface Row {
+  label: string;
+  r: CellValue;
+  cl: CellValue;   // Claude Legal
+  c: CellValue;    // ChatGPT Ent.
+  cp: CellValue;   // Copilot
+  h: CellValue;    // Harvey
+  r_label?: string;
+  cl_label?: string;
+  c_label?: string;
+  cp_label?: string;
+  h_label?: string;
+}
+
+function Cell({ value, label }: { value: CellValue; label?: string }) {
+  const ariaLabel =
+    value === "yes" ? "Sí" : value === "warn" ? "Parcial" : value === "no" ? "No" : label ?? "";
+
+  return (
+    <div className="flex flex-col items-center justify-center gap-1" aria-label={ariaLabel}>
+      {value === "yes" && (
+        <Check
+          className="w-5 h-5 text-emerald-600 stroke-[3]"
+          aria-hidden="true"
+        />
+      )}
+      {value === "warn" && (
+        <AlertTriangle
+          className="w-5 h-5 text-amber-500"
+          aria-hidden="true"
+        />
+      )}
+      {value === "no" && (
+        <X
+          className="w-5 h-5 text-gray-400 stroke-[2.5]"
+          aria-hidden="true"
+        />
+      )}
+      {label && (
+        <span className="text-[11px] text-gray-500 font-semibold leading-tight text-center">
+          {label}
+        </span>
+      )}
+    </div>
+  );
+}
 
 export function DiferenciacionAbogados() {
   const t = useTranslations("abogados");
 
-  const rows = [
-    { label: t("diff_t1"), r: "yes", c: "no", cp: "warn", h: "yes" },
-    { label: t("diff_t2"), r: "yes", c: "warn", cp: "warn", h: "no" },
-    { label: t("diff_t3"), r: "yes", c: "no", cp: "no", h: "no" },
-    { label: t("diff_t4"), r: "yes", c: "no", cp: "no", h: "yes" },
-    { label: t("diff_t5"), r: "yes", c: "no", cp: "no", h: "no" },
-    { label: t("diff_t6"), r: "yes", c: "no", cp: "no", h: "no" }, // User prompt says ChatGPT Ent is ❌ for Support in Spain
-    { label: t("diff_t7"), r: "yes", c: "warn", cp: "yes", h: "no", h_label: t("diff_t7_h") }, // ($$$$)
-    { label: t("diff_t8"), r: "yes", c: "yes", cp: "yes", h: "no", h_label: t("diff_t8_h") }, // meses
+  const rows: Row[] = [
+    {
+      label: t("diff_t1"),
+      r: "yes", cl: "warn", c: "no", cp: "warn", h: "yes",
+    },
+    {
+      label: t("diff_t2"),
+      r: "yes", cl: "no", c: "warn", cp: "warn", h: "no",
+    },
+    {
+      label: t("diff_t3"),
+      r: "yes", cl: "no", c: "no", cp: "no", h: "no",
+    },
+    {
+      label: t("diff_t4"),
+      r: "yes", cl: "no", c: "no", cp: "no", h: "no",
+    },
+    {
+      label: t("diff_t5"),
+      r: "yes", cl: "yes", c: "no", cp: "no", h: "yes",
+    },
+    {
+      label: t("diff_t6"),
+      r: "yes", cl: "no", c: "no", cp: "no", h: "no",
+    },
+    {
+      label: t("diff_t7"),
+      r: "yes", cl: "no", c: "no", cp: "no", h: "no",
+    },
+    {
+      label: t("diff_t8"),
+      r: "yes", cl: "warn", c: "warn", cp: "yes", h: "no",
+    },
+    {
+      label: t("diff_t9"),
+      r: "yes", cl: "warn", c: "warn", cp: "yes", h: "no",
+      h_label: t("diff_t9_h"),
+    },
+    {
+      label: t("diff_t10"),
+      r: "yes", cl: "warn", c: "yes", cp: "yes", h: "text",
+      h_label: t("diff_t10_h"),
+    },
   ];
+
+  const competitors = [
+    { key: "cl", label: t("diff_col3") },
+    { key: "c",  label: t("diff_col4") },
+    { key: "cp", label: t("diff_col5") },
+    { key: "h",  label: t("diff_col6") },
+  ] as const;
 
   return (
     <section className="py-24 bg-gray-50" id="comparativa">
-      <div className="max-w-6xl mx-auto px-4">
-        <div className="text-center mb-16 max-w-3xl mx-auto">
-          <h2 className="text-3xl lg:text-5xl font-bold text-gray-900 mb-6 tracking-tight">
+      <div className="max-w-[1100px] mx-auto px-4">
+
+        {/* Header */}
+        <div className="text-center mb-14 max-w-3xl mx-auto">
+          <h2 className="text-3xl lg:text-[2.75rem] font-bold text-gray-900 mb-5 tracking-tight leading-tight">
             {t("diff_h2")}
           </h2>
-          <p className="text-xl text-gray-600">
+          <p className="text-lg text-gray-500 leading-relaxed">
             {t("diff_sub")}
           </p>
         </div>
 
-        {/* Tabla Desktop */}
-        <div className="hidden lg:block overflow-x-auto rounded-2xl border border-gray-200 shadow-sm bg-white mb-12">
+        {/* ── DESKTOP TABLE ── */}
+        <div className="hidden lg:block overflow-x-auto rounded-2xl border border-gray-200 shadow-sm bg-white mb-5">
           <table className="w-full text-left border-collapse min-w-[900px]">
             <thead>
               <tr className="bg-gray-100 border-b border-gray-200">
-                <th className="p-5 font-semibold text-gray-700 w-1/3">{t("diff_col1")}</th>
-                <th className="p-5 font-bold text-center text-emerald-700 bg-emerald-50 border-x border-emerald-100 w-1/6">{t("diff_col2")}</th>
-                <th className="p-5 font-semibold text-center text-gray-600 border-r border-gray-200 w-1/6">{t("diff_col3")}</th>
-                <th className="p-5 font-semibold text-center text-gray-600 border-r border-gray-200 w-1/6">{t("diff_col4")}</th>
-                <th className="p-5 font-semibold text-center text-gray-600 w-1/6">{t("diff_col5")}</th>
+                <th className="p-5 font-semibold text-gray-600 text-sm w-[34%]">
+                  {t("diff_col1")}
+                </th>
+                {/* RAGnexus — highlighted */}
+                <th className="p-5 font-bold text-center text-emerald-700 bg-emerald-50 border-x border-emerald-100 text-sm">
+                  {t("diff_col2")}
+                </th>
+                {/* Competitors */}
+                {competitors.map((comp) => (
+                  <th
+                    key={comp.key}
+                    className="p-5 font-semibold text-center text-gray-500 border-r border-gray-100 text-sm last:border-r-0"
+                  >
+                    {comp.label}
+                  </th>
+                ))}
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-100">
               {rows.map((row, i) => (
-                <tr key={i} className="hover:bg-gray-50 transition-colors">
-                  <td className="p-5 text-gray-800 font-medium text-sm">{row.label}</td>
+                <tr key={i} className="hover:bg-gray-50/80 transition-colors">
+                  <td className="p-5 text-gray-800 text-sm leading-snug">{row.label}</td>
                   <td className="p-5 text-center bg-emerald-50/30 border-x border-emerald-100">
-                    <div className="flex justify-center"><Check className="w-5 h-5 text-emerald-600 stroke-[3]" /></div>
+                    <Cell value={row.r} label={row.r_label} />
                   </td>
-                  <td className="p-5 text-center border-r border-gray-200">
-                     <div className="flex flex-col items-center gap-1">
-                       {row.c === "yes" && <Check className="w-5 h-5 text-gray-400" />}
-                       {row.c === "no" && <X className="w-5 h-5 text-red-400 stroke-[3]" />}
-                       {row.c === "warn" && <AlertTriangle className="w-5 h-5 text-amber-500" />}
-                     </div>
+                  <td className="p-5 text-center border-r border-gray-100">
+                    <Cell value={row.cl} label={row.cl_label} />
                   </td>
-                  <td className="p-5 text-center border-r border-gray-200">
-                     <div className="flex flex-col items-center gap-1">
-                       {row.cp === "yes" && <Check className="w-5 h-5 text-gray-400" />}
-                       {row.cp === "no" && <X className="w-5 h-5 text-red-400 stroke-[3]" />}
-                       {row.cp === "warn" && <AlertTriangle className="w-5 h-5 text-amber-500" />}
-                     </div>
+                  <td className="p-5 text-center border-r border-gray-100">
+                    <Cell value={row.c} label={row.c_label} />
+                  </td>
+                  <td className="p-5 text-center border-r border-gray-100">
+                    <Cell value={row.cp} label={row.cp_label} />
                   </td>
                   <td className="p-5 text-center">
-                    <div className="flex flex-col items-center gap-1">
-                       {row.h === "yes" && <Check className="w-5 h-5 text-gray-400" />}
-                       {row.h === "no" && <X className="w-5 h-5 text-red-400 stroke-[3]" />}
-                       {row.h === "warn" && <AlertTriangle className="w-5 h-5 text-amber-500" />}
-                       {row.h_label && <span className="text-xs text-gray-500 font-semibold">{row.h_label}</span>}
-                     </div>
+                    <Cell value={row.h} label={row.h_label} />
                   </td>
                 </tr>
               ))}
@@ -74,48 +171,111 @@ export function DiferenciacionAbogados() {
           </table>
         </div>
 
-        {/* Cards Mobile */}
-        <div className="lg:hidden space-y-6 mb-12">
-            {rows.map((row, i) => (
-                <div key={i} className="bg-white p-5 rounded-2xl border border-gray-200 shadow-sm">
-                    <p className="font-bold text-gray-900 mb-4 text-center text-sm">{row.label}</p>
-                    <div className="grid grid-cols-2 gap-2">
-                        <div className="flex flex-col items-center gap-2 p-3 bg-emerald-50 rounded-xl border border-emerald-100">
-                            <span className="text-[10px] font-bold text-emerald-700 uppercase">RAGnexus</span>
-                            <Check className="w-5 h-5 text-emerald-600 stroke-[3]" />
-                        </div>
-                        <div className="flex flex-col items-center gap-2 p-3 bg-gray-50 rounded-xl border border-gray-100 text-center">
-                            <span className="text-[10px] font-bold text-gray-500 uppercase">ChatGPT</span>
-                            {row.c === "yes" && <Check className="w-5 h-5 text-gray-400" />}
-                            {row.c === "no" && <X className="w-5 h-5 text-red-400 stroke-[3]" />}
-                            {row.c === "warn" && <AlertTriangle className="w-5 h-5 text-amber-500" />}
-                        </div>
-                        <div className="flex flex-col items-center gap-2 p-3 bg-gray-50 rounded-xl border border-gray-100 text-center">
-                            <span className="text-[10px] font-bold text-gray-500 uppercase">Copilot</span>
-                            {row.cp === "yes" && <Check className="w-5 h-5 text-gray-400" />}
-                            {row.cp === "no" && <X className="w-5 h-5 text-red-400 stroke-[3]" />}
-                            {row.cp === "warn" && <AlertTriangle className="w-5 h-5 text-amber-500" />}
-                        </div>
-                        <div className="flex flex-col items-center gap-2 p-3 bg-gray-50 rounded-xl border border-gray-100 text-center">
-                            <span className="text-[10px] font-bold text-gray-500 uppercase">Harvey</span>
-                            {row.h === "yes" && <Check className="w-5 h-5 text-gray-400" />}
-                            {row.h === "no" && <X className="w-5 h-5 text-red-400 stroke-[3]" />}
-                            {row.h === "warn" && <AlertTriangle className="w-5 h-5 text-amber-500" />}
-                            {row.h_label && <span className="text-[10px] text-gray-500 font-semibold mt-auto leading-tight">{row.h_label}</span>}
-                        </div>
-                    </div>
-                </div>
-            ))}
+        {/* ── MOBILE: horizontal scroll table with sticky first column ── */}
+        <div className="lg:hidden mb-5 rounded-2xl border border-gray-200 shadow-sm bg-white overflow-hidden">
+          <div className="overflow-x-auto">
+            <table className="text-sm border-collapse" style={{ minWidth: "560px" }}>
+              <thead>
+                <tr className="bg-gray-100 border-b border-gray-200">
+                  {/* Sticky label column */}
+                  <th
+                    className="p-4 font-semibold text-gray-600 text-left sticky left-0 bg-gray-100 z-10 border-r border-gray-200"
+                    style={{ minWidth: "160px", maxWidth: "200px" }}
+                  >
+                    {t("diff_col1")}
+                  </th>
+                  {/* RAGnexus */}
+                  <th className="p-4 font-bold text-center text-emerald-700 bg-emerald-50 border-r border-emerald-100 whitespace-nowrap">
+                    {t("diff_col2")}
+                  </th>
+                  {competitors.map((comp) => (
+                    <th
+                      key={comp.key}
+                      className="p-4 font-semibold text-center text-gray-500 border-r border-gray-100 last:border-r-0 whitespace-nowrap"
+                    >
+                      {comp.label}
+                    </th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-gray-100">
+                {rows.map((row, i) => (
+                  <tr key={i} className="hover:bg-gray-50/80">
+                    <td
+                      className="p-4 text-gray-800 text-xs leading-snug sticky left-0 bg-white border-r border-gray-200 z-10"
+                      style={{ minWidth: "160px", maxWidth: "200px" }}
+                    >
+                      {row.label}
+                    </td>
+                    <td className="p-4 text-center bg-emerald-50/30 border-r border-emerald-100">
+                      <Cell value={row.r} label={row.r_label} />
+                    </td>
+                    <td className="p-4 text-center border-r border-gray-100">
+                      <Cell value={row.cl} label={row.cl_label} />
+                    </td>
+                    <td className="p-4 text-center border-r border-gray-100">
+                      <Cell value={row.c} label={row.c_label} />
+                    </td>
+                    <td className="p-4 text-center border-r border-gray-100">
+                      <Cell value={row.cp} label={row.cp_label} />
+                    </td>
+                    <td className="p-4 text-center">
+                      <Cell value={row.h} label={row.h_label} />
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
 
-        <div className="bg-emerald-50 rounded-2xl border border-emerald-100 p-8 text-center max-w-4xl mx-auto shadow-sm">
-          <p className="text-lg font-bold text-emerald-900 mb-3">
-            {t("diff_destacado_1")}
+        {/* Legend */}
+        <p className="text-xs text-gray-400 text-center mb-12 tracking-wide">
+          {t("diff_legend")}
+        </p>
+
+        {/* ── BLOQUE DESTACADO 1: No competimos con... ── */}
+        <div className="bg-emerald-50 border border-emerald-100 rounded-2xl px-10 py-9 mb-6 max-w-4xl mx-auto shadow-sm">
+          <p className="text-lg font-bold text-emerald-900 mb-3 text-center">
+            {t("diff_block1_title")}
           </p>
-          <p className="text-gray-700 leading-relaxed max-w-3xl mx-auto">
-            {t("diff_destacado_2")}
+          <p className="text-gray-700 leading-relaxed text-center max-w-3xl mx-auto">
+            {t("diff_block1_body")}
           </p>
         </div>
+
+        {/* ── BLOQUE DESTACADO 2: Sobre Claude Legal ── */}
+        <div className="bg-white border border-gray-200 rounded-2xl px-10 py-9 mb-12 max-w-4xl mx-auto shadow-sm">
+          <p className="text-base font-semibold text-gray-900 mb-4 text-center">
+            {t("diff_block2_title")}
+          </p>
+          <div className="text-gray-700 leading-relaxed text-center max-w-3xl mx-auto space-y-4">
+            <p>{t("diff_block2_p1")}</p>
+            <p>{t("diff_block2_p2")}</p>
+            <p>{t("diff_block2_p3")}</p>
+          </div>
+        </div>
+
+        {/* ── CTA ── */}
+        <div className="flex flex-col items-center gap-4">
+          <Link href="/contact">
+            <Button
+              size="lg"
+              className="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-10 py-6 text-base rounded-full shadow-md hover:shadow-lg transition-all duration-200 hover:-translate-y-0.5"
+              onClick={() => {
+                if (typeof window !== "undefined" && (window as typeof window & { gtag?: Function }).gtag) {
+                  (window as typeof window & { gtag: Function }).gtag("event", "click_demo_seccion_diferenciacion");
+                }
+              }}
+            >
+              {t("diff_cta")}
+            </Button>
+          </Link>
+          <p className="text-[13px] text-gray-400 leading-relaxed text-center max-w-md">
+            {t("diff_cta_sub")}
+          </p>
+        </div>
+
       </div>
     </section>
   );
