@@ -103,8 +103,8 @@
   "norm_c3_desc": "Designed with the EU AI Act regulatory framework in mind, adhering to the specific obligations that apply to systems used in legal contexts.",
   "norm_c4_title": "ENS — National Security Scheme",
   "norm_c4_desc": "Architecture alignable with the Spanish ENS for law firms that provide services to the public sector or work with government administrations.",
-  "norm_c5_title": "SOC 2 (in progress)",
-  "norm_c5_desc": "Security and audit controls aligned with the international standard. Type II certification planned for 2026.",
+  "norm_c5_title": "SOC 2-ready posture",
+  "norm_c5_desc": "Security and audit controls designed against SOC 2 criteria. It isn't a certification: we walk you through the controls in the technical review.",
   "norm_c6_title": "CGAE — General Council of Spanish Advocacy",
   "norm_c6_desc": "Designed in line with CGAE recommendations on the responsible use of AI in law and professional ethics.",
 

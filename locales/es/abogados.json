@@ -103,8 +103,8 @@
   "norm_c3_desc": "Diseñado pensando en el marco regulatorio europeo de IA y en las obligaciones específicas que aplican a sistemas utilizados en contextos jurídicos.",
   "norm_c4_title": "ENS — Esquema Nacional de Seguridad",
   "norm_c4_desc": "Arquitectura alineable con el ENS para despachos que prestan servicios al sector público o trabajan con administraciones.",
-  "norm_c5_title": "SOC 2 (en proceso)",
-  "norm_c5_desc": "Controles de seguridad y auditoría alineados con el estándar internacional. Certificación Tipo II prevista para 2026.",
+  "norm_c5_title": "Postura SOC 2-ready",
+  "norm_c5_desc": "Controles de seguridad y auditoría diseñados siguiendo los criterios de SOC 2. No es una certificación: te enseñamos los controles en la revisión técnica.",
   "norm_c6_title": "CGAE — Consejo General de la Abogacía Española",
   "norm_c6_desc": "Diseñado en línea con las recomendaciones del CGAE sobre uso responsable de IA en la abogacía y deontología profesional.",
 
