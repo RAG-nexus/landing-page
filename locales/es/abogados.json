@@ -1,7 +1,7 @@
 {
   "hero_tagline": "PARA DESPACHOS DE 20 A 80 ABOGADOS",
   "hero_title": "Tu despacho lleva años acumulando criterio.\nTu equipo tarda demasiado en encontrarlo.",
-  "hero_description": "RAGnexus es el asistente de IA que aprende del trabajo de tu despacho — contratos, escritos, dictámenes, expedientes de años anteriores — y responde a tus abogados en segundos, citando siempre el documento de origen. Sin que un solo expediente salga del despacho.",
+  "hero_description": "RAGnexus es el asistente de IA que recupera el trabajo de tu despacho — contratos, escritos, dictámenes, expedientes de años anteriores — y responde a tus abogados en segundos, citando siempre el documento de origen. Sin que un solo expediente salga del despacho.",
   "hero_cta_primary": "Agendar reunión de 20 min",
   "hero_cta_secondary": "Ver cómo funciona ↓",
   "hero_trust_1": "Diseñado para el secreto profesional",
@@ -25,12 +25,12 @@
   "problema_destacado": "Hay una forma de capitalizar el criterio del despacho — sin exponer un solo expediente a terceros.",
 
   "solucion_h2": "Tu despacho con IA propia.\nSin renunciar al secreto profesional ni al control del dato.",
-  "solucion_sub": "Tres pasos. De cuatro a ocho semanas. Cero exposición de expedientes a proveedores externos.",
+  "solucion_sub": "Tres pasos. De cuatro a ocho semanas. Tus expedientes no salen de la UE.",
   "solucion_s1_num": "01",
   "solucion_s1_title": "Conectamos las fuentes de criterio del despacho",
   "solucion_s1_desc": "Integramos RAGnexus con vuestro gestor documental (iManage, NetDocuments, Kleos, Lexon, Jurisoft, o vuestra estructura de carpetas), con vuestro correo corporativo y con las bases de datos jurídicas externas que ya tenéis licencia (Aranzadi, Tirant, vLex, Lefebvre). El asistente trabaja sobre vuestro material — no sobre internet.",
   "solucion_s2_num": "02",
-  "solucion_s2_title": "Aprendemos en infraestructura europea",
+  "solucion_s2_title": "Indexamos en infraestructura europea",
   "solucion_s2_desc": "La base documental del despacho se procesa en servidores europeos dedicados a vuestra firma — o en vuestra propia infraestructura, si lo preferís. El modelo de IA opera sobre ese material respetando los permisos por usuario, por departamento y por cliente que ya tenéis definidos.",
   "solucion_s3_num": "03",
   "solucion_s3_title": "Vuestro equipo pregunta como hablaría con un compañero",

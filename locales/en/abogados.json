@@ -1,7 +1,7 @@
 {
   "hero_tagline": "FOR LAW FIRMS OF 20 TO 80 LAWYERS",
   "hero_title": "Your firm has been accumulating expertise for years.\nYour team takes too long to find it.",
-  "hero_description": "RAGnexus is the AI assistant that learns from your firm's work — past contracts, briefs, legal opinions, and client files — and answers your lawyers in seconds, always citing the source document. Without a single file ever leaving the firm.",
+  "hero_description": "RAGnexus is the AI assistant that retrieves your firm's past work — past contracts, briefs, legal opinions, and client files — and answers your lawyers in seconds, always citing the source document. Without a single file ever leaving the firm.",
   "hero_cta_primary": "Book a 20-min call",
   "hero_cta_secondary": "See how it works ↓",
   "hero_trust_1": "Designed for professional secrecy",
@@ -25,12 +25,12 @@
   "problema_destacado": "There is a way to capitalize on your firm's collective expertise — without exposing a single file to third parties.",
 
   "solucion_h2": "Your firm with its own proprietary AI.\nWithout sacrificing professional secrecy or data control.",
-  "solucion_sub": "Three steps. Four to eight weeks. Zero exposure of files to external vendors.",
+  "solucion_sub": "Three steps. Four to eight weeks. Your case files never leave the EU.",
   "solucion_s1_num": "01",
   "solucion_s1_title": "We connect your firm's sources of expertise",
   "solucion_s1_desc": "We integrate RAGnexus with your document management system (iManage, NetDocuments, Kleos, Lexon, Jurisoft, or your custom folder structure), your corporate email, and the external legal databases you already license (Aranzadi, Tirant, vLex, Lefebvre). The assistant works on your firm's materials — not the open web.",
   "solucion_s2_num": "02",
-  "solucion_s2_title": "We train and host on European infrastructure",
+  "solucion_s2_title": "We index on European infrastructure",
   "solucion_s2_desc": "Your firm's document base is processed on dedicated European servers assigned to your firm — or in your own on-premise infrastructure if you prefer. The AI model operates on that material, fully respecting the user, department, and client permissions you have already defined.",
   "solucion_s3_num": "03",
   "solucion_s3_title": "Your team asks questions just like they would to a colleague",
