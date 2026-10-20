@@ -331,7 +331,7 @@ export default async function Index({
                   { feature: t("compare-f1"), competitor: 'cross' },
                   { feature: t("compare-f2a"), competitor: 'warning', competitorLabel: t("compare-val-depends") },
                   { feature: t("compare-f2b"), competitor: 'cross' },
-                  { feature: t("compare-f2c"), competitor: 'warning', ragnexusLabel: t("compare-val-guaranteed"), competitorLabel: t("compare-val-plan-dependent") },
+                  { feature: t("compare-f2c"), competitor: 'warning', ragnexusLabel: t("compare-val-no-training"), competitorLabel: t("compare-val-plan-dependent") },
                   { feature: t("compare-f3"), competitor: 'cross' },
                   { feature: t("compare-f4"), competitor: 'warning' },
                   { feature: t("compare-f5"), competitor: 'cross' },
