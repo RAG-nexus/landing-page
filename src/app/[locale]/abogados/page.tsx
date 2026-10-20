@@ -22,20 +22,20 @@ export async function generateMetadata({
   const metaData = {
     es: {
       title: "IA privada para despachos jurídicos en España | RAGnexus",
-      description: "Asistente de IA privado para despachos de 20 a 80 abogados. Encuentra precedentes, cláusulas y jurisprudencia interna en segundos. Cumple con el secreto profesional. Sin enviar datos a OpenAI, Google o Microsoft.",
+      description: "Asistente de IA privado para despachos de 20 a 80 abogados. Encuentra precedentes, cláusulas y jurisprudencia interna en segundos. Cumple con el secreto profesional. Datos en Europa y opción on-premise sin proveedores externos.",
       openGraph: {
         title: "IA privada para despachos jurídicos | RAGnexus",
-        description: "Tu equipo encuentra cualquier documento, cláusula o precedente en segundos. Sin que un solo documento salga del despacho.",
+        description: "Tu equipo encuentra cualquier documento, cláusula o precedente en segundos. Tus documentos no salen de Europa.",
         type: "website",
         locale: "es_ES",
       }
     },
     en: {
       title: "Private AI for Law Firms in Spain | RAGnexus",
-      description: "Private AI assistant for law firms of 20 to 80 lawyers. Find precedents, clauses, and internal case law in seconds. Complies with professional secrecy. Without sending data to OpenAI, Google, or Microsoft.",
+      description: "Private AI assistant for law firms of 20 to 80 lawyers. Find precedents, clauses, and internal case law in seconds. Complies with professional secrecy. Data in Europe and an on-premise option with no external providers.",
       openGraph: {
         title: "Private AI for Law Firms | RAGnexus",
-        description: "Your team finds any document, clause, or precedent in seconds. Without a single document leaving the firm.",
+        description: "Your team finds any document, clause, or precedent in seconds. Your documents never leave Europe.",
         type: "website",
         locale: "en_US",
       }

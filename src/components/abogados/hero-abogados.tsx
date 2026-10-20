@@ -7,7 +7,7 @@ export function HeroAbogados() {
   const t = useTranslations("abogados");
 
   return (
-    <section className="bg-gray-50 pt-32 pb-24 border-b border-gray-200">
+    <section className="bg-gray-50 pt-32 pb-24 border-b border-gray-200 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
         {/* Texto a la izquierda (60%) */}
         <div className="lg:col-span-7 flex flex-col items-start text-left">
