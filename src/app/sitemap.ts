@@ -46,7 +46,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const localeDir = path.join(process.cwd(), "src/app/[locale]");
   const pageDirs = getRoutesFromDir(localeDir);
 
-  return pageDirs.map((dir) => {
+  // Pages that must stay out of the sitemap (noindex).
+  const excluded = new Set(["thank-you"]);
+
+  return pageDirs
+    .filter((dir) => !excluded.has(path.relative(localeDir, dir)))
+    .map((dir) => {
     const relative = path.relative(localeDir, dir);
     const routePath = relative === "" ? "" : `/${relative}`;
     const defaultUrl = `${baseUrl}/${routing.defaultLocale}${routePath}`;

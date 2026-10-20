@@ -1,3 +1,4 @@
+import { buildMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 
@@ -8,19 +9,20 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const metaData = {
-    en: {
-      title: "Privacy Policy | How RAGnexus Protects Your Data",
-      description:
-        "Learn how RAGnexus collects, uses, and protects your personal data. Read our privacy policy to understand your rights and how we ensure data security.",
-    },
     es: {
-      title: "Política de Privacidad | Cómo RAGnexus Protege Tus Datos",
+      title: "Política de privacidad | RAGnexus",
       description:
-        "Descubre cómo RAGnexus recopila, utiliza y protege tus datos personales. Lee nuestra política de privacidad para conocer tus derechos y cómo garantizamos la seguridad de tus datos.",
+        "Cómo trata RAGnexus los datos personales de quienes visitan esta web o nos contactan: qué recogemos, para qué, con quién y cuáles son tus derechos.",
+    },
+    en: {
+      title: "Privacy policy | RAGnexus",
+      description:
+        "How RAGnexus handles the personal data of people who visit this site or contact us: what we collect, why, who with, and what your rights are.",
     },
   };
 
-  return metaData[locale as keyof typeof metaData];
+  const { title, description } = metaData[locale as keyof typeof metaData] ?? metaData.en;
+  return buildMetadata({ locale, path: "/politica-de-privacidad", title, description });
 }
 
 export default async function PrivacyPolicy({

@@ -2,6 +2,7 @@ import { Link } from "@/i18n/navigation";
 import { Button } from "@/components/ui/button";
 import { Integrations } from "@/components";
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import { buildMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
 import VideoSection from "@/components/video-section";
 import { CostCalculator } from "@/components/cost-calculator";
@@ -26,17 +27,20 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const metaData = {
-    en: {
-      title: "RAGnexus",
-      description: "RAGnexus. Your AI enabler.",
-    },
     es: {
-      title: "RAGnexus",
-      description: "RAGnexus. Tu conexión con la IA",
+      title: "IA privada para empresas, con datos en Europa | RAGnexus",
+      description:
+        "Asistente de IA conectado a los documentos de tu empresa. Cada respuesta cita su fuente y tus datos no salen de Europa. Nube europea u on-premise.",
+    },
+    en: {
+      title: "Private AI for business, data kept in Europe | RAGnexus",
+      description:
+        "An AI assistant grounded in your company's documents. Every answer cites its source, and your data never leaves Europe. EU cloud or on-premise.",
     },
   };
 
-  return metaData[locale as keyof typeof metaData];
+  const { title, description } = metaData[locale as keyof typeof metaData] ?? metaData.en;
+  return buildMetadata({ locale, path: "", title, description });
 }
 
 export default async function Index({

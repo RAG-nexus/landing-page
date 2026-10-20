@@ -1,6 +1,7 @@
 import React from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import { buildMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
 
 export async function generateMetadata({
@@ -10,20 +11,20 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const metaData = {
-    en: {
-      title: "Use Cases | How RAGnexus AI Chatbots Transform Businesses",
-      description:
-        "Discover real-world use cases of RAGnexus AI chatbots. Learn how businesses leverage our solutions to streamline operations, enhance customer support, and unlock the power of their internal knowledge.",
-    },
     es: {
-      title:
-        "Casos de Uso | Cómo los Chatbots de RAGnexus Transforman Empresas",
+      title: "Caso de uso: un chat de IA para tu web | RAGnexus",
       description:
-        "Descubre casos de uso reales de los chatbots de RAGnexus. Aprende cómo las empresas aprovechan nuestras soluciones para optimizar operaciones, mejorar el soporte al cliente y aprovechar el conocimiento interno.",
+        "El mismo chat que ves en esta web: un asistente de IA que usa el contenido de tu sitio para responder con contexto completo sobre tu oferta.",
+    },
+    en: {
+      title: "Use case: an AI chat for your website | RAGnexus",
+      description:
+        "The same chat you see on this site: an AI assistant that uses your website's content to answer with full context about your offer.",
     },
   };
 
-  return metaData[locale as keyof typeof metaData];
+  const { title, description } = metaData[locale as keyof typeof metaData] ?? metaData.en;
+  return buildMetadata({ locale, path: "/use-cases", title, description });
 }
 
 export default async function UseCasesPage({

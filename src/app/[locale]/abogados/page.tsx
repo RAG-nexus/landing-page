@@ -1,4 +1,5 @@
 import { setRequestLocale } from "next-intl/server";
+import { buildMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
 
 import { HeroAbogados } from "@/components/abogados/hero-abogados";
@@ -21,28 +22,19 @@ export async function generateMetadata({
   const { locale } = await params;
   const metaData = {
     es: {
-      title: "IA privada para despachos jurídicos en España | RAGnexus",
-      description: "Asistente de IA privado para despachos de 20 a 80 abogados. Encuentra precedentes, cláusulas y jurisprudencia interna en segundos. Cumple con el secreto profesional. Datos en Europa y opción on-premise sin proveedores externos.",
-      openGraph: {
-        title: "IA privada para despachos jurídicos | RAGnexus",
-        description: "Tu equipo encuentra cualquier documento, cláusula o precedente en segundos. Tus documentos no salen de Europa.",
-        type: "website",
-        locale: "es_ES",
-      }
+      title: "IA privada para despachos de abogados en España | RAGnexus",
+      description:
+        "Asistente de IA para despachos de 20 a 80 abogados: encuentra precedentes y cláusulas internas citando la fuente. Datos en Europa y opción on-premise.",
     },
     en: {
-      title: "Private AI for Law Firms in Spain | RAGnexus",
-      description: "Private AI assistant for law firms of 20 to 80 lawyers. Find precedents, clauses, and internal case law in seconds. Complies with professional secrecy. Data in Europe and an on-premise option with no external providers.",
-      openGraph: {
-        title: "Private AI for Law Firms | RAGnexus",
-        description: "Your team finds any document, clause, or precedent in seconds. Your documents never leave Europe.",
-        type: "website",
-        locale: "en_US",
-      }
-    }
+      title: "Private AI for law firms in Spain | RAGnexus",
+      description:
+        "An AI assistant for firms of 20 to 80 lawyers: find internal precedents and clauses with the source cited. Data kept in Europe, on-premise option.",
+    },
   };
 
-  return metaData[locale as keyof typeof metaData] || metaData.es;
+  const { title, description } = metaData[locale as keyof typeof metaData] ?? metaData.en;
+  return buildMetadata({ locale, path: "/abogados", title, description });
 }
 
 export default async function AbogadosPage({

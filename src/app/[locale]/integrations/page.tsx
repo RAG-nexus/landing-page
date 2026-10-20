@@ -49,6 +49,7 @@ import {
 import { BsMicrosoftTeams } from "react-icons/bs";
 import { GoogleGmail } from "@/components/ui/icons";
 
+import { buildMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
 
 export async function generateMetadata({
@@ -58,19 +59,20 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const metaData = {
-    en: {
-      title: "Integrations | Connect Your Tools with RAGnexus",
-      description:
-        "Discover how RAGnexus integrates with your favorite tools like Confluence, Gmail, Slack, and more. Seamlessly connect your knowledge sources to power smarter chatbots for your business.",
-    },
     es: {
-      title: "Integraciones | Conecta Tus Herramientas con RAGnexus",
+      title: "Integraciones con SharePoint, Drive y Notion | RAGnexus",
       description:
-        "Descubre cómo RAGnexus se integra con tus herramientas favoritas como Confluence, Gmail, Slack y más. Conecta tus fuentes de conocimiento fácilmente para potenciar chatbots más inteligentes para tu empresa.",
+        "RAGnexus se conecta a SharePoint, Google Drive, Notion, Confluence, Slack, Salesforce, HubSpot y muchas otras herramientas que tu empresa ya usa.",
+    },
+    en: {
+      title: "Integrations with SharePoint, Drive and Notion | RAGnexus",
+      description:
+        "RAGnexus connects to SharePoint, Google Drive, Notion, Confluence, Slack, Salesforce, HubSpot, and many other tools your company already uses.",
     },
   };
 
-  return metaData[locale as keyof typeof metaData];
+  const { title, description } = metaData[locale as keyof typeof metaData] ?? metaData.en;
+  return buildMetadata({ locale, path: "/integrations", title, description });
 }
 
 interface Integration {

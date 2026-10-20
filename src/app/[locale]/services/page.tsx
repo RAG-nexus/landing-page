@@ -1,6 +1,7 @@
 import React from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import { buildMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
 
 export async function generateMetadata({
@@ -10,19 +11,20 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const metaData = {
-    en: {
-      title: "Services | Custom AI Chatbots and Integrations by RAGnexus",
-      description:
-        "Explore RAGnexus services, including custom chatbot development, seamless integration into your platforms, subscription maintenance, and expert training. Empower your business with AI-driven solutions.",
-    },
     es: {
-      title: "Servicios | Chatbots Personalizados e Integraciones por RAGnexus",
+      title: "Servicios de asistentes de IA a medida | RAGnexus",
       description:
-        "Descubre los servicios de RAGnexus, como el desarrollo de chatbots personalizados, integración en tus plataformas, mantenimiento por suscripción y formación experta. Impulsa tu negocio con soluciones basadas en IA.",
+        "Desarrollo de asistentes de IA con tus propios datos, integración en tus plataformas, mantenimiento por suscripción y formación para tu equipo.",
+    },
+    en: {
+      title: "Custom AI assistant services | RAGnexus",
+      description:
+        "Development of AI assistants grounded in your own data, integration into your platforms, subscription maintenance, and training for your team.",
     },
   };
 
-  return metaData[locale as keyof typeof metaData];
+  const { title, description } = metaData[locale as keyof typeof metaData] ?? metaData.en;
+  return buildMetadata({ locale, path: "/services", title, description });
 }
 
 interface ListDiscProps {

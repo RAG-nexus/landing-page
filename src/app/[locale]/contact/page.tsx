@@ -1,5 +1,6 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { ContactForm } from "@/components/contact-form";
+import { buildMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
 
 export async function generateMetadata({
@@ -9,19 +10,20 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const metaData = {
-    en: {
-      title: "Contact Us | Get in Touch with RAGnexus",
-      description:
-        "Have questions or need assistance? Contact RAGnexus today. Fill out our form or reach out to us directly. We're here to help!",
-    },
     es: {
-      title: "Contáctanos | Ponte en Contacto con RAGnexus",
+      title: "Reserva una demo de 20 minutos | RAGnexus",
       description:
-        "¿Tienes preguntas o necesitas ayuda? Contacta con RAGnexus hoy. Rellena nuestro formulario o comunícate con nosotros directamente. ¡Estamos aquí para ayudarte",
+        "Habla 20 minutos con el fundador y te diremos con honestidad si RAGnexus encaja en tu empresa, o si no. Sin compromiso y sin presentación enlatada.",
+    },
+    en: {
+      title: "Book a 20-minute demo | RAGnexus",
+      description:
+        "Talk to the founder for 20 minutes and we'll tell you honestly whether RAGnexus fits your company, or not. No commitment, no canned presentation.",
     },
   };
 
-  return metaData[locale as keyof typeof metaData];
+  const { title, description } = metaData[locale as keyof typeof metaData] ?? metaData.en;
+  return buildMetadata({ locale, path: "/contact", title, description });
 }
 
 export default async function Contact({
