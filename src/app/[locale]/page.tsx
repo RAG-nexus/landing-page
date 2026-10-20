@@ -4,6 +4,7 @@ import { Integrations } from "@/components";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { Metadata } from "next";
 import VideoSection from "@/components/video-section";
+import { CostCalculator } from "@/components/cost-calculator";
 import {
   Search,
   Copy,
@@ -432,85 +433,8 @@ export default async function Index({
       {locale === "es" && <VideoSection />}
       <Integrations />
 
-      {/* ROI Illustrative Case */}
-      <section className="py-24 bg-gray-50 dark:bg-gray-800" id="roi">
-        <div className="max-w-5xl mx-auto px-4">
-          <div className="text-center mb-16">
-            <span className="inline-block bg-emerald-100 dark:bg-emerald-900/40 text-emerald-700 dark:text-emerald-300 text-sm font-semibold px-4 py-1.5 rounded-full mb-4">{t("roi-badge")}</span>
-            <h2 className="text-3xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4 tracking-tight">{t("roi-title")}</h2>
-            <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">{t("roi-subtitle")}</p>
-          </div>
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-12">
-            {[
-              { label: t("roi-card-1-label"), before: t("roi-card-1-before"), after: t("roi-card-1-after"), icon: '🔍' },
-              { label: t("roi-card-2-label"), before: t("roi-card-2-before"), after: t("roi-card-2-after"), icon: '💸' },
-              { label: t("roi-card-3-label"), before: t("roi-card-3-before"), after: t("roi-card-3-after"), icon: '📈' },
-            ].map((item, i) => (
-              <div key={i} className="bg-white dark:bg-gray-900 rounded-2xl border border-gray-200 dark:border-gray-700 p-6 shadow-sm">
-                <div className="text-3xl mb-3">{item.icon}</div>
-                <p className="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-3">{item.label}</p>
-                <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
-                  <span className="text-gray-400 line-through text-base">{item.before}</span>
-                  <span className="text-emerald-600 dark:text-emerald-400 font-bold text-xl">{item.after}</span>
-                </div>
-              </div>
-            ))}
-          </div>
-          <div className="bg-emerald-900 text-white rounded-3xl p-8 lg:p-10">
-            {/* Desktop View */}
-            <div className="hidden lg:block overflow-x-auto">
-              <table className="w-full text-sm min-w-[500px]">
-                <thead>
-                  <tr className="border-b border-emerald-700">
-                    <th className="text-left py-3 text-emerald-200 font-semibold">{t("roi-table-header-concept")}</th>
-                    <th className="text-right py-3 text-emerald-200 font-semibold">{t("roi-table-header-without")}</th>
-                    <th className="text-right py-3 text-emerald-300 font-bold">{t("roi-table-header-with")}</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-emerald-800">
-                  {[
-                    [t("roi-table-row-1"), t("roi-table-row-1-before"), t("roi-table-row-1-after")],
-                    [t("roi-table-row-2"), t("roi-table-row-2-before"), t("roi-table-row-2-after")],
-                    [t("roi-table-row-3"), t("roi-table-row-3-before"), t("roi-table-row-3-after")],
-                    [t("roi-table-row-4"), t("roi-table-row-4-before"), t("roi-table-row-4-after")],
-                  ].map(([concept, before, after], i) => (
-                    <tr key={i}>
-                      <td className="py-3 text-emerald-100">{concept}</td>
-                      <td className="py-3 text-right text-gray-400">{before}</td>
-                      <td className="py-3 text-right text-emerald-300 font-semibold">{after}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-
-            {/* Mobile View */}
-            <div className="lg:hidden space-y-6">
-              {[
-                [t("roi-table-row-1"), t("roi-table-row-1-before"), t("roi-table-row-1-after")],
-                [t("roi-table-row-2"), t("roi-table-row-2-before"), t("roi-table-row-2-after")],
-                [t("roi-table-row-3"), t("roi-table-row-3-before"), t("roi-table-row-3-after")],
-                [t("roi-table-row-4"), t("roi-table-row-4-before"), t("roi-table-row-4-after")],
-              ].map(([concept, before, after], i) => (
-                <div key={i} className="border-b border-emerald-800/50 pb-4 last:border-0">
-                  <p className="text-emerald-200 font-semibold mb-3 text-sm">{concept}</p>
-                  <div className="flex justify-between items-end">
-                    <div className="flex flex-col">
-                      <span className="text-[10px] text-emerald-500 uppercase font-bold tracking-wider">{t("roi-table-header-without")}</span>
-                      <span className="text-gray-400 text-lg">{before}</span>
-                    </div>
-                    <div className="flex flex-col items-end">
-                      <span className="text-[10px] text-emerald-400 uppercase font-bold tracking-wider">{t("roi-table-header-with")}</span>
-                      <span className="text-emerald-300 text-xl font-bold">{after}</span>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-            <p className="text-emerald-400 text-xs mt-6 text-center">{t("roi-disclaimer")}</p>
-          </div>
-        </div>
-      </section>
+      {/* Search cost calculator (user's own numbers only) */}
+      <CostCalculator supportsDark className="bg-gray-50 dark:bg-gray-800" />
 
       {/* Founder / Built in Spain */}
       <section className="py-24 bg-white dark:bg-gray-900" id="founder">

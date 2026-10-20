@@ -3,6 +3,7 @@ import React from "react";
 import Script from "next/script";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
+import { COST_CALCULATOR_ANCHOR } from "@/lib/cost-calculator";
 
 export const Footer: React.FC = () => {
   const t = useTranslations("common");
@@ -29,7 +30,7 @@ export const Footer: React.FC = () => {
             <ul className="space-y-2 text-sm">
               <li><Link href="#offer" className="hover:text-white transition-colors">{t("footer-how-it-works")}</Link></li>
               <li><Link href="#verticals" className="hover:text-white transition-colors">{t("footer-sectors")}</Link></li>
-              <li><Link href="#roi" className="hover:text-white transition-colors">{t("footer-roi")}</Link></li>
+              <li><Link href={`#${COST_CALCULATOR_ANCHOR}`} className="hover:text-white transition-colors">{t("footer-cost-calculator")}</Link></li>
               <li><Link href="#compare" className="hover:text-white transition-colors">{t("footer-vs-chatgpt")}</Link></li>
             </ul>
           </div>

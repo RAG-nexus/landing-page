@@ -10,6 +10,7 @@ const namespaces = [
   "services",
   "use-cases",
   "abogados",
+  "calculator",
 ] as const;
 
 export default getRequestConfig(async ({ requestLocale }) => {
