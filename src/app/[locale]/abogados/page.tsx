@@ -34,7 +34,7 @@ export async function generateMetadata({
   };
 
   const { title, description } = metaData[locale as keyof typeof metaData] ?? metaData.en;
-  return buildMetadata({ locale, path: "/abogados", title, description });
+  return buildMetadata({ locale, route: "/abogados", title, description });
 }
 
 export default async function AbogadosPage({

@@ -23,7 +23,7 @@ export async function generateMetadata({
   };
 
   const { title, description } = metaData[locale as keyof typeof metaData] ?? metaData.en;
-  return buildMetadata({ locale, path: "/contact", title, description });
+  return buildMetadata({ locale, route: "/contact", title, description });
 }
 
 export default async function Contact({

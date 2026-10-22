@@ -22,7 +22,7 @@ export async function generateMetadata({
   };
 
   const { title, description } = metaData[locale as keyof typeof metaData] ?? metaData.en;
-  return buildMetadata({ locale, path: "/politica-de-privacidad", title, description });
+  return buildMetadata({ locale, route: "/politica-de-privacidad", title, description });
 }
 
 export default async function PrivacyPolicy({

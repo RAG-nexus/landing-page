@@ -40,7 +40,7 @@ export async function generateMetadata({
   };
 
   const { title, description } = metaData[locale as keyof typeof metaData] ?? metaData.en;
-  return buildMetadata({ locale, path: "", title, description });
+  return buildMetadata({ locale, route: "/", title, description });
 }
 
 export default async function Index({
@@ -77,9 +77,9 @@ export default async function Index({
                 {t("hero-cta-primary")}
               </Button>
             </Link>
-            <Link href="#offer" className="flex items-center justify-center gap-2 text-gray-300 hover:text-white font-medium transition-colors px-4 py-3">
+            <a href="#offer" className="flex items-center justify-center gap-2 text-gray-300 hover:text-white font-medium transition-colors px-4 py-3">
               {t("hero-cta-secondary")}
-            </Link>
+            </a>
           </div>
           <div className="w-full max-w-4xl mx-auto border-t border-gray-700/50 pt-8">
             <div className="flex flex-wrap justify-center items-center gap-x-8 gap-y-4 text-sm font-medium text-gray-400">

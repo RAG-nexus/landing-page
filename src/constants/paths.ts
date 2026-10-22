@@ -1,5 +1,6 @@
 export const RAG_NEXUS_SVG = "/ragnexus.svg";
-export const ABOUT_PAGE_PATH = "#about";
+// Section of the home page; works from any page and in either language.
+export const ABOUT_PAGE_PATH = { pathname: "/", hash: "about" } as const;
 export const CONTACT_PAGE_PATH = "/contact";
 export const HOME_PAGE_PATH = "/";
 export const SERVICES_PAGE_PATH = "/services";

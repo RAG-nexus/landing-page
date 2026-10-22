@@ -9,7 +9,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const title = locale === "es" ? "Gracias | RAGnexus" : "Thank you | RAGnexus";
-  return buildMetadata({ locale, path: "/thank-you", title, noindex: true });
+  return buildMetadata({ locale, route: "/thank-you", title });
 }
 
 export default async function ThankYou({

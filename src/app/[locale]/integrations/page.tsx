@@ -72,7 +72,7 @@ export async function generateMetadata({
   };
 
   const { title, description } = metaData[locale as keyof typeof metaData] ?? metaData.en;
-  return buildMetadata({ locale, path: "/integrations", title, description });
+  return buildMetadata({ locale, route: "/integrations", title, description });
 }
 
 interface Integration {

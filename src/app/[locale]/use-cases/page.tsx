@@ -24,7 +24,7 @@ export async function generateMetadata({
   };
 
   const { title, description } = metaData[locale as keyof typeof metaData] ?? metaData.en;
-  return buildMetadata({ locale, path: "/use-cases", title, description });
+  return buildMetadata({ locale, route: "/use-cases", title, description });
 }
 
 export default async function UseCasesPage({
