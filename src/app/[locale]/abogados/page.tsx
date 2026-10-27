@@ -1,5 +1,6 @@
+import { PageJsonLd } from "@/components/json-ld";
 import { setRequestLocale } from "next-intl/server";
-import { buildMetadata } from "@/lib/seo";
+import { pageMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
 
 import { HeroAbogados } from "@/components/abogados/hero-abogados";
@@ -20,21 +21,7 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  const metaData = {
-    es: {
-      title: "IA privada para despachos de abogados en España | RAGnexus",
-      description:
-        "Asistente de IA para despachos de 20 a 80 abogados: encuentra precedentes y cláusulas internas citando la fuente. Datos en Europa y opción on-premise.",
-    },
-    en: {
-      title: "Private AI for law firms in Spain | RAGnexus",
-      description:
-        "An AI assistant for firms of 20 to 80 lawyers: find internal precedents and clauses with the source cited. Data kept in Europe, on-premise option.",
-    },
-  };
-
-  const { title, description } = metaData[locale as keyof typeof metaData] ?? metaData.en;
-  return buildMetadata({ locale, route: "/abogados", title, description });
+  return pageMetadata("/abogados", locale);
 }
 
 export default async function AbogadosPage({
@@ -47,6 +34,7 @@ export default async function AbogadosPage({
 
   return (
     <main>
+      <PageJsonLd route="/abogados" locale={locale} />
       <HeroAbogados />
       <ProblemaAbogados />
       <SolucionAbogados />

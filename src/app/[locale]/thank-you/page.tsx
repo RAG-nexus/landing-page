@@ -1,6 +1,6 @@
 import { setRequestLocale } from "next-intl/server";
 import type { Metadata } from "next";
-import { buildMetadata } from "@/lib/seo";
+import { pageMetadata } from "@/lib/seo";
 
 export async function generateMetadata({
   params,
@@ -8,8 +8,7 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  const title = locale === "es" ? "Gracias | RAGnexus" : "Thank you | RAGnexus";
-  return buildMetadata({ locale, route: "/thank-you", title });
+  return pageMetadata("/thank-you", locale);
 }
 
 export default async function ThankYou({

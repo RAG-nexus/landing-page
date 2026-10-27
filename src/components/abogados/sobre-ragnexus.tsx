@@ -33,7 +33,7 @@ export function SobreRAGnexus() {
                   {t("sobre_cita")}
                 </blockquote>
                 <div>
-                  <p className="font-bold text-gray-900 text-lg">{t("sobre_nombre")}</p>
+                  <Link href="/javier-perez" className="font-bold text-gray-900 text-lg hover:underline">{t("sobre_nombre")}</Link>
                   <p className="text-gray-500">{t("sobre_rol")}</p>
                 </div>
               </div>

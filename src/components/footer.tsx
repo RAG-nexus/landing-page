@@ -32,6 +32,7 @@ export const Footer: React.FC = () => {
               <li><Link href={{ pathname: "/", hash: "verticals" }} className="hover:text-white transition-colors">{t("footer-sectors")}</Link></li>
               <li><Link href={{ pathname: "/", hash: COST_CALCULATOR_ANCHOR }} className="hover:text-white transition-colors">{t("footer-cost-calculator")}</Link></li>
               <li><Link href={{ pathname: "/", hash: "compare" }} className="hover:text-white transition-colors">{t("footer-vs-chatgpt")}</Link></li>
+              <li><Link href="/javier-perez" className="hover:text-white transition-colors">{t("footer-founder")}</Link></li>
             </ul>
           </div>
 

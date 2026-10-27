@@ -1,0 +1,22 @@
+{
+  "breadcrumb-label": "Ruta de navegación",
+  "role": "CEO y fundador de <company>RAGnexus</company>",
+  "linkedin": "LinkedIn",
+  "book-call": "Reservar una llamada",
+  "letter-title": "Por qué fundé RAGnexus",
+  "letter-1": "Cuando las empresas empezaron a usar IA en serio, vi a muchos despachos y equipos ante la misma duda. Aprovecharla con sus propios documentos implicaba enviar contratos, expedientes y procedimientos internos a servicios que no controlaban. Muchos decidieron esperar. Otros siguieron adelante sin saber muy bien dónde acababan sus datos.",
+  "letter-2": "Fundé RAGnexus para que nadie tenga que elegir entre las dos cosas. Es un asistente que responde a partir de los documentos de cada empresa y cita siempre el documento de origen, así que cualquiera puede comprobar de dónde sale una respuesta. Los documentos se guardan en servidores europeos o en la infraestructura del propio cliente, y las respuestas se generan en Europa.",
+  "letter-3": "Soy ingeniero de software y sigo trabajando en el producto. Cuando alguien me pregunta dónde están sus datos o cómo se ha generado una respuesta, se lo explico yo, con todo el detalle técnico que necesite. Quien confía a una herramienta el trabajo de su empresa debería poder hablar con quien la construye.",
+  "letter-4": "Ahora me centro en <lawfirms>despachos de 20 a 80 abogados en España</lawfirms> y en empresas europeas que necesitan saber en todo momento dónde está su información. Si después de una primera conversación veo que RAGnexus no es lo que necesitas, te lo diré.",
+  "letter-signature": "Javier",
+  "bio-title": "Biografía",
+  "bio-note": "En tercera persona, para presentaciones y artículos.",
+  "bio-copy": "Copiar biografía",
+  "bio-copied": "Biografía copiada",
+  "fact-expertise": "Especialidad",
+  "fact-contact": "Contacto",
+  "guides-title": "Guías de Javier",
+  "guide-read": "Leer la guía",
+  "contact-title": "Hablemos",
+  "contact-text": "Si estás valorando usar IA con los documentos de tu empresa, reserva una llamada de 20 minutos conmigo o escríbeme directamente."
+}

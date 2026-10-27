@@ -1,7 +1,8 @@
+import { PageJsonLd } from "@/components/json-ld";
 import React from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { buildMetadata } from "@/lib/seo";
+import { pageMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
 
 export async function generateMetadata({
@@ -10,21 +11,7 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  const metaData = {
-    es: {
-      title: "Servicios de asistentes de IA a medida | RAGnexus",
-      description:
-        "Desarrollo de asistentes de IA con tus propios datos, integración en tus plataformas, mantenimiento por suscripción y formación para tu equipo.",
-    },
-    en: {
-      title: "Custom AI assistant services | RAGnexus",
-      description:
-        "Development of AI assistants grounded in your own data, integration into your platforms, subscription maintenance, and training for your team.",
-    },
-  };
-
-  const { title, description } = metaData[locale as keyof typeof metaData] ?? metaData.en;
-  return buildMetadata({ locale, route: "/services", title, description });
+  return pageMetadata("/services", locale);
 }
 
 interface ListDiscProps {
@@ -54,6 +41,7 @@ export default async function ServicesPage({
   ) as TListElement[];
   return (
     <section className="py-16 dark:bg-gray-700" id="offer">
+      <PageJsonLd route="/services" locale={locale} />
       <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-8">
         <Card className="w-full">
           <CardHeader>

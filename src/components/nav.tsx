@@ -18,6 +18,7 @@ const NavBar: React.FC = () => {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
 
+  // Pages whose top section is a dark hero (nav stays transparent until scrolled).
   const hasDarkHero = pathname === "/";
 
   useEffect(() => {

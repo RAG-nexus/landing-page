@@ -1,8 +1,9 @@
+import { PageJsonLd } from "@/components/json-ld";
 import { Link } from "@/i18n/navigation";
 import { Button } from "@/components/ui/button";
 import { Integrations } from "@/components";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { buildMetadata } from "@/lib/seo";
+import { pageMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
 import VideoSection from "@/components/video-section";
 import { CostCalculator } from "@/components/cost-calculator";
@@ -26,21 +27,7 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  const metaData = {
-    es: {
-      title: "IA privada para empresas, con datos en Europa | RAGnexus",
-      description:
-        "Asistente de IA conectado a los documentos de tu empresa. Cada respuesta cita su fuente y tus datos no salen de Europa. Nube europea u on-premise.",
-    },
-    en: {
-      title: "Private AI for business, data kept in Europe | RAGnexus",
-      description:
-        "An AI assistant grounded in your company's documents. Every answer cites its source, and your data never leaves Europe. EU cloud or on-premise.",
-    },
-  };
-
-  const { title, description } = metaData[locale as keyof typeof metaData] ?? metaData.en;
-  return buildMetadata({ locale, route: "/", title, description });
+  return pageMetadata("/", locale);
 }
 
 export default async function Index({
@@ -53,6 +40,7 @@ export default async function Index({
   const t = await getTranslations("home");
   return (
     <div key="1">
+      <PageJsonLd route="/" locale={locale} />
       {/* HERO — dark gradient, no image */}
       <header className="relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #0a1628 0%, #0d2137 40%, #0a2e1a 100%)' }}>
         {/* subtle grid pattern */}
@@ -454,7 +442,7 @@ export default async function Index({
                 </blockquote>
                 <div className="flex items-center gap-3">
                   <div>
-                    <p className="font-bold text-gray-900 dark:text-white">{t("founder-name")}</p>
+                    <Link href="/javier-perez" className="font-bold text-gray-900 dark:text-white hover:underline">{t("founder-name")}</Link>
                     <p className="text-sm text-gray-500 dark:text-gray-400">{t("founder-role")}</p>
                   </div>
                 </div>

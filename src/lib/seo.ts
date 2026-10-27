@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { getPageSeo } from "@/lib/page-seo";
 import {
   NOINDEX_PATHNAMES,
   absoluteUrl,
@@ -55,4 +56,10 @@ export function buildMetadata({
     },
     ...(noindex ? { robots: { index: false, follow: true } } : {}),
   };
+}
+
+/** generateMetadata for a page: title/description come from PAGE_SEO. */
+export function pageMetadata(route: AppPathname, locale: string): Metadata {
+  const { title, description } = getPageSeo(route, locale);
+  return buildMetadata({ locale, route, title, description: description || undefined });
 }

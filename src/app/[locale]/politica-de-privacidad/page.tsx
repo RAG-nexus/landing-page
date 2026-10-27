@@ -1,4 +1,5 @@
-import { buildMetadata } from "@/lib/seo";
+import { PageJsonLd } from "@/components/json-ld";
+import { pageMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 
@@ -8,21 +9,7 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  const metaData = {
-    es: {
-      title: "Política de privacidad | RAGnexus",
-      description:
-        "Cómo trata RAGnexus los datos personales de quienes visitan esta web o nos contactan: qué recogemos, para qué, con quién y cuáles son tus derechos.",
-    },
-    en: {
-      title: "Privacy policy | RAGnexus",
-      description:
-        "How RAGnexus handles the personal data of people who visit this site or contact us: what we collect, why, who with, and what your rights are.",
-    },
-  };
-
-  const { title, description } = metaData[locale as keyof typeof metaData] ?? metaData.en;
-  return buildMetadata({ locale, route: "/politica-de-privacidad", title, description });
+  return pageMetadata("/politica-de-privacidad", locale);
 }
 
 export default async function PrivacyPolicy({
@@ -34,6 +21,7 @@ export default async function PrivacyPolicy({
   setRequestLocale(locale);
   return (
     <div className="mx-12 my-4 text-justify text-sm">
+      <PageJsonLd route="/politica-de-privacidad" locale={locale} />
       <div className="iub_container iub_base_container">
         <div id="wbars">
           <div className="iub_content legal_pp">

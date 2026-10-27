@@ -24,6 +24,7 @@ export const routing = defineRouting({
     "/use-cases": { es: "/casos-de-uso", en: "/use-cases" },
     "/integrations": { es: "/integraciones", en: "/integrations" },
     "/contact": { es: "/contacto", en: "/contact" },
+    "/javier-perez": "/javier-perez",
     "/thank-you": { es: "/gracias", en: "/thank-you" },
   },
 });
