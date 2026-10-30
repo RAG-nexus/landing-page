@@ -1,0 +1,22 @@
+{
+  "breadcrumb-label": "Breadcrumb",
+  "role": "CEO & Founder of <company>RAGnexus</company>",
+  "linkedin": "LinkedIn",
+  "book-call": "Book a call",
+  "letter-title": "Why I started RAGnexus",
+  "letter-1": "When companies started using AI in earnest, I saw many law firms and teams stuck on the same question. Using it on their own documents meant sending contracts, case files and internal procedures to services they didn't control. Many decided to wait. Others went ahead without really knowing where their data ended up.",
+  "letter-2": "I started RAGnexus so that nobody has to choose between the two. It's an assistant that answers from each company's own documents and always cites the source document, so anyone can check where an answer comes from. Documents are stored on European servers or on the client's own infrastructure, and answers are generated in Europe.",
+  "letter-3": "I'm a software engineer and I still work on the product. When someone asks me where their data lives or how an answer was produced, I explain it myself, in as much technical detail as they need. Anyone trusting a tool with their company's work should be able to talk to the person who builds it.",
+  "letter-4": "Right now I'm focused on <lawfirms>law firms of 20 to 80 lawyers in Spain</lawfirms> and on European companies that need to know where their information is at all times. If after a first conversation I can see RAGnexus isn't what you need, I'll tell you.",
+  "letter-signature": "Javier",
+  "bio-title": "Bio",
+  "bio-note": "In the third person, for introductions and articles.",
+  "bio-copy": "Copy bio",
+  "bio-copied": "Bio copied",
+  "fact-expertise": "Expertise",
+  "fact-contact": "Contact",
+  "guides-title": "Guides by Javier",
+  "guide-read": "Read the guide",
+  "contact-title": "Let's talk",
+  "contact-text": "If you're considering using AI on your company's documents, book a 20-minute call with me or email me directly."
+}

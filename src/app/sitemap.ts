@@ -1,12 +1,17 @@
 import { MetadataRoute } from "next";
 import { execSync } from "child_process";
-import fs from "fs";
 import path from "path";
-import { routing } from "@/i18n/routing";
+import {
+  NOINDEX_PATHNAMES,
+  absoluteUrl,
+  hreflangUrls,
+  routing,
+  type AppPathname,
+} from "@/i18n/routing";
 
 function getLastModifiedDate(filePath: string): Date {
   try {
-    const command = `git log -1 --format=%cd --date=short -- ${filePath}`;
+    const command = `git log -1 --format=%cd --date=short -- "${filePath}"`;
     const stdout = execSync(command).toString().trim();
     return stdout ? new Date(stdout) : new Date();
   } catch (error) {
@@ -15,53 +20,24 @@ function getLastModifiedDate(filePath: string): Date {
   }
 }
 
-function getRoutesFromDir(dir: string): string[] {
-  const routes: string[] = [];
-  const items = fs.readdirSync(dir, { withFileTypes: true });
-
-  for (const item of items) {
-    if (
-      item.name.startsWith("api") ||
-      item.name.startsWith("_") ||
-      item.name.startsWith("(") ||
-      /^(layout|template|loading|error|not-found)\.(js|jsx|ts|tsx)$/.test(
-        item.name
-      )
-    ) {
-      continue;
-    }
-
-    const fullPath = path.join(dir, item.name);
-    if (item.isDirectory()) {
-      routes.push(...getRoutesFromDir(fullPath));
-    } else if (/^page\.(js|jsx|ts|tsx)$/.test(item.name)) {
-      routes.push(dir);
-    }
-  }
-  return routes;
-}
-
+/** Only indexable, non-redirecting URLs, each with es / en / x-default. */
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://ragnexus.com";
-  const localeDir = path.join(process.cwd(), "src/app/[locale]");
-  const pageDirs = getRoutesFromDir(localeDir);
+  const routes = (Object.keys(routing.pathnames) as AppPathname[]).filter(
+    (route) => !NOINDEX_PATHNAMES.includes(route)
+  );
 
-  return pageDirs.map((dir) => {
-    const relative = path.relative(localeDir, dir);
-    const routePath = relative === "" ? "" : `/${relative}`;
-    const defaultUrl = `${baseUrl}/${routing.defaultLocale}${routePath}`;
-
-    const languages = Object.fromEntries(
-      routing.locales.map((locale) => [
-        locale,
-        `${baseUrl}/${locale}${routePath}`,
-      ])
+  return routes.flatMap((route) => {
+    const pageFile = path.join(
+      process.cwd(),
+      "src/app/[locale]",
+      route === "/" ? "" : route,
+      "page.tsx"
     );
-
-    return {
-      url: defaultUrl,
-      lastModified: getLastModifiedDate(path.join(dir, "page.tsx")),
-      alternates: { languages },
-    };
+    const lastModified = getLastModifiedDate(pageFile);
+    return routing.locales.map((locale) => ({
+      url: absoluteUrl(route, locale),
+      lastModified,
+      alternates: { languages: hreflangUrls(route) },
+    }));
   });
 }
