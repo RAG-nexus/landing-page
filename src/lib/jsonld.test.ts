@@ -119,7 +119,7 @@ describe("pageGraph", () => {
     expect(profile.mainEntity).toEqual({ "@id": ID.person });
     const person = g.find((n) => n["@id"] === ID.person)!;
     expect(person.knowsAbout).toBeDefined();
-    expect(person.description).toMatch(/founder and CEO of RAGnexus/);
+    expect(person.description).toMatch(/software engineer based in Barcelona/);
   });
 
   it("uses fixed, absolute @id's that are identical in ES and EN", () => {

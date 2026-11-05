@@ -60,13 +60,7 @@ export function AuthorHero({ locale }: { locale: string }) {
             {PERSON_NAME}
           </h1>
           <p className="mt-2 text-lg sm:text-xl text-gray-600 dark:text-gray-300">
-            {t.rich("role", {
-              company: (chunks) => (
-                <Link href="/" className={contactLink}>
-                  {chunks}
-                </Link>
-              ),
-            })}
+            {t("role")}
           </p>
 
           <p className="mt-6 pt-6 border-t border-gray-200 dark:border-gray-700 max-w-2xl text-lg leading-8 text-gray-700 dark:text-gray-300">
@@ -88,9 +82,6 @@ export function AuthorHero({ locale }: { locale: string }) {
                 </a>
               </li>
             )}
-            <li>
-              <CopyButton text={bio} label={t("bio-copy")} copiedLabel={t("bio-copied")} />
-            </li>
           </ul>
         </div>
       </div>

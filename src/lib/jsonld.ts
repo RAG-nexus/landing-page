@@ -115,7 +115,7 @@ const COPY: Record<Locale, Copy> = {
       "Sin uso de tus datos para entrenar modelos",
     ],
     personBio:
-      "Javier Pérez es el fundador y CEO de RAGnexus. Ingeniero de software con base en Barcelona, trabaja con TypeScript, React y Node.js, y construye RAGnexus para que las empresas europeas puedan usar IA sobre su propio conocimiento sin perder el control de sus datos. Escribe sobre IA privada, protección de datos y regulación europea de la IA.",
+      "Ingeniero de software con base en Barcelona, trabaja con TypeScript, React y Node.js, y construye RAGnexus para que las empresas europeas puedan usar IA sobre su propio conocimiento sin perder el control de sus datos. Escribe sobre IA privada, protección de datos y regulación europea de la IA.",
   },
   en: {
     organizationDescription:
@@ -135,7 +135,7 @@ const COPY: Record<Locale, Copy> = {
       "Your data is never used to train models",
     ],
     personBio:
-      "Javier Pérez is the founder and CEO of RAGnexus. A software engineer based in Barcelona who works with TypeScript, React and Node.js, he is building RAGnexus so European companies can use AI on their own knowledge without losing control of their data. He writes about private AI, data protection and European AI regulation.",
+      "A software engineer based in Barcelona who works with TypeScript, React and Node.js, he is building RAGnexus so European companies can use AI on their own knowledge without losing control of their data. He writes about private AI, data protection and European AI regulation.",
   },
 };
 
