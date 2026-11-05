@@ -109,6 +109,20 @@ export const PAGE_SEO: Record<AppPathname, Record<Locale, PageSeo>> = {
       breadcrumb: "Privacy policy",
     },
   },
+  "/privacidad": {
+    es: {
+      title: "Privacidad de la plataforma | RAGnexus",
+      description:
+        "Qué datos trata la plataforma RAGnexus, para qué, con qué proveedores y durante cuánto tiempo, y cómo puedes ejercer tus derechos sobre ellos.",
+      breadcrumb: "Privacidad de la plataforma",
+    },
+    en: {
+      title: "Platform privacy policy | RAGnexus",
+      description:
+        "What data the RAGnexus platform processes, why, which providers are involved, how long it is kept, and how you can exercise your rights over it.",
+      breadcrumb: "Platform privacy policy",
+    },
+  },
   "/javier-perez": {
     es: {
       title: "Javier Pérez, CEO y fundador de RAGnexus | RAGnexus",

@@ -25,6 +25,7 @@ export const routing = defineRouting({
     "/integrations": { es: "/integraciones", en: "/integrations" },
     "/contact": { es: "/contacto", en: "/contact" },
     "/javier-perez": "/javier-perez",
+    "/privacidad": { es: "/privacidad", en: "/privacy" },
     "/thank-you": { es: "/gracias", en: "/thank-you" },
   },
 });
