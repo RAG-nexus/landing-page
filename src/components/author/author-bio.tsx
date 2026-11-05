@@ -15,7 +15,7 @@ export function AuthorBio({ locale }: { locale: string }) {
   const dd = "text-[1.05rem] text-gray-900 dark:text-gray-100";
 
   return (
-    <AuthorSection id="bio" title={t("bio-title")} note={t("bio-note")}>
+    <AuthorSection id="bio" title={t("bio-title")}>
       <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300">{bio}</p>
       <div className="mt-5">
         <CopyButton text={bio} label={t("bio-copy")} copiedLabel={t("bio-copied")} />

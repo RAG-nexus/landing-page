@@ -1,6 +1,5 @@
 import { useTranslations } from "next-intl";
 import { Source_Serif_4 } from "next/font/google";
-import { PERSON_NAME } from "@/lib/jsonld";
 import { AuthorSection } from "./author-section";
 
 // Only the first-person letter is set in a serif, so it reads as written by Javier.
@@ -15,13 +14,6 @@ export function AuthorLetter() {
     <AuthorSection
       id="why-ragnexus"
       title={t("letter-title")}
-      note={
-        <>
-          <time dateTime="2026-11-03">{t("letter-date")}</time>
-          <span aria-hidden="true"> · </span>
-          {PERSON_NAME}
-        </>
-      }
     >
       <div
         className={`${serif.className} space-y-4 text-lg sm:text-xl leading-7 sm:leading-8 text-gray-800 dark:text-gray-200`}
