@@ -38,11 +38,11 @@ export function AuthorHero({ locale }: { locale: string }) {
         </ol>
       </nav>
 
-      {/* Card on the same 12-column grid as AuthorSection: the photo fills columns 1-4 edge to edge
-          and stretches to the text's height, and the text starts where the letter below starts. */}
-      <div className="mt-8 sm:mt-10 overflow-hidden rounded-3xl border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-800/40 grid grid-cols-1 md:grid-cols-12 md:gap-12">
+      {/* Two boxes on the same 12-column grid as AuthorSection: the photo in columns 1-4 and the bio
+          card from column 5, where the letter below starts. Grid rows stretch, so both share one height. */}
+      <div className="mt-8 sm:mt-10 grid grid-cols-1 gap-4 md:grid-cols-12 md:gap-12">
         {AUTHOR_PHOTO_PATH && (
-          <div className="relative md:col-span-4 aspect-[4/3] sm:aspect-[16/9] md:aspect-auto bg-gray-200 dark:bg-gray-800">
+          <div className="relative md:col-span-4 aspect-[4/3] sm:aspect-[16/9] md:aspect-auto overflow-hidden rounded-3xl bg-gray-200 dark:bg-gray-800 ring-1 ring-black/5 dark:ring-white/10">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={AUTHOR_PHOTO_PATH}
@@ -55,7 +55,7 @@ export function AuthorHero({ locale }: { locale: string }) {
           </div>
         )}
 
-        <div className="md:col-start-5 md:col-span-8 px-6 py-8 sm:px-10 sm:py-10 md:pl-0 md:pr-12 md:py-12 flex flex-col justify-center">
+        <div className="md:col-start-5 md:col-span-8 rounded-3xl border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-800/40 px-6 py-8 sm:p-10 flex flex-col justify-center">
           <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-gray-900 dark:text-white">
             {PERSON_NAME}
           </h1>
