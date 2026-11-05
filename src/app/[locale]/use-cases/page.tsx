@@ -1,6 +1,8 @@
+import { PageJsonLd } from "@/components/json-ld";
 import React from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import { pageMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
 
 export async function generateMetadata({
@@ -9,21 +11,7 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  const metaData = {
-    en: {
-      title: "Use Cases | How RAGnexus AI Chatbots Transform Businesses",
-      description:
-        "Discover real-world use cases of RAGnexus AI chatbots. Learn how businesses leverage our solutions to streamline operations, enhance customer support, and unlock the power of their internal knowledge.",
-    },
-    es: {
-      title:
-        "Casos de Uso | Cómo los Chatbots de RAGnexus Transforman Empresas",
-      description:
-        "Descubre casos de uso reales de los chatbots de RAGnexus. Aprende cómo las empresas aprovechan nuestras soluciones para optimizar operaciones, mejorar el soporte al cliente y aprovechar el conocimiento interno.",
-    },
-  };
-
-  return metaData[locale as keyof typeof metaData];
+  return pageMetadata("/use-cases", locale);
 }
 
 export default async function UseCasesPage({
@@ -36,6 +24,7 @@ export default async function UseCasesPage({
   const t = await getTranslations("use-cases");
   return (
     <section className="py-16 dark:bg-gray-700" id="offer">
+      <PageJsonLd route="/use-cases" locale={locale} />
       <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 gap-8">
         <Card className="w-full">
           <CardHeader>

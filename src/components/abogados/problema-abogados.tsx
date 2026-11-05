@@ -1,5 +1,7 @@
 import { useTranslations } from "next-intl";
 import { Archive, TrendingDown, ShieldAlert, Clock } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { COST_CALCULATOR_ANCHOR } from "@/lib/cost-calculator";
 
 export function ProblemaAbogados() {
   const t = useTranslations("abogados");
@@ -41,6 +43,12 @@ export function ProblemaAbogados() {
           <p className="text-xl font-semibold text-emerald-900">
             {t("problema_destacado")}
           </p>
+        </div>
+
+        <div className="text-center mt-10">
+          <Button asChild size="lg" className="h-auto text-lg px-6 sm:px-10 py-4 bg-emerald-600 hover:bg-emerald-500 text-white rounded-full transition-all duration-300 shadow-[0_0_20px_rgba(5,150,105,0.2)]">
+            <a href={`#${COST_CALCULATOR_ANCHOR}`}>{t("calculator_cta")}</a>
+          </Button>
         </div>
       </div>
     </section>

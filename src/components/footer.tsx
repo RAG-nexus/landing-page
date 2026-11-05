@@ -1,8 +1,9 @@
 "use client";
 import React from "react";
 import Script from "next/script";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { useTranslations } from "next-intl";
+import { COST_CALCULATOR_ANCHOR } from "@/lib/cost-calculator";
 
 export const Footer: React.FC = () => {
   const t = useTranslations("common");
@@ -27,10 +28,11 @@ export const Footer: React.FC = () => {
           <div>
             <p className="font-semibold text-white text-sm mb-4 uppercase tracking-wider">{t("footer-product")}</p>
             <ul className="space-y-2 text-sm">
-              <li><Link href="#offer" className="hover:text-white transition-colors">{t("footer-how-it-works")}</Link></li>
-              <li><Link href="#verticals" className="hover:text-white transition-colors">{t("footer-sectors")}</Link></li>
-              <li><Link href="#roi" className="hover:text-white transition-colors">{t("footer-roi")}</Link></li>
-              <li><Link href="#compare" className="hover:text-white transition-colors">{t("footer-vs-chatgpt")}</Link></li>
+              <li><Link href={{ pathname: "/", hash: "offer" }} className="hover:text-white transition-colors">{t("footer-how-it-works")}</Link></li>
+              <li><Link href={{ pathname: "/", hash: "verticals" }} className="hover:text-white transition-colors">{t("footer-sectors")}</Link></li>
+              <li><Link href={{ pathname: "/", hash: COST_CALCULATOR_ANCHOR }} className="hover:text-white transition-colors">{t("footer-cost-calculator")}</Link></li>
+              <li><Link href={{ pathname: "/", hash: "compare" }} className="hover:text-white transition-colors">{t("footer-vs-chatgpt")}</Link></li>
+              <li><Link href="/javier-perez" className="hover:text-white transition-colors">{t("footer-founder")}</Link></li>
             </ul>
           </div>
 

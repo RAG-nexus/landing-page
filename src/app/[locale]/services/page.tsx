@@ -1,6 +1,8 @@
+import { PageJsonLd } from "@/components/json-ld";
 import React from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import { pageMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
 
 export async function generateMetadata({
@@ -9,20 +11,7 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  const metaData = {
-    en: {
-      title: "Services | Custom AI Chatbots and Integrations by RAGnexus",
-      description:
-        "Explore RAGnexus services, including custom chatbot development, seamless integration into your platforms, subscription maintenance, and expert training. Empower your business with AI-driven solutions.",
-    },
-    es: {
-      title: "Servicios | Chatbots Personalizados e Integraciones por RAGnexus",
-      description:
-        "Descubre los servicios de RAGnexus, como el desarrollo de chatbots personalizados, integración en tus plataformas, mantenimiento por suscripción y formación experta. Impulsa tu negocio con soluciones basadas en IA.",
-    },
-  };
-
-  return metaData[locale as keyof typeof metaData];
+  return pageMetadata("/services", locale);
 }
 
 interface ListDiscProps {
@@ -52,6 +41,7 @@ export default async function ServicesPage({
   ) as TListElement[];
   return (
     <section className="py-16 dark:bg-gray-700" id="offer">
+      <PageJsonLd route="/services" locale={locale} />
       <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-8">
         <Card className="w-full">
           <CardHeader>

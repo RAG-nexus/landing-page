@@ -22,7 +22,15 @@ export default function ChangeLanguage({ scrolled }: ChangeLanguageProps) {
       <button
         key={lng}
         type="button"
-        onClick={() => router.replace(pathname, { locale: lng })}
+        onClick={() => {
+          // Remember the explicit choice: the root "/" gives it priority over Accept-Language.
+          document.cookie = `NEXT_LOCALE=${lng}; path=/; max-age=31536000; SameSite=Lax`;
+          // pathname is the internal route, so this lands on the same page in the other language.
+          router.replace(
+            { pathname, query: Object.fromEntries(new URLSearchParams(window.location.search)) },
+            { locale: lng }
+          );
+        }}
         className={cn(
           "flex items-center gap-2 px-4 py-3 rounded-full border transition-all duration-300 text-xs font-medium uppercase tracking-wider",
           scrolled

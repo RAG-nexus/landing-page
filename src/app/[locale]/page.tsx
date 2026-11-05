@@ -1,9 +1,12 @@
+import { PageJsonLd } from "@/components/json-ld";
 import { Link } from "@/i18n/navigation";
 import { Button } from "@/components/ui/button";
 import { Integrations } from "@/components";
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import { pageMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
 import VideoSection from "@/components/video-section";
+import { CostCalculator } from "@/components/cost-calculator";
 import {
   Search,
   Copy,
@@ -24,18 +27,7 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  const metaData = {
-    en: {
-      title: "RAGnexus",
-      description: "RAGnexus. Your AI enabler.",
-    },
-    es: {
-      title: "RAGnexus",
-      description: "RAGnexus. Tu conexión con la IA",
-    },
-  };
-
-  return metaData[locale as keyof typeof metaData];
+  return pageMetadata("/", locale);
 }
 
 export default async function Index({
@@ -48,6 +40,7 @@ export default async function Index({
   const t = await getTranslations("home");
   return (
     <div key="1">
+      <PageJsonLd route="/" locale={locale} />
       {/* HERO — dark gradient, no image */}
       <header className="relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #0a1628 0%, #0d2137 40%, #0a2e1a 100%)' }}>
         {/* subtle grid pattern */}
@@ -72,9 +65,9 @@ export default async function Index({
                 {t("hero-cta-primary")}
               </Button>
             </Link>
-            <Link href="#offer" className="flex items-center justify-center gap-2 text-gray-300 hover:text-white font-medium transition-colors px-4 py-3">
+            <a href="#offer" className="flex items-center justify-center gap-2 text-gray-300 hover:text-white font-medium transition-colors px-4 py-3">
               {t("hero-cta-secondary")}
-            </Link>
+            </a>
           </div>
           <div className="w-full max-w-4xl mx-auto border-t border-gray-700/50 pt-8">
             <div className="flex flex-wrap justify-center items-center gap-x-8 gap-y-4 text-sm font-medium text-gray-400">
@@ -330,7 +323,7 @@ export default async function Index({
                   { feature: t("compare-f1"), competitor: 'cross' },
                   { feature: t("compare-f2a"), competitor: 'warning', competitorLabel: t("compare-val-depends") },
                   { feature: t("compare-f2b"), competitor: 'cross' },
-                  { feature: t("compare-f2c"), competitor: 'warning', ragnexusLabel: t("compare-val-guaranteed"), competitorLabel: t("compare-val-plan-dependent") },
+                  { feature: t("compare-f2c"), competitor: 'warning', ragnexusLabel: t("compare-val-no-training"), competitorLabel: t("compare-val-plan-dependent") },
                   { feature: t("compare-f3"), competitor: 'cross' },
                   { feature: t("compare-f4"), competitor: 'warning' },
                   { feature: t("compare-f5"), competitor: 'cross' },
@@ -432,85 +425,8 @@ export default async function Index({
       {locale === "es" && <VideoSection />}
       <Integrations />
 
-      {/* ROI Illustrative Case */}
-      <section className="py-24 bg-gray-50 dark:bg-gray-800" id="roi">
-        <div className="max-w-5xl mx-auto px-4">
-          <div className="text-center mb-16">
-            <span className="inline-block bg-emerald-100 dark:bg-emerald-900/40 text-emerald-700 dark:text-emerald-300 text-sm font-semibold px-4 py-1.5 rounded-full mb-4">{t("roi-badge")}</span>
-            <h2 className="text-3xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4 tracking-tight">{t("roi-title")}</h2>
-            <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">{t("roi-subtitle")}</p>
-          </div>
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-12">
-            {[
-              { label: t("roi-card-1-label"), before: t("roi-card-1-before"), after: t("roi-card-1-after"), icon: '🔍' },
-              { label: t("roi-card-2-label"), before: t("roi-card-2-before"), after: t("roi-card-2-after"), icon: '💸' },
-              { label: t("roi-card-3-label"), before: t("roi-card-3-before"), after: t("roi-card-3-after"), icon: '📈' },
-            ].map((item, i) => (
-              <div key={i} className="bg-white dark:bg-gray-900 rounded-2xl border border-gray-200 dark:border-gray-700 p-6 shadow-sm">
-                <div className="text-3xl mb-3">{item.icon}</div>
-                <p className="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-3">{item.label}</p>
-                <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
-                  <span className="text-gray-400 line-through text-base">{item.before}</span>
-                  <span className="text-emerald-600 dark:text-emerald-400 font-bold text-xl">{item.after}</span>
-                </div>
-              </div>
-            ))}
-          </div>
-          <div className="bg-emerald-900 text-white rounded-3xl p-8 lg:p-10">
-            {/* Desktop View */}
-            <div className="hidden lg:block overflow-x-auto">
-              <table className="w-full text-sm min-w-[500px]">
-                <thead>
-                  <tr className="border-b border-emerald-700">
-                    <th className="text-left py-3 text-emerald-200 font-semibold">{t("roi-table-header-concept")}</th>
-                    <th className="text-right py-3 text-emerald-200 font-semibold">{t("roi-table-header-without")}</th>
-                    <th className="text-right py-3 text-emerald-300 font-bold">{t("roi-table-header-with")}</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-emerald-800">
-                  {[
-                    [t("roi-table-row-1"), t("roi-table-row-1-before"), t("roi-table-row-1-after")],
-                    [t("roi-table-row-2"), t("roi-table-row-2-before"), t("roi-table-row-2-after")],
-                    [t("roi-table-row-3"), t("roi-table-row-3-before"), t("roi-table-row-3-after")],
-                    [t("roi-table-row-4"), t("roi-table-row-4-before"), t("roi-table-row-4-after")],
-                  ].map(([concept, before, after], i) => (
-                    <tr key={i}>
-                      <td className="py-3 text-emerald-100">{concept}</td>
-                      <td className="py-3 text-right text-gray-400">{before}</td>
-                      <td className="py-3 text-right text-emerald-300 font-semibold">{after}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-
-            {/* Mobile View */}
-            <div className="lg:hidden space-y-6">
-              {[
-                [t("roi-table-row-1"), t("roi-table-row-1-before"), t("roi-table-row-1-after")],
-                [t("roi-table-row-2"), t("roi-table-row-2-before"), t("roi-table-row-2-after")],
-                [t("roi-table-row-3"), t("roi-table-row-3-before"), t("roi-table-row-3-after")],
-                [t("roi-table-row-4"), t("roi-table-row-4-before"), t("roi-table-row-4-after")],
-              ].map(([concept, before, after], i) => (
-                <div key={i} className="border-b border-emerald-800/50 pb-4 last:border-0">
-                  <p className="text-emerald-200 font-semibold mb-3 text-sm">{concept}</p>
-                  <div className="flex justify-between items-end">
-                    <div className="flex flex-col">
-                      <span className="text-[10px] text-emerald-500 uppercase font-bold tracking-wider">{t("roi-table-header-without")}</span>
-                      <span className="text-gray-400 text-lg">{before}</span>
-                    </div>
-                    <div className="flex flex-col items-end">
-                      <span className="text-[10px] text-emerald-400 uppercase font-bold tracking-wider">{t("roi-table-header-with")}</span>
-                      <span className="text-emerald-300 text-xl font-bold">{after}</span>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-            <p className="text-emerald-400 text-xs mt-6 text-center">{t("roi-disclaimer")}</p>
-          </div>
-        </div>
-      </section>
+      {/* Search cost calculator (user's own numbers only) */}
+      <CostCalculator supportsDark className="bg-gray-50 dark:bg-gray-800" />
 
       {/* Founder / Built in Spain */}
       <section className="py-24 bg-white dark:bg-gray-900" id="founder">
@@ -526,7 +442,7 @@ export default async function Index({
                 </blockquote>
                 <div className="flex items-center gap-3">
                   <div>
-                    <p className="font-bold text-gray-900 dark:text-white">{t("founder-name")}</p>
+                    <Link href="/javier-perez" className="font-bold text-gray-900 dark:text-white hover:underline">{t("founder-name")}</Link>
                     <p className="text-sm text-gray-500 dark:text-gray-400">{t("founder-role")}</p>
                   </div>
                 </div>

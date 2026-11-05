@@ -8,9 +8,11 @@ import { EmailInput } from "@/components/ui/email-input";
 import { useForm } from "react-hook-form";
 import { ContactFormProps } from "@/lib/types";
 import { useTranslations } from "next-intl";
+import { useRouter } from "@/i18n/navigation";
 
 export const ContactForm: React.FC = () => {
   const t = useTranslations("contact.contact-form");
+  const router = useRouter();
   const submitToFormspree = useSubmit(
     process.env.NEXT_PUBLIC_FORMSPREE_CONTACT_FORM_ID || ""
   );
@@ -34,7 +36,7 @@ export const ContactForm: React.FC = () => {
       onSubmit={handleSubmit(async (data) => {
         console.log("Newsletter", data.newsletter);
         await submitToFormspree(data as any);
-        window.location.href = "/thank-you";
+        router.push("/thank-you");
       })}
     >
       <div>

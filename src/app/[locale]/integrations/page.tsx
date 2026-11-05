@@ -1,3 +1,4 @@
+import { PageJsonLd } from "@/components/json-ld";
 import React from "react";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import {
@@ -49,6 +50,7 @@ import {
 import { BsMicrosoftTeams } from "react-icons/bs";
 import { GoogleGmail } from "@/components/ui/icons";
 
+import { pageMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
 
 export async function generateMetadata({
@@ -57,20 +59,7 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  const metaData = {
-    en: {
-      title: "Integrations | Connect Your Tools with RAGnexus",
-      description:
-        "Discover how RAGnexus integrates with your favorite tools like Confluence, Gmail, Slack, and more. Seamlessly connect your knowledge sources to power smarter chatbots for your business.",
-    },
-    es: {
-      title: "Integraciones | Conecta Tus Herramientas con RAGnexus",
-      description:
-        "Descubre cómo RAGnexus se integra con tus herramientas favoritas como Confluence, Gmail, Slack y más. Conecta tus fuentes de conocimiento fácilmente para potenciar chatbots más inteligentes para tu empresa.",
-    },
-  };
-
-  return metaData[locale as keyof typeof metaData];
+  return pageMetadata("/integrations", locale);
 }
 
 interface Integration {
@@ -128,6 +117,7 @@ export default async function IntegrationsPage({
 
   return (
     <section className="py-16 bg-white dark:bg-gray-900">
+      <PageJsonLd route="/integrations" locale={locale} />
       <div className="max-w-7xl mx-auto px-4">
         <div className="mb-12">
           <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
