@@ -3,7 +3,6 @@ import type { Metadata } from "next";
 import { PageJsonLd } from "@/components/json-ld";
 import { AuthorHero } from "@/components/author/author-hero";
 import { AuthorLetter } from "@/components/author/author-letter";
-import { AuthorBio } from "@/components/author/author-bio";
 import { AuthorGuides } from "@/components/author/author-guides";
 import { AuthorContact } from "@/components/author/author-contact";
 import { pageMetadata } from "@/lib/seo";
@@ -30,7 +29,6 @@ export default async function AuthorPage({
       <PageJsonLd route="/javier-perez" locale={locale} />
       <AuthorHero locale={locale} />
       <AuthorLetter />
-      <AuthorBio locale={locale} />
       <AuthorGuides locale={locale} />
       <AuthorContact />
     </main>
