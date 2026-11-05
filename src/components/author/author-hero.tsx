@@ -38,25 +38,28 @@ export function AuthorHero({ locale }: { locale: string }) {
         </ol>
       </nav>
 
-      {/* Same 12-column grid as AuthorSection, so the text lines up with the letter below. */}
-      <div className="mt-10 sm:mt-14 grid grid-cols-1 gap-8 md:grid-cols-12 md:gap-12 md:items-start">
+      {/* Card on the same 12-column grid as AuthorSection: the photo fills columns 1-4 edge to edge
+          and stretches to the text's height, and the text starts where the letter below starts. */}
+      <div className="mt-8 sm:mt-10 overflow-hidden rounded-3xl border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-800/40 grid grid-cols-1 md:grid-cols-12 md:gap-12">
         {AUTHOR_PHOTO_PATH && (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img
-            src={AUTHOR_PHOTO_PATH}
-            alt={PERSON_NAME}
-            width={320}
-            height={400}
-            fetchPriority="high"
-            className="md:col-span-4 w-40 sm:w-52 md:w-full md:max-w-[17rem] aspect-[4/5] rounded-2xl object-cover bg-gray-100 dark:bg-gray-800 ring-1 ring-black/5 dark:ring-white/10"
-          />
+          <div className="relative md:col-span-4 aspect-[4/3] sm:aspect-[16/9] md:aspect-auto bg-gray-200 dark:bg-gray-800">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={AUTHOR_PHOTO_PATH}
+              alt={PERSON_NAME}
+              width={460}
+              height={460}
+              fetchPriority="high"
+              className="absolute inset-0 h-full w-full object-cover object-[center_30%]"
+            />
+          </div>
         )}
 
-        <div className="md:col-start-5 md:col-span-8 max-w-2xl">
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-gray-900 dark:text-white">
+        <div className="md:col-start-5 md:col-span-8 px-6 py-8 sm:px-10 sm:py-10 md:pl-0 md:pr-12 md:py-12 flex flex-col justify-center">
+          <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-gray-900 dark:text-white">
             {PERSON_NAME}
           </h1>
-          <p className="mt-3 text-lg sm:text-xl text-gray-600 dark:text-gray-300">
+          <p className="mt-2 text-lg sm:text-xl text-gray-600 dark:text-gray-300">
             {t.rich("role", {
               company: (chunks) => (
                 <Link href="/" className={contactLink}>
@@ -66,11 +69,11 @@ export function AuthorHero({ locale }: { locale: string }) {
             })}
           </p>
 
-          <p className="mt-8 pt-8 border-t border-gray-200 dark:border-gray-800 text-lg leading-8 text-gray-700 dark:text-gray-300">
+          <p className="mt-6 pt-6 border-t border-gray-200 dark:border-gray-700 max-w-2xl text-lg leading-8 text-gray-700 dark:text-gray-300">
             {bio}
           </p>
 
-          <ul className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3 text-sm sm:text-[0.95rem]">
+          <ul className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-3 text-sm sm:text-[0.95rem]">
             <li>
               <a href={`mailto:${CEO_EMAIL}`} className={contactLink}>
                 <Mail className="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" />
