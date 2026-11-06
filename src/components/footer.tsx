@@ -4,6 +4,7 @@ import Script from "next/script";
 import { Link } from "@/i18n/navigation";
 import { useTranslations } from "next-intl";
 import { COST_CALCULATOR_ANCHOR } from "@/lib/cost-calculator";
+import { appUrl } from "@/constants";
 
 export const Footer: React.FC = () => {
   const t = useTranslations("common");
@@ -28,6 +29,8 @@ export const Footer: React.FC = () => {
           <div>
             <p className="font-semibold text-white text-sm mb-4 uppercase tracking-wider">{t("footer-product")}</p>
             <ul className="space-y-2 text-sm">
+              <li><a href={appUrl("footer")} className="font-semibold text-emerald-400 hover:text-emerald-300 transition-colors">{t("footer-open-app")} →</a></li>
+              <li><a href={appUrl("footer-signin")} className="hover:text-white transition-colors">{t("footer-sign-in")}</a></li>
               <li><Link href={{ pathname: "/", hash: "offer" }} className="hover:text-white transition-colors">{t("footer-how-it-works")}</Link></li>
               <li><Link href={{ pathname: "/", hash: "verticals" }} className="hover:text-white transition-colors">{t("footer-sectors")}</Link></li>
               <li><Link href={{ pathname: "/", hash: COST_CALCULATOR_ANCHOR }} className="hover:text-white transition-colors">{t("footer-cost-calculator")}</Link></li>

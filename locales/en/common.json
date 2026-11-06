@@ -48,5 +48,10 @@
   "footer-legal-notice": "Legal Notice",
   "footer-cookies-policy": "Cookies Policy",
   "footer-copyright": "© {year} RAGnexus S.L. All rights reserved.",
-  "footer-hosting": "Data hosted on European servers · GDPR · SOC 2-ready posture"
+  "footer-hosting": "Data hosted on European servers · GDPR · SOC 2-ready posture",
+  "try-app-free": "Try it free",
+  "open-app": "Open the app",
+  "sign-in": "Sign in",
+  "footer-open-app": "Open the app",
+  "footer-sign-in": "Sign in to RAGnexus"
 }

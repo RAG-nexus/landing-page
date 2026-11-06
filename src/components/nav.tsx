@@ -11,6 +11,7 @@ import {
   USE_CASES_PAGE_PATH,
   INTEGRATIONS_PAGE_PATH,
   ABOUT_PAGE_PATH,
+  appUrl,
 } from "@/constants";
 
 const NavBar: React.FC = () => {
@@ -68,15 +69,25 @@ const NavBar: React.FC = () => {
 
         <div className="flex items-center gap-3">
           <Link
-            className={`hidden lg:block px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-200 ${
+            className={`hidden xl:block px-5 py-2.5 rounded-full text-sm font-semibold border transition-all duration-200 ${
               onLight
-                ? "bg-emerald-600 hover:bg-emerald-500 text-white shadow-sm"
-                : "bg-emerald-500 hover:bg-emerald-400 text-white shadow-[0_0_16px_rgba(5,150,105,0.4)]"
+                ? "border-gray-300 text-gray-700 hover:bg-gray-100"
+                : "border-white/30 text-white hover:bg-white/10"
             }`}
             href={CONTACT_PAGE_PATH}
           >
             {t("get-started-free")}
           </Link>
+          <a
+            className={`hidden sm:block px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-200 ${
+              onLight
+                ? "bg-emerald-600 hover:bg-emerald-500 text-white shadow-sm"
+                : "bg-emerald-500 hover:bg-emerald-400 text-white shadow-[0_0_16px_rgba(5,150,105,0.4)]"
+            }`}
+            href={appUrl("nav")}
+          >
+            {t("try-app-free")}
+          </a>
           <ChangeLanguage scrolled={onLight} />
         </div>
       </div>
