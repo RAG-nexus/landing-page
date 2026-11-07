@@ -17,6 +17,7 @@ import {
   SERVICES_PAGE_PATH,
   USE_CASES_PAGE_PATH,
   INTEGRATIONS_PAGE_PATH,
+  appUrl,
 } from "@/constants";
 
 interface MobileNavProps {
@@ -71,6 +72,18 @@ export const MobileNav = ({ className, scrolled }: MobileNavProps) => {
             <Link href={CONTACT_PAGE_PATH} className="hover:text-foreground">
               {t("contact")}
             </Link>
+            <a
+              href={appUrl("mobile-nav")}
+              className="mt-2 rounded-full bg-emerald-600 px-5 py-3 text-center text-base font-semibold text-white hover:bg-emerald-500 transition-colors"
+            >
+              {t("try-app-free")}
+            </a>
+            <a
+              href={appUrl("mobile-nav-signin")}
+              className="text-center text-sm text-muted-foreground hover:text-foreground"
+            >
+              {t("sign-in")}
+            </a>
           </nav>
         </SheetContent>
       </Sheet>

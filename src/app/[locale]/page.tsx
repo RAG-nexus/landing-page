@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Integrations } from "@/components";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { pageMetadata } from "@/lib/seo";
+import { appUrl } from "@/constants";
 import type { Metadata } from "next";
 import VideoSection from "@/components/video-section";
 import { CostCalculator } from "@/components/cost-calculator";
@@ -59,16 +60,26 @@ export default async function Index({
           <p className="text-lg lg:text-xl text-gray-300 mb-10 max-w-2xl leading-relaxed">
             {t("hero-description")}
           </p>
-          <div className="flex flex-col sm:flex-row items-center gap-4 mb-16">
-            <Link href="/contact">
-              <Button size="lg" className="text-lg px-8 py-6 bg-emerald-600 hover:bg-emerald-500 text-white rounded-full transition-all duration-300 shadow-[0_0_24px_rgba(5,150,105,0.4)] hover:shadow-[0_0_36px_rgba(5,150,105,0.6)] hover:-translate-y-0.5">
-                {t("hero-cta-primary")}
-              </Button>
-            </Link>
-            <a href="#offer" className="flex items-center justify-center gap-2 text-gray-300 hover:text-white font-medium transition-colors px-4 py-3">
+          <div className="flex flex-col sm:flex-row items-center gap-4 mb-4">
+            <Button asChild size="lg" className="text-lg px-8 py-6 bg-emerald-600 hover:bg-emerald-500 text-white rounded-full transition-all duration-300 shadow-[0_0_24px_rgba(5,150,105,0.4)] hover:shadow-[0_0_36px_rgba(5,150,105,0.6)] hover:-translate-y-0.5">
+              <a href={appUrl("home-hero")}>
+                {t("hero-cta-app")} <ArrowRight className="ml-2 w-5 h-5" />
+              </a>
+            </Button>
+            <Button asChild size="lg" variant="outline-transparent" className="text-lg px-8 py-6 border-white/30 text-white hover:bg-white/10 hover:text-white rounded-full transition-all duration-300">
+              <Link href="/contact">{t("hero-cta-primary")}</Link>
+            </Button>
+          </div>
+          <p className="text-sm text-gray-400 mb-12">
+            {t("hero-app-signin")}{" "}
+            <a href={appUrl("home-hero-signin")} className="text-emerald-400 hover:text-emerald-300 font-semibold transition-colors">
+              {t("hero-app-signin-link")}
+            </a>
+            {" · "}
+            <a href="#offer" className="hover:text-white transition-colors">
               {t("hero-cta-secondary")}
             </a>
-          </div>
+          </p>
           <div className="w-full max-w-4xl mx-auto border-t border-gray-700/50 pt-8">
             <div className="flex flex-wrap justify-center items-center gap-x-8 gap-y-4 text-sm font-medium text-gray-400">
               {t("hero-trust-bar").split(" · ").map((item: string, index: number) => (
@@ -199,12 +210,15 @@ export default async function Index({
             </div>
           </div>
 
-          <div className="text-center">
-            <Link href="/contact">
-              <Button size="lg" className="text-lg px-10 py-6 bg-emerald-600 hover:bg-emerald-500 text-white rounded-full transition-all duration-300 shadow-[0_0_20px_rgba(5,150,105,0.2)] hover:shadow-[0_0_30px_rgba(5,150,105,0.4)]">
-                {t("solution-cta")}
-              </Button>
-            </Link>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 text-center">
+            <Button asChild size="lg" className="text-lg px-10 py-6 bg-emerald-600 hover:bg-emerald-500 text-white rounded-full transition-all duration-300 shadow-[0_0_20px_rgba(5,150,105,0.2)] hover:shadow-[0_0_30px_rgba(5,150,105,0.4)]">
+              <a href={appUrl("home-solution")}>
+                {t("solution-cta-app")} <ArrowRight className="ml-2 w-5 h-5" />
+              </a>
+            </Button>
+            <Button asChild size="lg" variant="outline" className="text-lg px-10 py-6 border-emerald-600 text-emerald-700 hover:bg-emerald-50 dark:bg-transparent dark:text-emerald-400 dark:border-emerald-500 dark:hover:bg-emerald-950 rounded-full transition-all duration-300">
+              <Link href="/contact">{t("solution-cta")}</Link>
+            </Button>
           </div>
         </div>
       </section>
@@ -471,11 +485,15 @@ export default async function Index({
             {t("final-cta-subtitle")}
           </p>
           <div className="flex flex-col items-center gap-6">
-            <Link href="/contact">
-              <Button size="lg" className="text-xl px-12 py-8 bg-white hover:bg-gray-100 text-emerald-900 font-bold rounded-full transition-all duration-300 shadow-[0_0_30px_rgba(255,255,255,0.2)] hover:shadow-[0_0_40px_rgba(255,255,255,0.4)] hover:-translate-y-1">
-                {t("final-cta-button")}
-              </Button>
-            </Link>
+            <Button asChild size="lg" className="text-xl px-12 py-8 bg-white hover:bg-gray-100 text-emerald-900 font-bold rounded-full transition-all duration-300 shadow-[0_0_30px_rgba(255,255,255,0.2)] hover:shadow-[0_0_40px_rgba(255,255,255,0.4)] hover:-translate-y-1">
+              <a href={appUrl("home-final")}>
+                {t("final-cta-app")} <ArrowRight className="ml-2 w-6 h-6" />
+              </a>
+            </Button>
+            <p className="text-emerald-100/80 text-sm -mt-2">{t("final-cta-app-note")}</p>
+            <Button asChild size="lg" variant="outline-transparent" className="text-lg px-10 py-6 border-white/40 text-white hover:bg-white/10 hover:text-white rounded-full transition-all duration-300">
+              <Link href="/contact">{t("final-cta-button")}</Link>
+            </Button>
             <div className="mt-4 flex flex-col items-center gap-2">
               <span className="text-emerald-200/80 text-sm uppercase tracking-wider font-semibold">
                 {t("final-cta-secondary")}

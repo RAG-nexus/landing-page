@@ -2,6 +2,7 @@ import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { Button } from "@/components/ui/button";
 import { Check } from "lucide-react";
+import { appUrl } from "@/constants";
 
 export function HeroAbogados() {
   const t = useTranslations("abogados");
@@ -21,11 +22,12 @@ export function HeroAbogados() {
             {t("hero_description")}
           </p>
           <div className="flex flex-col sm:flex-row items-center gap-4 mb-12 w-full sm:w-auto">
-            <Link href="/contact" className="w-full sm:w-auto">
-              <Button size="lg" className="w-full sm:w-auto text-lg px-8 py-6 bg-emerald-600 hover:bg-emerald-500 text-white rounded-full transition-all duration-300 shadow-[0_0_20px_rgba(5,150,105,0.2)] hover:shadow-[0_0_30px_rgba(5,150,105,0.4)]">
-                {t("hero_cta_primary")}
-              </Button>
-            </Link>
+            <Button asChild size="lg" className="w-full sm:w-auto text-lg px-8 py-6 bg-emerald-600 hover:bg-emerald-500 text-white rounded-full transition-all duration-300 shadow-[0_0_20px_rgba(5,150,105,0.2)] hover:shadow-[0_0_30px_rgba(5,150,105,0.4)]">
+              <a href={appUrl("abogados-hero")}>{t("hero_cta_app")}</a>
+            </Button>
+            <Button asChild size="lg" variant="outline" className="w-full sm:w-auto text-lg px-8 py-6 border-emerald-600 text-emerald-700 hover:bg-emerald-50 rounded-full transition-all duration-300">
+              <Link href="/contact">{t("hero_cta_primary")}</Link>
+            </Button>
             <a href="#solucion" className="flex items-center justify-center gap-2 text-gray-600 hover:text-emerald-600 font-semibold transition-colors px-4 py-3">
               {t("hero_cta_secondary")}
             </a>

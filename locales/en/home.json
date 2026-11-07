@@ -83,5 +83,11 @@
   "founder-badge-1": "🇪🇸 Built in Spain",
   "founder-badge-2": "🇪🇺 Data hosted in Europe",
   "founder-badge-3": "⚖️ GDPR by design",
-  "founder-badge-4": "🔒 100% on-premise option"
+  "founder-badge-4": "🔒 100% on-premise option",
+  "hero-cta-app": "Try RAGnexus free",
+  "hero-app-signin": "Already have an account?",
+  "hero-app-signin-link": "Sign in →",
+  "solution-cta-app": "Try it yourself, free",
+  "final-cta-app": "Start using RAGnexus now",
+  "final-cta-app-note": "Prefer to see it for yourself? Create your account and try it in minutes."
 }

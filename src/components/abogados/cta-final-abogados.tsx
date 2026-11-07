@@ -1,6 +1,7 @@
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { Button } from "@/components/ui/button";
+import { appUrl } from "@/constants";
 
 export function CTAFinalAbogados() {
   const t = useTranslations("abogados");
@@ -22,11 +23,12 @@ export function CTAFinalAbogados() {
         </p>
         
         <div className="flex flex-col items-center gap-8">
-          <Link href="/contact">
-            <Button size="lg" className="text-xl px-12 py-8 bg-white hover:bg-gray-100 text-emerald-900 font-bold rounded-full transition-all duration-300 shadow-[0_0_30px_rgba(255,255,255,0.1)] hover:shadow-[0_0_40px_rgba(255,255,255,0.2)] hover:-translate-y-1">
-              {t("cta_button")}
-            </Button>
-          </Link>
+          <Button asChild size="lg" className="text-xl px-12 py-8 bg-white hover:bg-gray-100 text-emerald-900 font-bold rounded-full transition-all duration-300 shadow-[0_0_30px_rgba(255,255,255,0.1)] hover:shadow-[0_0_40px_rgba(255,255,255,0.2)] hover:-translate-y-1">
+            <a href={appUrl("abogados-final")}>{t("cta_app")}</a>
+          </Button>
+          <Button asChild size="lg" variant="outline-transparent" className="text-lg px-10 py-6 border-white/40 text-white hover:bg-white/10 hover:text-white rounded-full transition-all duration-300">
+            <Link href="/contact">{t("cta_button")}</Link>
+          </Button>
           
           <div className="flex flex-col items-center gap-3">
             <span className="text-emerald-200/60 text-xs uppercase tracking-widest font-bold">
